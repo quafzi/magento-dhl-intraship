@@ -1,0 +1,27 @@
+<dl class="sp-gogreen">
+    <dt>
+        <input type="checkbox" class="checkbox" title="DHL Go Green" name="is_gogreen" value="1" id="is_gogreen" <?php if (true === $this->isSelected()): ?>checked="checked"<?php endif; ?>>
+        <label for="is_gogreen"><?php print $this->getLabel() ?></label>
+    </dt>
+</dl>
+<style type="text/css">
+.sp-gogreen {
+    border-top: 1px solid #E4E4E4;
+    padding-top: 10px;
+}
+.sp-gogreen input, .sp-gogreen label {
+    float: left;
+}
+.sp-gogreen label {
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.sp-gogreen img {
+    display: block;
+    margin: 10px 0 10px 0;
+}
+.sp-gogreen sub {
+    font-size: 70%;
+}
+</style>

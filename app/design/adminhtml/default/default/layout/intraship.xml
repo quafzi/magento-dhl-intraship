@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Layout
+ * @package   Dhl_Intraship
+ * @author    Jochen Werner <jochen.werner@netresearch.de>
+ * @author    Stephan Hoyer <stephan.hoyer@netresearch.de>
+ * @copyright Copyright (c) 2010 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<layout>
+    <intraship_shipment_documents>
+        <reference name="content">
+            <block type="intraship/adminhtml_sales_order_shipment_documents_grid" name="shipment_documents_grid"></block>
+        </reference>
+    </intraship_shipment_documents>
+    <intraship_shipment_edit>
+        <reference name="content">
+            <block type="intraship/adminhtml_sales_shipment_edit" name="shipment_edit"></block>
+        </reference>
+    </intraship_shipment_edit>
+    <adminhtml_sales_order_shipment_view>
+        <reference name="form">
+            <block type="adminhtml/sales_order_comments_view"  name="order_comments" template="intraship/sales/order/shipment/view/comments.phtml">
+                <action method="setParentType"><type>shipment</type></action>
+            </block>
+        </reference>
+    </adminhtml_sales_order_shipment_view>
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addJs"><script>dhl/intraship.js</script></action>
+        </reference>
+    </adminhtml_system_config_edit>
+    <adminhtml_sales_order_shipment_new>
+        <reference name="head">
+            <action method="addCss"><name>intraship.css</name></action>
+            <action method="addJs"><script>dhl/intraship.js</script></action>
+        </reference>
+    </adminhtml_sales_order_shipment_new>
+</layout>

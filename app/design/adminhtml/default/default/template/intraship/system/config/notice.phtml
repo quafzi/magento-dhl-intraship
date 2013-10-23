@@ -1,0 +1,38 @@
+<table class="switcher" width="100%" style="border-spacing:10px 0">
+    <colgroup>
+        <col width="50%">
+        <col width="50%">
+    </colgroup>
+    <thead>
+        <tr>
+            <th><?php print $this->escapeHtml($this->getFieldsetLabel()) ?></th>
+            <th><?php print Mage::helper('intraship')->__($this->getFieldsetAdminLabel()) ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <?php print Mage::helper('intraship')->__('If you have problems to setup your account please contact DHL by using the keyword Intraship Webservice:') ?> <br/><br/>
+                <?php print Mage::helper('intraship')->__('E-Mail: dhl.support@netresearch.de') ?> <br />
+                <a href="<?php print $this->escapeHtml($this->getFieldsetHelpUrl()) ?>" target="_blank">
+                    <?php print Mage::helper('intraship')->__('DHL IntraShip Frequently Asked Questions')?><br />
+                </a>
+                <a href="<?php print $this->escapeHtml($this->getFieldsetDocUrl()) ?>" target="_blank">
+                    <?php print Mage::helper('intraship')->__('DHL IntraShip Documentation')?><br />
+                </a>
+                <a href="<?php print $this->escapeHtml($this->getFieldsetOnlineretoureDocUrl()) ?>" target="_blank">
+                    <?php print Mage::helper('intraship')->__('DHL Online Retoure Documentation')?><br />
+                </a>
+                <a href="<?php print $this->escapeHtml($this->getFieldsetPartnerUrl()) ?>" target="_blank">
+                    <?php print Mage::helper('intraship')->__('DHL IntraShip Partner Site')?><br />
+                </a>
+            </td>
+            <td>
+                <?php print Mage::helper('intraship')->__('Please use the following link in order to administer your intraship orders, basic data etc. and to retrieve further account information:') ?> <br/><br/>
+                <a href="<?php print $this->escapeHtml($this->getFieldsetBackendUrl()) ?>" target="_blank">
+                    <?php print Mage::helper('intraship')->__($this->getFieldsetAdminLabel())?>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

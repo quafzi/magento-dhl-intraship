@@ -1,0 +1,23 @@
+<?php $config = Mage::getModel('intraship/config') ?>
+
+
+<?php 
+    //Show "Test Account" button if user-data is existing, and current mode isn't testmode
+    $adminStoreId = Mage::helper('intraship')->getAdminStoreId();
+    if ($config->hasCredentials($adminStoreId) && (false === $config->isTestmode($adminStoreId))): 
+?>
+    <button style="" onclick="if(false==this.hasClassName('disabled')) javascript:window.open('<?php echo $this->getButtonUrl()?>', 'dhltest','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, left=100, top=100, width=800, height=500'); return false;" class="scalable" type="button" id="<?php echo $this->getHtmlId() ?>">
+        <span><?php echo $this->helper('intraship')->__('Test Account'); // because of magento version 1.3.x.x ?></span>
+    </button>
+<?php endif; ?>
+
+<script type="text/javascript">
+    setIntrashipTestAccountButtonActivation(); //check if user and pw are set, and hide the button if informations are missing
+    $("intraship_account_user").onchange=function(){handleChangedCredentials();}; //when user changes, disable the "Test Account" button
+    $("intraship_account_signature").onchange=function(){handleChangedCredentials();}; //when pw changes, disable the "Test Account" button
+	if (null != $("intraship_account_backend_button")) //place and hide the Credentials at the beginning
+	{		
+    	$("intraship_account_backend_button").parentNode.parentNode.style.textAlign="right";
+	}
+    $("intraship_general_testmode").onchange=function(){handleChangedMode("<?php echo $config->isTestmode($adminStoreId) ? '1' : '0' ?>")};
+</script>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addJs"><script>dhl/account.js</script></action>
+            <action method="addCss"><stylesheet>css/dhl_account.css</stylesheet></action>
+        </reference>
+    </checkout_onepage_index>
+</layout>

@@ -1,0 +1,23 @@
+eav:
+    customer:
+        - entity_id: 3
+          entity_type_id: 1
+          attribute_set_id: 0
+          website_id: 1
+          email: example@example.com
+          group_id: 1
+          store_id: 1
+          is_active: 1
+          firstname: john
+          lastname: smith
+          
+        - entity_id: 4
+          entity_type_id: 1
+          attribute_set_id: 0
+          website_id: 1
+          email: example2@example2.com
+          group_id: 1
+          store_id: 1
+          is_active: 1
+          firstname: john2
+          lastname: smith2

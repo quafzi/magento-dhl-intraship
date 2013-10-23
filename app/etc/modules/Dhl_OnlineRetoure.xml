@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Dhl
+ * @package    Dhl_OnlineRetoure
+ * @author     André Herrn <andre.herrn@netresearch.de>
+ * @copyright  Copyright (c) 2013 Netresearch GmbH & Co. KG
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Dhl_OnlineRetoure>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Customer />
+                <Mage_Sales />
+                <Dhl_Intraship />
+            </depends>
+        </Dhl_OnlineRetoure>
+    </modules>
+</config>

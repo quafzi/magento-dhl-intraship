@@ -1,0 +1,98 @@
+<?php
+/**
+ * @category  Template
+ * @package   Dhl_Intraship
+ * @author    Jochen Werner <jochen.werner@netresearch.de>
+ * @author    André Herrn <andre.herrn@netresearch.de>
+ * @copyright Copyright (c) 2010 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+?>
+<?php if (($intraship = $this->getIntrashipShipment()) && !$intraship->isEmpty()): ?>
+<?php if ($intraship->getMode() == Dhl_Intraship_Model_Shipment::SHIPMENT_MODE_TEST):?>
+	<ul class="messages">
+		<li class="notice-msg">
+			<ul>
+				<li><?php echo $this->__('This Intraship-shipment was created in test mode. The generated labels are not valid for regular shipping.');?></li>
+			</ul>
+		</li>
+	</ul>		
+<?php endif; ?>
+
+<h3><?php echo $this->__('Intraship Data');?></h3>
+<div class="field-row grid">
+    <table class="data" cellspacing="0">
+        <col width="40%" />
+        <col width="60%" />
+        <tbody>
+            <tr class="even">
+                <td><?php echo $this->__('Insurance') ?></td>
+                <td><?php echo (true === $intraship->isInsurance()) ? $this->__('Yes') : $this->__('No') ?></td>
+            </tr>
+            <tr class="odd">
+                <td><?php echo $this->__('Personally') ?></td>
+                <td><?php echo (true === $intraship->isPersonally()) ? $this->__('Yes') : $this->__('No') ?></td>
+            </tr>
+            <tr class="even">
+                <td><?php echo $this->__('Bulkfreight')?></td>
+                <td><?php echo (true === $intraship->isBulkfreight()) ? $this->__('Yes') : $this->__('No') ?></td>
+            </tr>
+            <tr class="odd">
+                <td>
+                    <?php echo $this->__('Weight (in kg)') ?>
+                    <?php if (true === $intraship->isMultipack()): ?>
+                    <br/><strong><?php echo $this->__('Multipack') ?></strong>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <?php if (true === $intraship->isMultipack()): ?>
+                    <ul>
+                    <?php foreach ($intraship->getWeightsInKG() as $num => $weight): ?>
+                        <li><i><?php echo ++$num ?>. <?php echo $this->__('Package') ?>:</i>&nbsp;<?php echo (float) $weight; ?> kg</li>
+                    <?php endforeach; ?>
+                    </ul>
+                    <?php else: ?>
+                        <?php echo $intraship->getWeightInKG() ?> kg
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <tr class="even">
+                <td><?php echo $this->__('DHL-Profile')?></td>
+                <td class="last"><?php print Mage::helper('intraship')->__($intraship->getProfile()) ?></td>
+            </tr>
+            <tr class="odd">
+                <td><strong><?php echo $this->__('Status')?></strong></td>
+                <td><strong><?php echo $intraship->getStatusText() ?></strong></td>
+            </tr>
+            <?php if($intraship->hasCustomizedAddress()) : ?>
+                <tr class="even">
+                    <td><?php echo $this->__('Edited Address')?></td>
+                    <td><?php echo $intraship->getFormatedAddress() ?></td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
+<p class="form-buttons">
+    <?php if($intraship->hasDocuments()) : ?>
+        <button id="pdf" type="button" class="scalable save" onclick="popWin('<?php echo $intraship->getDocumentsUrl() ?>', '_blank', 'width=800, height=700, resizable=1, scrollbars=1');return false;" style="">
+            <span><?php echo Mage::helper('intraship')->__("PDF") ?></span>
+        </button>
+    <?php endif; ?>
+    <?php if($intraship->canCancel()) : ?>
+        <button id="cancel_shipment" type="button" class="scalable cancel" onclick="setLocation('<?php echo $this->getUrl('intraship/shipment/cancel', array('id' => $intraship->getShipmentId())); ?>')" style="">
+            <span><?php echo $this->__('Cancel shipment') ?></span>
+        </button>
+    <?php endif; ?>
+    <?php if($intraship->canResume()) : ?>
+        <button id="resume_shipment" type="button" class="scalable save" onclick="setLocation('<?php echo $this->getUrl('intraship/shipment/resume', array('id' => $intraship->getShipmentId())); ?>')" style="">
+            <span><?php echo $this->__('Resume shipment') ?></span>
+        </button>
+    <?php endif; ?>
+    <?php if($intraship->canEdit()) : ?>
+        <button id="edit_shipment" type="button" class="scalable save" onclick="setLocation('<?php echo $this->getUrl('intraship/shipment/edit', array('id' => $intraship->getShipmentId())); ?>')" style="">
+            <span><?php echo $this->__('Edit') ?></span>
+        </button>
+    <?php endif; ?>
+</p>
+<?php endif; ?>

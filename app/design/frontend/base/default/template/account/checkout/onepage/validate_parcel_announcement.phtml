@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    $('co-shipping-form').insert($('shipping:resetParcelAnnouncement'));
+	shipping.nextStep = function(transport) {
+        $('shipping:resetParcelAnnouncement').checked = false;
+        if (transport && transport.responseText){
+            try{
+                response = eval('(' + transport.responseText + ')');
+            }
+            catch (e) {
+                response = {};
+            }
+        }
+        if (response.error){
+            var confirmResult = false;
+            if ((typeof response.message) == 'string') {
+                alert(response.message);
+            } else {
+                if (response.message.length > 1) {
+                    alert(response.message.join("\n"));
+                } else {
+                    if (response.message["0"].showConfirm) {
+                        confirmResult = confirm(response.message["0"].message);
+
+                    } else {
+                        alert(response.message.join("\n"));
+                    }
+                }
+            }
+            if (confirmResult == false) {
+                return false;
+            } else {
+                resetParcelAnnouncement();
+                $('shipping:resetParcelAnnouncement').checked = true;
+                this.save();
+            }
+        }
+        resetParcelAnnouncement();
+        checkout.setStepResponse(response);
+    }
+
+function resetParcelAnnouncement()
+{
+    $('parcel_announcement_box').hide();
+    $('billing:use_for_shipping_no').checked = true;
+    $('billing:package_announcement').checked = false;
+    $('dhl_account_number').hide();
+    $('billing:dhl-account').clear();
+}
+</script>

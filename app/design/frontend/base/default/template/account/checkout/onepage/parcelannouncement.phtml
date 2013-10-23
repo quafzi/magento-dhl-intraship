@@ -1,0 +1,81 @@
+<ul id="parcel_announcement_box" class="form-list" style="margin: 5px; background-color: rgb(255,204,0); padding: 5px;">
+    <li>
+        <input type="checkbox" onclick="toggleDhlAccount()" class="checkbox" title="DHL <?php print $this->__('Package announcement'); ?>" name="billing[parcel_announcement]" value="0" id="billing:package_announcement">
+        <label style="float: none;" id="package_announcement_label" for="billing:package_announcement">DHL <?php print $this->__('Package announcement') ?></label>
+    </li>
+    <li>
+        <span>
+            <?php print $this->__('DHL keeps you informed about the planned delivery of your parcel via SMS or e-mail.'); ?>
+            <?php print $this->__('If desired, you can defer the delivery to another day.'); ?>
+            <?php print $this->__('Please use your street address for using this service.'); ?>
+        </span>
+    </li>
+    <li id="dhl_account_number" style="display: none;">
+        <label id="dhl_account_label" class="required text" for="billing:dhl-account">
+            <?php print $this->__('DHL account number'); ?>
+            <em style="float: none; position: static; right: 0px;">*</em>
+            <span style="font-size: 15px; text-decoration: none; color: #1E7EC8;"
+                  title="<?php print $this->__('DHL customer account number'); ?>">
+                ?
+            </span>
+        </label>
+        <div class="input-box" style="width: 350px;">
+            <input type="text"
+                   class="text required-entry"
+                   title="<?php print $this->__('DHL account number'); ?>"
+                   name="billing[dhlaccount]" value="" id="billing:dhl-account">
+        </div>
+    </li>
+    <li style="text-align: right;">
+        <img src="<?php echo $this->getSkinUrl('images/dhl/dhl_logo.png'); ?>">
+    </li>
+</ul>
+<input type="checkbox" name="shipping[resetParcelAnnouncement]" style="display: none;" id="shipping:resetParcelAnnouncement">
+<script type="text/javascript">
+    if ($('billing:ship_to_packstation') != null) {
+        $('billing:ship_to_packstation').parentNode.parentNode.remove();
+    }
+
+    Translator.add(
+        'Based on your selection, the DHL account number field will be cleared. Continue?',
+        '<?php echo $this->__('Based on your selection, the DHL account number field will be cleared. Continue?'); ?>'
+    );
+
+    function toggleDhlAccount()
+    {
+        var display = 'none';
+        if ($('billing:package_announcement').checked) {
+            display = 'inline';
+            $('billing:dhl-account').addClassName('required-entry');
+            $('billing:dhl-account').addClassName('validate-six-to-ten-digits');
+            Validation.addAllThese([
+                ['validate-six-to-ten-digits', '<?php echo $this->__('Please enter 6 to 10 digits.'); ?>', function(v) {
+                    return true == /^\d{6,10}$/i.test(v);
+                }]]);
+        } else {
+            $('billing:dhl-account').removeClassName('required-entry');
+            $('billing:dhl-account').removeClassName('validate-six-to-ten-digits');
+            $('billing:dhl-account').value = '';
+        }
+        $('dhl_account_number').style.display = display;
+        $('dhl_account_label').style.display = display;
+    }
+
+    function addDHLAccountToBillingForm()
+    {
+        var node = $('billing:dhlaccount');
+        if (null != node) {
+            var liWrapper = node.parentNode.parentNode;
+            liWrapper.parentNode.removeChild(liWrapper);
+        }
+
+        $('billing-buttons-container').parentNode.insertBefore($('parcel_announcement_box'), $('billing-buttons-container'));
+    }
+
+    addDHLAccountToBillingForm();
+    $$('//[name="billing[street][]"]').invoke('addClassName', 'validate-no-parcel-pick-up-machine');
+    Validation.addAllThese([
+    ['validate-no-parcel-pick-up-machine', '<?php echo $this->__('No parcel pick up machines are allowed in billing address. To send to a parcel pick up machine you should enter it as shipping address.'); ?>', function(v) {
+        return false == /pac?k(et)?station/i.test(v);
+    }]]);
+</script>

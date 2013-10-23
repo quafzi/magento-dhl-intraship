@@ -1,0 +1,202 @@
+<div id="intraship-form" class="field-row grid">
+    <fieldset id="intraship-selector">
+        <?php 
+        $shipWithIntraship = $this->getShipWithIntraship();
+        ?>
+        <legend><?php echo $this->__('Ship with DHL Intraship?')?></legend>
+        
+        <input type="radio" name="ship_with_dhl" id="ship_with_dhl_yes" value="1" checked="checked" onchange="handeIntrashipFormDisplay(this);" />
+        <label for="ship_with_dhl_yes"><?php echo $this->__('Yes')?></label>
+        <br />
+        <input type="radio" name="ship_with_dhl" id="ship_with_dhl_no" value="0" onchange="handeIntrashipFormDisplay(this);" <?php if ($shipWithIntraship === false):?> checked="checked"<?php endif;?> />
+        <label for="ship_with_dhl_no"><?php echo $this->__('No')?></label>
+    </fieldset>
+    <div id="inner-intraship-form" <?php if ($shipWithIntraship === false):?> style="display:none;"<?php endif;?>>
+        <?php
+        $isCOD           = $this->isCOD();
+        $isGoGreen       = false;
+        $insuranceAmount = null;
+        if (false === Mage::getModel('intraship/config')->isInternationalShipping($this->getCountryId())):
+            $insuranceAmount = number_format(Dhl_Intraship_Model_Shipment::INSURANCE_A, 2, ',', '.') . ' &euro;';
+            $isGoGreen      = (bool) $this->getMageShipment()->getOrder()->getIsGogreen();
+        ?>
+        <table class="data" cellspacing="0" cellpadding="0">
+            <col width="20%" />
+            <col width="15%" />
+            <col width="65%" />
+            <tbody>
+                <tr class="even">            
+                    <td><?php print $this->__('DHL-Profile') ?></td>
+                    <td>
+                            <select name="shipment[settings][profile]" size="1">                    
+                            <?php foreach ($this->getProfileOptions() as $option): ?>
+                                <option value="<?php print $option['value'] ?>"<?php if (true === $isGoGreen && $option['value'] == Dhl_Intraship_Model_Config::PROFILE_GO_GREEN):?> selected="selected"<?php endif;?>><?php print $option['label'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                    <td>
+                        <?php if (true === $isGoGreen): ?>
+                            <div class="error-msg" style="padding-left:35px;">
+                            <small>
+                                <?php print $this->__('Warning')?>:<br/>
+                                <?php print $this->__('Customer has chosen DHL Package GoGreen in checkout!') ?>
+                            </small>
+                            </div>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+    
+                <?php if (false == $isCOD && 'DE' == $this->getCountryId()): ?>
+                <tr class="odd">
+                    <td>
+                        <?php print $this->__('Insurance (up to %s)', $insuranceAmount) ?>
+                    </td>
+                    <td>
+                        <select name="shipment[settings][insurance]" size="1">
+                            <option value="1"><?php print $this->__('Yes') ?></option>
+                            <option value="0" selected="selected"><?php print $this->__('No') ?></option>
+                        </select>
+                    </td>
+                    <td>
+                        <div class="notice-msg" style="padding-left:35px;">
+                            <small>
+                            <?php print $this->__('Advice')?>:<br/>
+                            <?php print $this->__('The insurance option is not possible on a total amount greater than %s.', $insuranceAmount) ?>
+                            </small>
+                        </div>
+                    </td>
+                </tr>
+                <?php else: ?>
+                    <input type="hidden" name="shipment[settings][insurance]" value="0" />
+                <?php endif; ?>
+    
+                <?php if (false == $isCOD && 'DE' == $this->getCountryId()): ?>
+                <tr class="even">
+                    <td><?php print $this->__('Personally') ?></td>
+                    <td>
+                        <select id="intraship_settings_personally" name="shipment[settings][personally]" size="1" <?php if (true === $isCOD || 'DE' != $this->getCountryId()): print 'disabled="disabled"'; endif; ?>>
+                            <option value="1"><?php print $this->__('Yes') ?></option>
+                            <option value="0" selected="selected"><?php print $this->__('No') ?></option>
+                        </select>
+                    </td>
+                    <td>
+                        <div class="notice-msg" style="padding-left:35px;">
+                        <small>
+                            <?php print $this->__('Advice')?>:<br/>
+                            <?php if (true === $isCOD): ?>
+                                <?php print $this->__('The option personally is not possible if cash on delivery (COD) is choosen.') ?>
+                            <?php else: ?>
+                                <?php print $this->__('The option personally can not be used with multipack.') ?>
+                            <?php endif; ?>
+                            </small>
+                        </div>
+                    </td>
+                </tr>
+                <?php else: ?>
+                    <input type="hidden" name="shipment[settings][personally]" value="0" />
+                <?php endif; ?>
+    
+                 <?php if (false == $isCOD): ?>
+                <tr class="odd">
+                    <td><?php print $this->__('Bulkfreight') ?></td>
+                    <td>
+                        <select id="intraship_settings_bulkfreight" name="shipment[settings][bulkfreight]" size="1">
+                            <option value="1"><?php print $this->__('Yes') ?></option>
+                            <option value="0" selected="selected"><?php print $this->__('No') ?></option>
+                        </select>
+                    </td>
+                    <td>
+                        <div class="notice-msg" style="padding-left:35px;">
+                        <small>
+                            <?php print $this->__('Advice')?>:<br/>
+                            <?php if (true === $isCOD): ?>
+                                <?php print $this->__('The option bulkfreight is not possible if cash on delivery (COD) is choosen.') ?>
+                            <?php else: ?>
+                                <?php print $this->__('The option bulkfreight can not be used with multipack.') ?>
+                            <?php endif; ?>
+                            </small>
+                        </div>
+                    </td>
+                </tr>
+                <?php else: ?>
+                    <input type="hidden" name="shipment[settings][bulkfreight]" value="0" />
+                <?php endif; ?>
+    
+                <tr class="even">
+                    <td>
+                        <?php print $this->__('Packages') ?>
+                    </td>
+                    <td colspan="2"><?php print $this->getChildHtml('packages') ?></td>
+                </tr>
+                <tr class="odd">
+                    <td colspan="3">
+                        <div class="notice-msg" style="padding-left:35px;">
+                            <small>
+                            <?php print $this->__('Advice')?>:<br/>
+                            <?php print $this->__('The maximum allowed package weight does not exceed %s kg',
+                                Dhl_Intraship_Model_Shipment::MAX_WEIGHT_KG) ?>
+                            </small>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <?php else: ?>
+        <p class="notice">
+            <strong><?php print $this->__('DHL Intraship service can not ship to countries out of the European Union.') ?></strong>
+        </p>
+        <p>
+            <?php print $this->__('If you want to ship into a country witch liable for customs duty the packae requires a customs declaration.') ?>
+            <?php print $this->__('You can find more informations') ?>&nbsp;<a href="https://www.dhl.de/de/paket/geschaeftskunden/top-versender/weltpaket.html" target="_blank"><?php print $this->__('here') ?></a>.
+        </p>
+        <?php endif; ?>
+    </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+var nostr = '<?php print $this->__('No') ?>';
+var yesstr = '<?php print $this->__('Yes') ?>';
+<?php if (false === $isCOD): ?>
+try {
+    Event.observe('intraship_settings_personally', 'change', function(event) {
+        var button = $('add_new_option_button');
+        if (this.value == 1) {
+            // Disable multipack button.
+            button.addClassName('disabled');
+            $$('.intraship_package').each(function(name, index) {
+                name.remove();
+            });
+            // Disable bulkfreight option.
+            $('intraship_settings_bulkfreight').options[0].remove();
+            $('intraship_settings_bulkfreight')
+                .addClassName('disabled')
+                .setAttribute('disabled', 'disabled');
+        } else if (this.value == 0) {
+            button.removeClassName('disabled');
+            var bulkfreight = $('intraship_settings_bulkfreight');
+            bulkfreight
+                .removeClassName('disabled')
+                .removeAttribute('disabled');
+            bulkfreight.options[0] = new Option(yesstr, 1, false, false);
+            bulkfreight.options[1] = new Option(nostr, 0, true, true);
+        }
+    });
+    Event.observe('intraship_settings_bulkfreight', 'change', function(event) {
+        var button = $('add_new_option_button');
+        if (this.value == 1) {
+            // Disable multipack button.
+            button.addClassName('disabled');
+            $$('.intraship_package').each(function(name, index) {
+                name.remove();
+            });
+        } else if (this.value == 0) {
+            button.removeClassName('disabled');
+        }
+    });
+} catch (e) {}
+<?php endif; ?>
+<?php if ('DE' != $this->getCountryId()): ?>
+$('add_new_option_button').addClassName('disabled');
+<?php endif; ?>
+//]]>
+</script>

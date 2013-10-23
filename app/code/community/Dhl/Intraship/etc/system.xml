@@ -1,0 +1,763 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Config
+ * @package   Dhl_Intraship
+ * @author    Jochen Werner <jochen.werner@netresearch.de>
+ * @author    Stephan Hoyer <stephan.hoyer@netresearch.de>
+ * @author    Thomas Birke <thomas.birke@netresearch.de>
+ * @copyright Copyright (c) 2012 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <intraship translate="label"  module="intraship">
+            <label>DHL</label>
+            <tab>sales</tab>
+            <sort_order>325</sort_order>
+            <frontend_type>text</frontend_type>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <global translate="label">
+                    <label>Contact to Service-Center</label>
+                    <admin_label>DHL intraship administration</admin_label>
+                    <help_url><![CDATA[http://www.dhl.de/intraship]]></help_url>
+                    <doc_url><![CDATA[http://www.netresearch.de/fileadmin/user_upload/partner-dhl/downloads/Endkundendoku.pdf]]></doc_url>
+                    <onlineretoure_doc_url><![CDATA[http://www.netresearch.de/fileadmin/user_upload/partner-dhl/downloads/OnlineRetoure.pdf]]></onlineretoure_doc_url>
+                    <partner_url><![CDATA[http://www.netresearch.de/magento/dhl]]></partner_url>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>intraship/adminhtml_system_config_notice</frontend_model>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                </global>
+                <general translate="label comment" module="intraship">
+                    <label>Basic configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label comment" module="intraship">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <testmode translate="label comment">
+                            <label>Testmode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </testmode>
+                        <logging_enabled translate="label comment">
+                            <label>Log requests and responses of the web service.</label>
+                            <comment><![CDATA[Please ensure that the Magento-Log is activated]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </logging_enabled>
+                    </fields>
+                </general>
+
+                <url translate="label" module="intraship">
+                    <label>Gateway URLs</label>
+                    <sort_order>23</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <login_production translate="label comment">
+                            <label>Login Production</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[This URL should not be changed by default.]]></comment>
+                            <validate>validate-url</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </login_production>
+                        <login_test translate="label comment">
+                            <label>Login Test</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[This URL should not be changed by default.]]></comment>
+                            <validate>validate-url</validate>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </login_test>
+                        <wsdl_production translate="label comment">
+                            <label>WSDL Production</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[This URL should not be changed by default.]]></comment>
+                            <validate>validate-url</validate>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </wsdl_production>
+                        <wsdl_test translate="label comment">
+                            <label>WSDL Test</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[This URL should not be changed by default.]]></comment>
+                            <validate>validate-url</validate>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </wsdl_test>
+                    </fields>
+                </url>
+
+                <label translate="label" module="intraship">
+                    <label>Label settings</label>
+                    <sort_order>15</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <paper_format translate="label comment">
+                            <label>Paper format for labels</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>intraship/system_config_source_format</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </paper_format>
+                        <margin_left translate="label comment">
+                            <label>Left margin</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[The recommended left margin is 2 in testmode and 10 in livemode.]]></comment>
+                            <validate>validate-number</validate>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </margin_left>
+                        <margin_top translate="label comment">
+                            <label>Top margin</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </margin_top>
+                    </fields>
+                </label>
+
+                <account translate="label comment" module="intraship">
+                    <label>Account</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>21</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <user translate="label comment" module="intraship">
+                            <label>Intraship Username</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-length maximum-length-20</validate>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </user>
+                        <signature translate="label comment">
+                            <label>Intraship Signature</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[The password should be 8-10 characters long, must contain at least one capital letter and one number and should not contain special characters. <br />These credentials will be used if <a href="#config_state[intraship_general]" onclick="highlightTestmodeConfiguration()">Testmode</a> is set "No"]]></comment>
+                            <validate>validate-alphanum validate-length minimum-length-8 maximum-length-10</validate>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </signature>
+                        <backend_button translate="button_label">
+                            <label></label>
+                            <frontend_model>intraship/adminhtml_system_config_button</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </backend_button>
+                        <ekp translate="label comment" module="intraship">
+                            <label>EKP</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Intraship account number]]></comment>
+                            <validate>validate-length minimum-length-10 maximum-length-10</validate>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ekp>
+                    </fields>
+                </account>
+                <autocreate_button translate="label comment" module="intraship">
+                    <label>Semiautomatic shipment creation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>25</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <autocreate_enabled translate="label comment">
+                            <label>Enabled</label>
+                            <comment>This option displays a new button on the order overview page. The shipment settings form the automatic creation will be used.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </autocreate_enabled>
+                    </fields>
+                </autocreate_button>
+                <autocreate translate="label comment" module="intraship">
+                    <label>Automatic shipment creation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>25</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <autocreate_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </autocreate_enabled>
+                        <autocreate_allowed-payments translate="label">
+                            <label>Payment methods allowed for automatic shipment</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Payment_Methods</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </autocreate_allowed-payments>
+                        <autocreate_allowed-status-codes translate="label">
+                            <label>Allowed order status codes for automatic shipment</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </autocreate_allowed-status-codes>
+                        <autocreate_notify_subhead translate="label">
+                            <label>Notification Settings</label>
+                            <frontend_model>intraship/adminhtml_system_config_heading</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                        </autocreate_notify_subhead>
+                        <autocreate_notify translate="label comment">
+                            <label>Send immediate notification to customer?</label>
+                            <comment>We will send an immediate notification to the customer, even if we still got no tracking number.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </autocreate_notify>
+                        <autocreate_message translate="label comment" module="intraship">
+                            <label>Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <autocreate_notify>1</autocreate_notify>
+                            </depends>
+                        </autocreate_message>
+                        <autocreate_subhead translate="label">
+                            <label>Set up default values</label>
+                            <frontend_model>intraship/adminhtml_system_config_heading</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                        </autocreate_subhead>
+                        <autocreate_insurance translate="label comment" module="intraship">
+                            <label>Insurance</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </autocreate_insurance>
+                        <autocreate_bulkfreight translate="label comment" module="intraship">
+                            <label>Bulkfreight</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </autocreate_bulkfreight>
+                    </fields>
+                </autocreate>
+                <packages translate="label comment" module="intraship">
+                    <label>Shipment options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <global_settings translate="label">
+                            <label>Global Settings</label>
+                            <frontend_model>intraship/adminhtml_system_config_heading</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                        </global_settings>
+                        <disabled_shipping_methods translate="label">
+                            <label>Disabled shipping methods</label>
+                            <comment>Please select shipping methods which should not be used for DHL Intraship shipping.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Shipping_Methods</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </disabled_shipping_methods>
+                        <global_settings_payments-for-cod translate="label">
+                            <label>Payment methods allowed for cash on delivery</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Payment_Methods</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </global_settings_payments-for-cod>
+                        <global_settings_default_weight translate="label">
+                            <label>Use product weight as default</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </global_settings_default_weight>
+                        <global_settings_weight_product_types translate="label">
+                            <label>Product types for weight calculation</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Catalog_Product_Types</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </global_settings_weight_product_types>
+                        <global_settings_default_weight_unit translate="label">
+                            <label>Product weight unit</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Weight_Unit</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <global_settings_default_weight>1</global_settings_default_weight>
+                            </depends>
+                        </global_settings_default_weight_unit>
+                        <global_settings_enabled-profiles translate="label comment" module="intraship">
+                            <label>Enabled Profiles</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Profile_Epn</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </global_settings_enabled-profiles>
+                        <global_settings_default-profile translate="label comment">
+                            <label>Default Profile</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Profile_Epn</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </global_settings_default-profile>
+                        <remove_cod_charge translate="label comment" module="intraship">
+                            <label>Remove cash on delivery charge of 2 Euro from order total (COD orders to Germany only)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </remove_cod_charge>
+                    </fields>
+                </packages>
+                <!-- EPN -->
+                <epn translate="label">
+                    <label>Shipment options - National shipments</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>31</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <fields>
+                        <weight translate="label comment" module="intraship">
+                            <label>Default Weight</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>kilogram (kg)</comment>
+                        </weight>
+                        <standard translate="label comment" module="intraship">
+                            <label>DHL Package - Participation</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits validate-length minimum-length-2 maximum-length-2</validate>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </standard>
+                        <go-green translate="label comment" module="intraship">
+                            <label>DHL Package GoGreen - Participation</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits validate-length minimum-length-2 maximum-length-2</validate>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </go-green>
+                        <enabled-profiles translate="label comment" module="intraship">
+                            <label>Enabled Profiles</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Profile_Epn</source_model>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled-profiles>
+                    </fields>
+                </epn>
+                <!-- BPI -->
+                <bpi translate="label">
+                    <label>Shipment options - European shipments</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>32</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <fields>
+                        <weight translate="label comment" module="intraship">
+                            <label>Default Weight</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>kilogram (kg)</comment>
+                        </weight>
+                        <standard translate="label comment" module="intraship">
+                            <label>DHL Worldpackage - Participation</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits validate-length minimum-length-2 maximum-length-2</validate>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </standard>
+                        <go-green translate="label comment" module="intraship">
+                            <label>DHL Worldpackage GoGreen - Participation</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits validate-length minimum-length-2 maximum-length-2</validate>
+                            <sort_order>37</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </go-green>
+                        <enabled-profiles translate="label comment" module="intraship">
+                            <label>Enabled Profiles</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Dhl_Intraship_Model_System_Config_Source_Profile_Bpi</source_model>
+                            <sort_order>39</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled-profiles>
+                    </fields>
+                </bpi>
+                <shipper translate="label comment" module="intraship">
+                    <label>Shipper data</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <address_data translate="label">
+                            <label>Address Data</label>
+                            <frontend_model>intraship/adminhtml_system_config_heading</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </address_data>
+                        <companyName1 translate="label comment" module="intraship">
+                            <label>Firmenname *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry validate-length maximum-length-50</validate>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </companyName1>
+                        <companyName2 translate="label comment" module="intraship">
+                            <label></label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-length maximum-length-50</validate>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </companyName2>
+                        <streetName translate="label comment" module="intraship">
+                            <label>Streetname *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry validate-length maximum-length-50</validate>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </streetName>
+                        <streetNumber translate="label comment" module="intraship">
+                            <label>Streetnumber *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry validate-length maximum-length-7</validate>
+                            <sort_order>800</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </streetNumber>
+                        <zip translate="label comment" module="intraship">
+                            <label>Zip *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry validate-zip</validate>
+                            <sort_order>900</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </zip>
+                        <city translate="label comment" module="intraship">
+                            <label>City *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry validate-length maximum-length-50</validate>
+                            <sort_order>1000</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </city>
+                        <state translate="label comment" module="intraship">
+                            <label>Region</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-length maximum-length-50</validate>
+                            <sort_order>1100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </state>
+                        <countryISOCode translate="label comment" module="intraship">
+                            <label>Country *</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <validate>required-entry</validate>
+                            <sort_order>1200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </countryISOCode>
+                        <phone translate="label comment" module="intraship">
+                            <label>Phone *</label>
+                            <validate>required-entry validate-number validate-length maximum-length-50</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </phone>
+                        <email translate="label comment" module="intraship">
+                            <label>Email *</label>
+                            <validate>required-entry validate-email</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email>
+                        <contactPerson translate="label comment" module="intraship">
+                            <label>Contact person *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry validate-length maximum-length-50</validate>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </contactPerson>
+
+                        <bank_data translate="label">
+                            <label>Bank Data</label>
+                            <frontend_model>intraship/adminhtml_system_config_heading</frontend_model>
+                            <sort_order>2000</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bank_data>
+                        <bank_data_accountOwner translate="label comment" module="intraship">
+                            <label>Account Owner *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-length maximum-length-50</validate>
+                            <sort_order>2100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bank_data_accountOwner>
+                        <bank_data_accountNumber translate="label comment" module="intraship">
+                            <label>Account Number *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>2200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bank_data_accountNumber>
+                        <bank_data_bankCode translate="label comment" module="intraship">
+                            <label>Bank Code *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>2300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bank_data_bankCode>
+                        <bank_data_bankName translate="label comment" module="intraship">
+                            <label>Bank Name *</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-length maximum-length-20</validate>
+                            <sort_order>2400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bank_data_bankName>
+                        <bank_data_iban translate="label comment" module="intraship">
+                            <label>IBAN</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bank_data_iban>
+                        <bank_data_bic translate="label comment" module="intraship">
+                            <label>BIC</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-length maximum-length-11</validate>
+                            <sort_order>2600</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bank_data_bic>
+                        <bank_data_note translate="label comment" module="intraship">
+                            <label>Reason for payment</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-length maximum-length-100</validate>
+                            <sort_order>2700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The notice-field described the reason for payment. You can use placeholder for shipping-, order-, and transactionnumber. Example: Order No. %orderID%, Shipping No. %shippingID%, Transaction No. %transactionID%, Customer Name %customerName%, Costumer No. %customerID%</comment>
+                        </bank_data_note>
+                    </fields>
+                </shipper>
+                <notification translate="label comment" module="intraship">
+                    <label>Notification</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <tracking_notification translate="label comment">
+                            <label>Send notification with the tracking number to customer?</label>
+                            <comment>We will send a notification to the customer, as soon as we got a tracking number.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </tracking_notification>
+                        <tracking_notification_message translate="label comment" module="intraship">
+                            <label>Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <tracking_notification>1</tracking_notification>
+                            </depends>
+                        </tracking_notification_message>
+                    </fields>
+                </notification>
+                <checkout translate="label comment" module="intraship">
+                    <label>Checkout</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <gogreen_enabled translate="label">
+                            <label>Display GoGreen option</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5001</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gogreen_enabled>
+                        <gogreen_label translate="label comment" module="intraship">
+                            <label>Checkbox label</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>5002</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <gogreen_enabled>1</gogreen_enabled>
+                            </depends>
+                        </gogreen_label>
+                    </fields>
+                </checkout>
+            </groups>
+        </intraship>
+    </sections>
+</config>

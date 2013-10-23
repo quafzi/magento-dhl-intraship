@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Config
+ * @package   Dhl_Account
+ * @author    Thomas Birke <thomas.birke@netresearch.de>
+ * @author    Michael Lühr <michael.luehr@netresearch.de>
+ * @copyright Copyright (c) 2012 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <intraship>
+            <groups>
+                <dhlaccount translate="label comment" module="dhlaccount">
+                    <label>Package announcement</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>15</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label comment" module="dhlaccount">
+                            <label>Enabled</label>
+                            <comment>Ask customer for DHL account number to use package announcement service.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                    </fields>
+                </dhlaccount>
+                <packstation translate="label comment" module="dhlaccount">
+                    <label>Packstation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                   <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label comment" module="dhlaccount">
+                            <label>Enabled</label>
+                            <comment>Enables the separate packstation input and packstation finder.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+
+                    </fields>
+                </packstation>
+                <url translate="label" module="dhlaccount">
+                    <fields>
+                        <packstationfinder_url translate="label comment">
+                            <label>URL of Packstation finder</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[This URL should not be changed by default.]]></comment>
+                            <sort_order>5000</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </packstationfinder_url>
+                    </fields>
+                </url>
+            </groups>
+        </intraship>
+    </sections>
+</config>

@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Config
+ * @package   Dhl_Account
+ * @author    Michael Lühr <michael.luehr@netresearch.de>
+ * @author    Thomas Birke <thomas.birke@netresearch.de>
+ * @copyright Copyright (c) 2012 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Dhl_Account>
+            <version>13.07.04</version>
+        </Dhl_Account>
+    </modules>
+    <global>
+        <models>
+            <dhlaccount>
+                <class>Dhl_Account_Model</class>
+            </dhlaccount>
+            <sales>
+                <rewrite>
+                    <quote_address>Dhl_Account_Model_Quote_Address</quote_address>
+                </rewrite>
+            </sales>
+
+        </models>
+        <helpers>
+            <dhlaccount>
+                <class>Dhl_Account_Helper</class>
+            </dhlaccount>
+        </helpers>
+        <fieldsets>
+            <sales_copy_order_billing_address>
+                <dhlaccount><to_order>*</to_order></dhlaccount>
+            </sales_copy_order_billing_address>
+            <sales_copy_order_shipping_address>
+                <dhlaccount><to_order>*</to_order></dhlaccount>
+            </sales_copy_order_shipping_address>
+            <sales_convert_quote_address>
+                <dhlaccount><to_order_address>*</to_order_address><to_customer_address>*</to_customer_address></dhlaccount>
+            </sales_convert_quote_address>
+            <sales_convert_order_address>
+                <dhlaccount><to_quote_address>*</to_quote_address></dhlaccount>
+            </sales_convert_order_address>
+            <customer_address>
+                 <dhlaccount><to_quote_address>*</to_quote_address></dhlaccount>
+            </customer_address>
+            <checkout_onepage_billing>
+                <dhlaccount><to_customer>*</to_customer></dhlaccount>
+            </checkout_onepage_billing>
+        </fieldsets>
+        <resources>
+            <dhlaccount_setup>
+                <setup>
+                    <module>Dhl_Account</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </dhlaccount_setup>
+            <dhlaccount_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </dhlaccount_write>
+            <dhlaccount_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </dhlaccount_read>
+        </resources>
+        <blocks>
+            <dhlaccount>
+                <class>Dhl_Account_Block</class>
+            </dhlaccount>
+        </blocks>
+        <events>
+            <dhl_intraship_send_shipment_before>
+                <observers>
+                    <add_dhlaccount_to_request>
+                        <class>dhlaccount/observer</class>
+                        <method>dhlIntrashipSendShipmentBefore</method>
+                    </add_dhlaccount_to_request>
+                </observers>
+            </dhl_intraship_send_shipment_before>
+            <dhl_intraship_shipment_load_after>
+                <observers>
+                    <add_dhlaccount_to_customer_data>
+                        <class>dhlaccount/observer</class>
+                        <method>dhlIntrashipShipmentLoadAfter</method>
+                    </add_dhlaccount_to_customer_data>
+                </observers>
+            </dhl_intraship_shipment_load_after>
+        </events>
+    </global>
+    <admin>
+        <fieldsets>
+            <customer_dataflow>
+                <dhlaccount><billing>1</billing><shipping>1</shipping></dhlaccount>
+            </customer_dataflow>
+        </fieldsets>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Dhl_Account>
+                    <files>
+                        <default>Dhl_Account.csv</default>
+                    </files>
+                </Dhl_Account>
+            </modules>
+        </translate>
+        <acl>
+	        <resources>
+	            <admin>
+	                <children>
+	                    <system>
+	                        <children>
+	                            <config>
+	                                <children>
+	                                    <dhlaccount translate="title" module="dhlaccount">
+	                                        <title>DHL Account</title>
+	                                    </dhlaccount>
+	                                </children>
+	                            </config>
+	                        </children>
+	                    </system>
+	                </children>
+	            </admin>
+	       </resources>
+        </acl>
+    </adminhtml>
+    <frontend>
+        <translate>
+            <modules>
+                <Dhl_Account>
+                    <files>
+                        <default>Dhl_Account.csv</default>
+                    </files>
+                </Dhl_Account>
+            </modules>
+        </translate>
+        <events>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <append_parcel_announcement_to_billing>
+                        <class>dhlaccount/observer</class>
+                        <method>appendParcelAnnouncementToBilling</method>
+                    </append_parcel_announcement_to_billing>
+                    <append_packing_station_to_shipping>
+                        <class>dhlaccount/observer</class>
+                        <method>appendPackingstationToShipping</method>
+                    </append_packing_station_to_shipping>
+                    <append_parcel_announcement_validation_to_shipping>
+                        <class>dhlaccount/observer</class>
+                        <method>appendParcelAnnouncementValidationToShipping</method>
+                    </append_parcel_announcement_validation_to_shipping>
+                </observers>
+            </core_block_abstract_to_html_after>
+            <controller_action_predispatch_checkout_onepage_saveShipping>
+                <observers>
+                    <reset_parcel_announcement>
+                        <class>dhlaccount/observer</class>
+                        <method>resetParcelAnnouncement</method>
+                    </reset_parcel_announcement>
+                </observers>
+            </controller_action_predispatch_checkout_onepage_saveShipping>
+            <controller_action_postdispatch_checkout_onepage_saveBilling>
+                <observers>
+                    <save_dhlaccount>
+                        <class>dhlaccount/observer</class>
+                        <method>saveDhlAccount</method>
+                    </save_dhlaccount>
+                </observers>
+            </controller_action_postdispatch_checkout_onepage_saveBilling>
+
+            <controller_action_postdispatch_checkout_onepage_saveShipping>
+                <observers>
+                    <savePackstationInformation>
+                        <class>dhlaccount/observer</class>
+                        <method>savePackstationInformation</method>
+                    </savePackstationInformation>
+                </observers>
+            </controller_action_postdispatch_checkout_onepage_saveShipping>
+        </events>
+        <layout>
+            <updates>
+                <account>
+                    <file>account.xml</file>
+                </account>
+            </updates>
+        </layout>
+        <routers>
+            <dhlaccount>
+                <use>standard</use>
+                <args>
+                    <module>Dhl_Account</module>
+                    <frontName>dhlaccount</frontName>
+                </args>
+            </dhlaccount>
+        </routers>
+    </frontend>
+    <default>
+        <customer>
+            <address_templates>
+                <text><![CDATA[{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}
+{{depend dhlaccount}}{{var dhlaccount}}{{/depend}}
+{{depend company}}{{var company}}{{/depend}}
+{{if street1}}{{var street1}}
+{{/if}}
+{{depend street2}}{{var street2}}{{/depend}}
+{{depend street3}}{{var street3}}{{/depend}}
+{{depend street4}}{{var street4}}{{/depend}}
+{{if city}}{{var city}},  {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}
+{{var country}}
+T: {{var telephone}}
+{{depend fax}}F: {{var fax}}{{/depend}}]]></text>
+                <oneline><![CDATA[{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}, {{var street}}, {{var city}}, {{var region}} {{var postcode}}, {{var country}}]]></oneline>
+                <html><![CDATA[{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}<br/>
+{{depend dhlaccount}}{{var dhlaccount}}<br />{{/depend}}
+{{depend company}}{{var company}}<br />{{/depend}}
+{{if street1}}{{var street1}}<br />{{/if}}
+{{depend street2}}{{var street2}}<br />{{/depend}}
+{{depend street3}}{{var street3}}<br />{{/depend}}
+{{depend street4}}{{var street4}}<br />{{/depend}}
+{{if city}}{{var city}},  {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}<br/>
+{{var country}}<br/>
+{{depend telephone}}T: {{var telephone}}{{/depend}}
+{{depend fax}}<br/>F: {{var fax}}{{/depend}}]]></html>
+                  <pdf><![CDATA[{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}|
+{{depend dhlaccount}}{{var dhlaccount}}|{{/depend}}
+{{depend company}}{{var company}}|{{/depend}}
+{{if street1}}{{var street1}}
+{{/if}}
+{{depend street2}}{{var street2}}|{{/depend}}
+{{depend street3}}{{var street3}}|{{/depend}}
+{{depend street4}}{{var street4}}|{{/depend}}
+{{if city}}{{var city}},  {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}|
+{{var country}}|
+{{depend telephone}}T: {{var telephone}}{{/depend}}|
+{{depend fax}}<br/>F: {{var fax}}{{/depend}}|]]></pdf>
+                <js_template><![CDATA[#{prefix} #{firstname} #{middlename} #{lastname} #{suffix}<br/>#{company}<br/>#{street0}<br/>#{street1}<br/>#{street2}<br/>#{street3}<br/>#{city}, #{region}, #{postcode}<br/>#{country_id}<br/>T: #{telephone}<br/>F: #{fax}]]></js_template>
+            </address_templates>
+        </customer>
+        <intraship>
+            <dhlaccount>
+                <active>1</active>
+            </dhlaccount>
+            <packstation>
+                <active>1</active>
+            </packstation>
+            <url>
+                <packstationfinder_url><![CDATA[http://www.dhl.de/maptos/pfind?PARTNER_ID=DHLDS&standorttyp=packstation_paketbox&pmtype=1]]></packstationfinder_url>
+            </url>
+        </intraship>
+    </default>
+    <phpunit>
+        <suite>
+            <modules>
+                <Dhl_Account />
+            </modules>
+        </suite>
+    </phpunit>
+</config>

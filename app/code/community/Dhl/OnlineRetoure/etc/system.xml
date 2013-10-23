@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Config
+ * @package   Dhl_OnlineRetoure
+ * @author    André Herrn <andre.herrn@netresearch.de>
+ * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @copyright Copyright (c) 2013 Netresearch GmbH & Co. KG <http://www.netresearch.de/>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <intraship>
+            <groups>
+                <dhlonlineretoure translate="label comment" module="dhlonlineretoure">
+                    <label>Online Return</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label comment" module="dhlonlineretoure">
+                            <label>Enabled</label>
+                            <comment>Allow customers to print a return form for a previous order.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <delivery_names translate="label">
+                            <label>Delivery Names</label>
+                            <frontend_model>dhlonlineretoure/adminhtml_form_field_deliverynames</frontend_model>
+                            <backend_model>dhlonlineretoure/system_config_backend_deliverynames</backend_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       </delivery_names>
+                        <portal_id translate="label comment" module="dhlonlineretoure">
+                            <label>Portal Id</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </portal_id>
+                        <user translate="label comment" module="dhlonlineretoure">
+                            <label>User</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </user>
+                        <password translate="label">
+                            <label>Password</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </password>
+                        <cms_revocation_page translate="label" module="dhlonlineretoure">
+                            <label>CMS Revocation Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cms_page</source_model>
+                            <sort_order>500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cms_revocation_page>
+                        <allowed_shipping_methods translate="label">
+                            <label>Allowed shipping methods</label>
+                            <comment>The online return blocks and links will be only visible for orders with this shipping methods.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>dhlonlineretoure/system_config_source_shipping_methods</source_model>
+                            <sort_order>550</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowed_shipping_methods>
+                        <wsdl translate="label comment" module="dhlonlineretoure">
+                            <label>WSDL</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[This URL should not be changed by default.]]></comment>
+                            <validate>validate-url</validate>
+                            <sort_order>600</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </wsdl>
+                        <logging_enabled translate="label comment" module="dhlonlineretoure">
+                            <label>Logging enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logging_enabled>
+                    </fields>
+                </dhlonlineretoure>
+            </groups>
+        </intraship>
+    </sections>
+</config>

@@ -1,0 +1,95 @@
+<ul id="dhlaccount_shipping_packstation">
+    <li class="control">
+        <input type="checkbox"
+               class="checkbox packstation_checkbox"
+               title="<?php print $this->__('Ship to Packstation'); ?>"
+               name="shipping[ship_to_packstation]"
+               value="<?php echo Dhl_Account_Model_Config::SHIP_TO_PACKSTATION; ?>"
+               id="shipping:packstation">
+        <label id="package_announcement_label" for="shipping:packstation"> <?php print $this->__('Ship to Packstation') ?></label>
+    </li>
+</ul>
+<ul id="shipping_dhl_account_number">
+    <li>
+        <label id="shipping_dhl_account_label" class="required" for="shipping:dhl-account">
+            <?php print $this->__('DHL account number'); ?>
+            <em>*</em>
+            <span title="<?php print $this->__('DHL customer account number'); ?>">
+                ?
+            </span>
+        </label>
+        <div class="input-box">
+            <input type="text" class="input-text required-entry" title="<?php print $this->__('DHL account number'); ?>" name="shipping[dhlaccount]" value="" id="shipping:dhl-account">
+        </div>
+    </li>
+</ul>
+<div id="dhl_packstation"><span class="field">
+        <label id="shipping:dhl_packingstation_label" class="required" for="shipping:dhl-packstation">
+            <?php print $this->__('Number of DHL Packstation'); ?>
+            <em>*</em>
+        </label>
+        <span class="input-box">
+            <input type="text" class="input-text required-entry" title="<?php print $this->__('Number of DHL Packstation'); ?>" name="shipping[street][]" value="" id="shipping:dhl-packstation">
+        </span>
+        <label id="my_city" class="required" for="shipping:dhl_packstation_city">
+            <?php print $this->__('City'); ?>
+            <em>*</em>
+        </label>
+        <span class="input-box">
+            <input type="text" class="input-text required-entry" title="<?php print $this->__('city'); ?>" name="dhl_packstation_city" value="" id="shipping:dhl_packstation_city">
+        </span>
+        <label id="my_zip" class="required" for="shipping:dhl_packstation_postcode">
+            <?php print $this->__('Postcode'); ?>
+            <em>*</em>
+        </label>
+        <span class="input-box">
+            <input type="text" class="input-text required-entry" title="<?php print $this->__('postcode'); ?>" name="dhl_packstation_postcode" value="" id="shipping:dhl_packstation_postcode">
+        </span>
+    </span>
+    <div class="field">
+        <label id="shipping:packstationfinder_label" for="shipping:packstationfinder"><?php print $this->__('Please select a Packstation'); ?></label>
+        <select class="input-box dhl-packstation-select" id="shipping:packstationfinder" size="5"></select>
+        <div id="shipping-packstationbuttons">
+            <button class="button" id="shipping-search-packstation-button" title="<?php echo $this->__('Postcode and city are used for searching.'); ?>">
+                <span>
+                    <span><?php echo $this->__('Find Packstation'); ?></span>
+                </span>
+            </button>
+            <button class="button" id="shipping-packstation-data">
+                <span>
+                    <span><?php echo $this->__('Apply'); ?></span>
+                </span>
+            </button>
+        </div>
+        <div id="shipping:packstationerrors" class="validation-advice"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    if ($('shipping:dhlaccount') != null) {
+        $($($('shipping:dhlaccount').parentNode).parentNode).remove();
+    }
+    if ($('shipping:ship_to_packstation') != null) {
+        $($($('shipping:ship_to_packstation').parentNode).parentNode).remove();
+    }
+
+    addPackstationToShippingForm();
+
+    Validation.addAllThese([
+        ['validate-six-to-ten-digits', '<?php echo $this->__('Please enter 6 to 10 digits.'); ?>', function(v) {
+                return true == /^\d{6,10}$/i.test(v);
+            }]]);
+    Validation.addAllThese([
+        ['validate-three-digits', '<?php echo $this->__('Please enter 3 digits.'); ?>', function(v) {
+                return true == /^\d{3,3}$/i.test(v);
+            }]]);
+
+    Translator.add(
+    'Please select',
+    '<?php echo $this->__('Please select'); ?>'
+    );
+    Translator.add(
+    'Continue',
+    '<?php echo $this->__('Continue'); ?>'
+    );
+
+</script>

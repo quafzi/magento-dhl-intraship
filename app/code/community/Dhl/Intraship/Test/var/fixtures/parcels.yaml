@@ -1,0 +1,17 @@
+tables:
+  intraship/shipment:
+   - id:                     1
+     shipment_id:            15
+     order_id:               31
+     status:                 1  # STATUS_NEW_QUEUED
+#     customer_address:       '{"prefix":"","firstname":"Luthilda","middlename":"von","lastname":"Fürstenberg","company":"Kaninchenzüchterverein","suffix":"","street_name":"An der Tabaksmühle","street_number":"3a","care_of":"","city":"Leipzig","region":"Sachsen","postcode":"04229","country_id":"DE","telephone":"0123456789","email":"luthilda.von.fuerstenberg@trash-mail.com","id_number":"55555555555","station_id":""}'
+     settings:               '{"profile":"standard","insurance":"0","personally":"0","bulkfreight":"0"}'
+     packages:               '{"package_0":{"weight":"10"}}'
+     mode:                   'test'
+
+   - id:                     10
+     status:                 1  # STATUS_NEW_QUEUED
+#     customer_address:       '{"prefix":"","firstname":"Luthilda","middlename":"von","lastname":"Fürstenberg","company":"Kaninchenzüchterverein","suffix":"","street_name":"An der Tabaksmühle","street_number":"3a","care_of":"","city":"Leipzig","region":"Sachsen","postcode":"04229","country_id":"DE","telephone":"0123456789","email":"luthilda.von.fuerstenberg@trash-mail.com","id_number":"55555555555","station_id":""}'
+     settings:               '{"profile":"standard","insurance":"0","personally":"0","bulkfreight":"0"}'
+     packages:               '{"package_0":{"weight":"10"}}'
+     mode:                   'test'

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Dhl
+ * @package    Dhl_OnlineRetoure
+ * @author     André Herrn <andre.herrn@netresearch.de>
+ * @author     Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @copyright  Copyright (c) 2013 Netresearch GmbH & Co. KG
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Dhl_OnlineRetoure>
+            <version>13.07.04</version>
+        </Dhl_OnlineRetoure>
+    </modules>
+    <global>
+        <models>
+            <dhlonlineretoure>
+                <class>Dhl_OnlineRetoure_Model</class>
+            </dhlonlineretoure>
+        </models>
+        <helpers>
+            <dhlonlineretoure>
+                <class>Dhl_OnlineRetoure_Helper</class>
+            </dhlonlineretoure>
+        </helpers>
+        <blocks>
+            <dhlonlineretoure>
+                <class>Dhl_OnlineRetoure_Block</class>
+            </dhlonlineretoure>
+        </blocks>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Dhl_OnlineRetoure>
+                    <files>
+                        <default>Dhl_OnlineRetoure.csv</default>
+                    </files>
+                </Dhl_OnlineRetoure>
+            </modules>
+        </translate>
+    </adminhtml>
+    <frontend>
+        <translate>
+            <modules>
+                <Dhl_OnlineRetoure>
+                    <files>
+                        <default>Dhl_OnlineRetoure.csv</default>
+                    </files>
+                </Dhl_OnlineRetoure>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <dhlonlineretoure>
+                    <file>dhlonlineretoure.xml</file>
+                </dhlonlineretoure>
+            </updates>
+        </layout>
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <returnbuttonhandle>
+                        <class>dhlonlineretoure/observer</class>
+                        <method>addReturnButtonHandle</method>
+                    </returnbuttonhandle>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+        <routers>
+            <dhlonlineretoure>
+                <use>standard</use>
+                <args>
+                    <module>Dhl_OnlineRetoure</module>
+                    <frontName>dhlonlineretoure</frontName>
+                </args>
+            </dhlonlineretoure>
+        </routers>
+    </frontend>
+    <default>
+        <intraship>
+            <dhlonlineretoure>
+                <active>0</active>
+                <logging_enabled>0</logging_enabled>
+                <wsdl><![CDATA[https://amsel.dpwn.net/abholportal/gw/lp/schema/1.0/var3ws.wsdl]]></wsdl>
+            </dhlonlineretoure>
+        </intraship>
+    </default>
+    <phpunit>
+        <suite>
+            <modules>
+                <Dhl_OnlineRetoure />
+            </modules>
+        </suite>
+    </phpunit>
+</config>

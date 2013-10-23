@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+<!-- /** * @category Config * @package Dhl_Intraship * @author Jochen Werner 
+    <jochen.werner@netresearch.de> * @author Stephan Hoyer <stephan.hoyer@netresearch.de> 
+    * @author André Herrn <andre.herrn@netresearch.de> * @copyright Copyright 
+    (c) 2010 Netresearch GmbH & Co.KG <http://www.netresearch.de/> * @license 
+    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0) 
+    */ -->
+<config>
+    <modules>
+        <Dhl_Intraship>
+            <version>13.07.04</version>
+        </Dhl_Intraship>
+    </modules>
+    <global>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_shipment_create_tracking>Dhl_Intraship_Block_Adminhtml_Sales_Order_Shipment_Create_Tracking</sales_order_shipment_create_tracking>
+                    <sales_order_shipment_view_tracking>Dhl_Intraship_Block_Adminhtml_Sales_Order_Shipment_View_Tracking</sales_order_shipment_view_tracking>
+                    <sales_order_grid>Dhl_Intraship_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                    <sales_shipment_grid>Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Grid</sales_shipment_grid>
+                </rewrite>
+            </adminhtml>
+
+            <intraship>
+                <class>Dhl_Intraship_Block</class>
+            </intraship>
+        </blocks>
+        <models>
+            <intraship>
+                <class>Dhl_Intraship_Model</class>
+                <resourceModel>intraship_mysql4</resourceModel>
+            </intraship>
+            <intraship_mysql4>
+                <class>Dhl_Intraship_Model_Mysql4</class>
+                <entities>
+                    <shipment>
+                        <table>intraship_shipment</table>
+                    </shipment>
+                    <shipment_document>
+                        <table>intraship_document</table>
+                    </shipment_document>
+                </entities>
+            </intraship_mysql4>
+        </models>
+        <resources>
+            <intraship_setup>
+                <setup>
+                    <module>Dhl_Intraship</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </intraship_setup>
+            <intraship_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </intraship_write>
+            <intraship_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </intraship_read>
+        </resources>
+        <helpers>
+            <intraship>
+                <class>Dhl_Intraship_Helper</class>
+            </intraship>
+        </helpers>
+        <sales>
+            <shipping>
+                <carriers>
+                    <dhlintraship>
+                        <class>Dhl_Intraship_Model_Shipping_Carrier_Intraship</class>
+                    </dhlintraship>
+                </carriers>
+            </shipping>
+        </sales>
+        <events>
+            <controller_action_predispatch_adminhtml_sales_order_shipment_save>
+                <observers>
+                    <save_intraship_shipment>
+                        <class>intraship/observer</class>
+                        <method>validateIntrashipShipmentData</method>
+                    </save_intraship_shipment>
+                </observers>
+            </controller_action_predispatch_adminhtml_sales_order_shipment_save>
+
+            <sales_order_shipment_save_before>
+                <observers>
+                    <check_shipment>
+                        <class>intraship/observer</class>
+                        <method>checkShipment</method>
+                    </check_shipment>
+                </observers>
+            </sales_order_shipment_save_before>
+
+            <controller_action_postdispatch_adminhtml_sales_order_shipment_save>
+                <observers>
+                    <save_intraship_shipment_data>
+                        <class>intraship/observer</class>
+                        <method>saveIntrashipShipmentData</method>
+                    </save_intraship_shipment_data>
+                </observers>
+            </controller_action_postdispatch_adminhtml_sales_order_shipment_save>
+
+            <controller_action_postdispatch_checkout_onepage_shippingMethod>
+                <observers>
+                    <append_gogreen_to_shippingmethod>
+                        <class>intraship/observer</class>
+                        <method>appendGoGreenOptionToHtml</method>
+                    </append_gogreen_to_shippingmethod>
+                </observers>
+            </controller_action_postdispatch_checkout_onepage_shippingMethod>
+
+            <controller_action_postdispatch_checkout_onepage_saveBilling>
+                <observers>
+                    <append_gogreen_after_savebilling>
+                        <class>intraship/observer</class>
+                        <method>appendGoGreenOptionToJson</method>
+                    </append_gogreen_after_savebilling>
+                </observers>
+            </controller_action_postdispatch_checkout_onepage_saveBilling>
+
+            <controller_action_postdispatch_checkout_onepage_saveShipping>
+                <observers>
+                    <save_gogreen_after_savebilling>
+                        <class>intraship/observer</class>
+                        <method>appendGoGreenOptionToJson</method>
+                    </save_gogreen_after_savebilling>
+                </observers>
+            </controller_action_postdispatch_checkout_onepage_saveShipping>
+
+            <controller_action_postdispatch_checkout_onepage_saveShippingMethod>
+                <observers>
+                    <save_gogreen_in_session>
+                        <class>intraship/observer</class>
+                        <method>saveGoGreenOptionInSession</method>
+                    </save_gogreen_in_session>
+                </observers>
+            </controller_action_postdispatch_checkout_onepage_saveShippingMethod>
+
+            <sales_order_place_after>
+                <observers>
+                    <set_gogreen_to_order>
+                        <class>intraship/observer</class>
+                        <method>setGoGreenOptionToOrder</method>
+                    </set_gogreen_to_order>
+                </observers>
+            </sales_order_place_after>
+
+            <intraship_shipment_document_print>
+                <observers>
+                    <set_gogreen_to_order>
+                        <class>intraship/observer</class>
+                        <method>intrashipShipmentDocumentPrint</method>
+                    </set_gogreen_to_order>
+                </observers>
+            </intraship_shipment_document_print>
+        </events>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Dhl_Intraship>
+                    <files>
+                        <default>Dhl_Intraship.csv</default>
+                    </files>
+                </Dhl_Intraship>
+            </modules>
+        </translate>
+        <menu>
+            <sales>
+                <children>
+                    <shipment>
+                        <children>
+                            <intraship_shipment_documents translate="title" module="intraship">
+                                <title>DHL intraship shipment documents</title>
+                                <action>intraship/shipment/documents/</action>
+                                <sort_order>2</sort_order>
+                            </intraship_shipment_documents>
+                            <intraship_shipment_triggerqueue translate="title" module="intraship">
+                                <title>Trigger DHL intraship PDF generation manually</title>
+                                <action>intraship/shipment/triggerQueue/</action>
+                                <sort_order>3</sort_order>
+                            </intraship_shipment_triggerqueue>
+                        </children>
+                    </shipment>
+                </children>
+            </sales>
+        </menu>
+        <layout>
+            <updates>
+                <intraship>
+                    <file>intraship.xml</file>
+                </intraship>
+            </updates>
+        </layout>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <sales>
+                            <children>
+                                <shipment>
+                                    <children>
+                                        <intraship_shipment_documents translate="title">
+                                            <title>DHL intraship shipment documents</title>
+                                        </intraship_shipment_documents>
+                                        <intraship_shipment_triggerqueue translate="title">
+                                            <title>Trigger DHL intraship PDF generation manually</title>
+                                        </intraship_shipment_triggerqueue>
+                                    </children>
+                                </shipment>
+                            </children>
+                        </sales>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <intraship translate="title" module="intraship">
+                                            <title>DHL Intraship</title>
+                                        </intraship>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <frontend>
+        <translate>
+            <modules>
+                <Dhl_Intraship>
+                    <files>
+                        <default>Dhl_Intraship.csv</default>
+                    </files>
+                </Dhl_Intraship>
+            </modules>
+        </translate>
+        <routers>
+            <intraship>
+                <use>standard</use>
+                <args>
+                    <module>Dhl_Intraship</module>
+                    <frontName>intraship</frontName>
+                </args>
+            </intraship>
+        </routers>
+    </frontend>
+    <admin>
+        <routers>
+            <intraship>
+                <use>admin</use>
+                <args>
+                    <module>Dhl_Intraship</module>
+                    <frontName>intraship</frontName>
+                </args>
+            </intraship>
+        </routers>
+    </admin>
+    <crontab>
+        <jobs>
+            <intraship_cronQueue>
+                <schedule>
+                    <cron_expr>5,20,35,50 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>intraship/observer::cronQueue</model>
+                </run>
+            </intraship_cronQueue>
+            <intraship_cronAutocreate>
+                <schedule>
+                    <cron_expr>0,15,30,45 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>intraship/observer::cronAutocreate</model>
+                </run>
+            </intraship_cronAutocreate>
+        </jobs>
+    </crontab>
+    <default>
+        <intraship>
+            <general>
+                <active>0</active>
+                <testmode>1</testmode>
+                <!-- install-date: see /app/code/community/Dhl/Intraship/sql/intraship_setup/mysql4-install-0.1.0.php -->
+                <install-date></install-date>
+                <cod-charge>2</cod-charge>
+                <logging_enabled>0</logging_enabled>
+            </general>
+            <label>
+                <paper_format>A5</paper_format>
+                <margin_left>2</margin_left>
+                <margin_top>0</margin_top>
+            </label>
+            <checkout>
+                <gogreen_enabled>0</gogreen_enabled>
+                <gogreen_label><![CDATA[Klimafreundlich mit <strong>GOGREEN</strong>!<img src="/skin/frontend/base/default/images/dhl/gogreen.png" alt="" />Ihre Aussendungen werden mit<br/>dem Service GOGREEN CO<sub>2</sub> - neutral<br/>versendet. Machen Sie mit! Mehr<br/>über GOGREEN erfahren Sie unter<br/><a href="http://www.deutschepost.de/gogreen" target="_blank">http://www.deutschepost.de/gogreen</a>]]></gogreen_label>
+            </checkout>
+            <autocreate>
+                <autocreate_enabled>0</autocreate_enabled>
+                <autocreate_notify>0</autocreate_notify>
+                <autocreate_message>This shipment is created automatically by DHL Intraship.</autocreate_message>
+                <autocreate_insurance>0</autocreate_insurance>
+                <autocreate_bulkfreight>0</autocreate_bulkfreight>
+                <autocreate_allowed-payments></autocreate_allowed-payments>
+                <autocreate_allowed-status-codes></autocreate_allowed-status-codes>
+            </autocreate>
+            <autocreate_button>
+                <autocreate_enabled>0</autocreate_enabled>
+            </autocreate_button>
+            <packages>
+                <global_settings_payments-for-cod></global_settings_payments-for-cod>
+                <global_settings_default_weight>1</global_settings_default_weight>
+                <global_settings_weight_product_types>simple</global_settings_weight_product_types>
+                <global_settings_default_weight_unit>kg</global_settings_default_weight_unit><!-- "kg" or "g" -->
+                <global_settings_enabled-profiles>standard,go-green</global_settings_enabled-profiles>
+                <global_settings_default-profile>standard</global_settings_default-profile>
+                <remove_cod_charge>0</remove_cod_charge>
+            </packages>
+            <account_test>
+                <user>magento</user>
+                <signature>m1a2$!</signature>
+                <ekp>5000000000</ekp>
+            </account_test>
+            <url>
+                <login_production><![CDATA[https://www.intraship.de/intraship/jsp/Login_WS.jsp]]></login_production>
+                <login_test><![CDATA[https://test-intraship.dhl.com/intraship.591/jsp/Login_WS.jsp]]></login_test>
+                <wsdl_production><![CDATA[http://www.intraship.de/ws/1_0/ISService/DE.wsdl]]></wsdl_production>
+                <wsdl_test><![CDATA[http://test-intraship.dhl.com/ws/1_0/ISService/DE.wsdl]]></wsdl_test>
+            </url>
+            <!-- Package settings for germany (EPN) -->
+            <epn>
+                <code>EPN</code>
+                <countryCodes>DE</countryCodes>
+                <!-- default weight -->
+                <weight>0.1</weight>
+                <!-- partner ids -->
+                <standard>01</standard>
+                <express>02</express>
+                <go-green>02</go-green>
+                <go-green-express>02</go-green-express>
+                <enabled-profiles>standard,go-green</enabled-profiles>
+            </epn>
+            <!-- Package settings for world (BPI) -->
+            <bpi>
+                <code>BPI</code>
+                <countryCodes>BE,BG,DK,EE,FI,FR,GR,IE,IT,LV,LT,LU,MT,NL,AT,PL,PT,RO,SE,SK,SI,ES,CZ,HU,DB,CY,GB</countryCodes>
+                <!-- default weight -->
+                <weight>0.1</weight>
+                <!-- partner ids -->
+                <standard>01</standard>
+                <express>02</express>
+                <go-green>02</go-green>
+                <go-green-express>02</go-green-express>
+                <enabled-profiles>standard,go-green</enabled-profiles>
+            </bpi>
+            <countryCodesCustomsDeclaration>CH</countryCodesCustomsDeclaration>
+            <shipper>
+                <companyName1></companyName1>
+                <companyName2></companyName2>
+                <salutation></salutation>
+                <title></title> <!-- optional -->
+                <firstname></firstname>
+                <lastname></lastname>
+                <streetName></streetName>
+                <streetNumber></streetNumber>
+                <zip></zip>
+                <city></city>
+                <state></state>
+                <countryISOCode>DE</countryISOCode>
+                <phone></phone>
+                <email></email>
+                <contactPerson></contactPerson>
+                <!-- The note "bankData" is required for COD (Cash on Delivery) -->
+                <bank_data_accountOwner></bank_data_accountOwner>
+                <bank_data_accountNumber></bank_data_accountNumber>
+                <bank_data_bankCode></bank_data_bankCode>
+                <bank_data_bankName></bank_data_bankName>
+                <bank_data_iban></bank_data_iban>   <!-- optional -->
+                <bank_data_bic></bank_data_bic>     <!-- optional -->
+                <bank_data_note>Bestellnummer %orderID%</bank_data_note>   <!-- optional -->
+            </shipper>
+            <tracking>
+                <url><![CDATA[http://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=de&idc=%orderNo%]]></url>
+            </tracking>
+        </intraship>
+        <carriers>
+            <intraship>
+                <active>1</active>
+                <model>intraship/shipping_carrier_intraship</model>
+                <title>DHL Intraship</title>
+            </intraship>
+        </carriers>
+    </default>
+    <phpunit>
+        <suite>
+            <modules>
+                <Dhl_Intraship />
+            </modules>
+        </suite>
+    </phpunit>
+</config>

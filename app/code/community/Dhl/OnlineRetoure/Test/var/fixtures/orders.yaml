@@ -1,0 +1,254 @@
+tables:
+  sales/order:
+   - entity_id:           11
+     increment_id:        100000011
+     shipping_address_id: 42
+     base_grand_total:    119.00
+     grand_total:         119.00
+     currency:            'EUR'
+     customer_gender:     1
+     customer_id:         3
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'hubertus.von.fuerstenberg@trash-mail.com'
+     state:               'pending_payment'
+     status:              'pending_payment'
+     quote_id:            23
+
+   - entity_id:           12
+     increment_id:        100000012
+     shipping_address_id: 42
+     base_grand_total:    119.00
+     grand_total:         119.00
+     currency:            'EUR'
+     customer_gender:     1
+     customer_id:         4
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'hubertus.von.fuerstenberg@trash-mail.com'
+     state:               'pending_payment'
+     status:              'pending_payment'
+
+   - entity_id:           13
+     increment_id:        100000013
+     shipping_address_id: 43
+     base_grand_total:    177.55
+     grand_total:         177.55
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+     state:               'processing'
+     status:              'processing'
+     
+   - entity_id:           14
+     increment_id:        100000014
+     shipping_address_id: 43
+     base_grand_total:    177.55
+     grand_total:         177.55
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+     state:               'pending_payment'
+     status:              'pending_payment'
+
+   - entity_id:           15
+     increment_id:        100000015
+     shipping_address_id: 43
+     base_grand_total:    177.55
+     grand_total:         200.00
+     currency:            '$'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+     state:               'pending_payment'
+     status:              'pending_payment'
+
+   - entity_id:           16
+     increment_id:        100000016
+     shipping_address_id: 43
+     base_grand_total:    19.99
+     grand_total:         19.99
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+     state:               'pending_payment'
+     status:              'pending_payment'
+
+   - entity_id:           17
+     increment_id:        100000017
+     shipping_address_id: 43
+     base_grand_total:    19.99
+     grand_total:         19.99
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+     state:               'pending_payment'
+     status:              'pending_payment'
+
+   - entity_id:           18
+     increment_id:        100000018
+     shipping_address_id: 43
+     base_grand_total:    19.99
+     grand_total:         19.99
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+     state:               'pending_payment'
+     status:              'pending_payment'
+     
+   - entity_id:           19
+     increment_id:        100000019
+     shipping_address_id: 43
+     base_grand_total:    19.99
+     grand_total:         19.99
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+     state:               'pending_payment'
+     status:              'pending_payment'
+     
+   - entity_id:           20
+     increment_id:        100000020
+     shipping_address_id: 42
+     base_grand_total:    119.00
+     grand_total:         119.00
+     currency:            'EUR'
+     customer_gender:     1
+     customer_id:         3
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'hubertus.von.fuerstenberg@trash-mail.com'
+     customer_firstname:  'Hubertus'
+     customer_lastname:   'Von Fürstenberg'
+     state:               'pending_payment'
+     status:              'pending_payment'
+     quote_id:            23
+     store_name           'EnglishStore'
+     
+   - entity_id:           21
+     increment_id:        100000021
+     shipping_address_id: 43
+     base_grand_total:    177.55
+     grand_total:         177.55
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+     state:               'processing'
+     status:              'processing'
+     
+   
+
+  sales/quote:
+    - entity_id: 10
+      patent_id: 11
+
+  sales/shipment:
+   - entity_id:           1
+     increment_id:        100000077
+     order_id:            11
+     shipping_address_id: 42
+  
+   - entity_id:           2
+     increment_id:        100000078
+     order_id:            12
+     shipping_address_id: 43
+     
+  sales/order_address:
+   - entity_id:    42
+     parent_id:    11
+     address_type: 'billing'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street_1:      'An der Tabaksmühle'
+     street_2:      '3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+     
+   - entity_id:    43
+     parent_id:    13
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+     same_as_billing: 1
+     
+   - entity_id:    44
+     parent_id:    12
+     address_type: 'billing'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+     
+   - entity_id:    45
+     parent_id:    12
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04227'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      'Fake Inc.'
+     same_as_billing: 1
+     
+   - entity_id:    46
+     parent_id:    20
+     address_type: 'billing'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street_1:      'An der Tabaksmühle'
+     street_2:      '3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+     
+   - entity_id:    47
+     parent_id:    20
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street_1:      'An der Tabaksmühle'
+     street_2:      '3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''

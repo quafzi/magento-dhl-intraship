@@ -1,0 +1,45 @@
+tables:
+  sales/order:
+   - entity_id:           31
+     increment_id:        100000055
+     shipping_address_id: 42
+     base_grand_total:    119.00
+     grand_total:         119.00
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'luthilda.von.fuerstenberg@trash-mail.com'
+
+  sales/shipment:
+   - entity_id:           15
+     increment_id:        100000077
+     order_id:            31
+     shipping_address_id: 45
+     billing_address_id:  46
+
+  sales/order_address:
+   - entity_id:     45
+     parent_id:     31
+     address_type: 'shipping'
+     firstname:    'Luthilda'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'luthilda.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     middlename:   'von'
+     company:      'Kaninchenzüchterverein'
+
+   - entity_id:     46
+     parent_id:     31
+     address_type: 'billing'
+     firstname:    'Luthilda'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'luthilda.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     middlename:   'von'
+     company:      'Kaninchenzüchterverein'

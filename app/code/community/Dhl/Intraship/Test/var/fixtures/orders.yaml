@@ -1,0 +1,300 @@
+tables:
+  sales/order:
+   - entity_id:           31
+     increment_id:        100000055
+     shipping_address_id: 42
+     base_grand_total:    119.00
+     grand_total:         119.00
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'luthilda.von.fuerstenberg@trash-mail.com'
+
+   - entity_id:           32
+     increment_id:        100000056
+     shipping_address_id: 43
+     base_grand_total:    177.55
+     grand_total:         177.55
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+
+   - entity_id:           33
+     increment_id:        100000057
+     shipping_address_id: 43
+     base_grand_total:    2500.01
+     grand_total:         2500.01
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'willi.usa.customer@trash-mail.com'
+
+   - entity_id:           34
+     increment_id:        100000058
+     shipping_address_id: 48
+     base_grand_total:    150.77
+     grand_total:         150.77
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'trinity@trash-mail.com'
+
+   - entity_id:           35
+     increment_id:        100000059
+     shipping_address_id: 49
+     base_grand_total:    303.77
+     grand_total:         303.77
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'hubertus.von.fuerstenberg@trash-mail.com'
+
+   - entity_id:           36
+     increment_id:        100000060
+     shipping_address_id: 49
+     base_grand_total:    303.77
+     grand_total:         303.77
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'hubertus.von.fuerstenberg@trash-mail.com'
+
+   - entity_id:           37
+     increment_id:        100000061
+     shipping_address_id: 49
+     base_grand_total:    3501.00
+     grand_total:         3501.00
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'hubertus.von.fuerstenberg@trash-mail.com'
+
+   - entity_id:           38
+     status:              'processed'
+     increment_id:        100000062
+     shipping_address_id: 49
+     base_grand_total:    501.00
+     grand_total:         501.00
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'hubertus.von.fuerstenberg@trash-mail.com'
+     created_at:          '2012-05-02'
+
+   - entity_id:           39
+     status:              'pending'
+     increment_id:        100000063
+     shipping_address_id: 49
+     base_grand_total:    501.00
+     grand_total:         501.00
+     currency:            'EUR'
+     customer_gender:     1
+     shipping_method:     'flatrate_flatrate'
+     customer_email:      'hubertus.von.fuerstenberg@trash-mail.com'
+     created_at:          '2011-01-01'
+
+  sales/shipment:
+   - entity_id:           2
+     increment_id:        100000077
+     order_id:            31
+     shipping_address_id: 45
+
+   - entity_id:           3
+     increment_id:        100000078
+     order_id:            32
+     shipping_address_id: 46
+
+   - entity_id:           4
+     increment_id:        100000079
+     order_id:            33
+     shipping_address_id: 47
+
+   - entity_id:           5
+     increment_id:        100000080
+     order_id:            34
+     shipping_address_id: 48
+
+   - entity_id:           6
+     increment_id:        100000081
+     order_id:            35
+     shipping_address_id: 49
+
+   - entity_id:           7
+     increment_id:        100000082
+     order_id:            36
+     shipping_address_id: 49
+
+   - entity_id:           8
+     increment_id:        100000083
+     order_id:            38
+     shipping_address_id: 49
+
+  sales/order_address:
+   - entity_id:    45
+     parent_id:    31
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+
+   - entity_id:    46
+     parent_id:    32
+     address_type: 'shipping'
+     firstname:    'Willi'
+     postcode:     '12345'
+     lastname:     'Usa'
+     street:       'Washington Street 11'
+     city:         'New York'
+     email:        'willi.usa.customer@trash-mail.com'
+     country_id:   'US'
+     prefix:       'Master'
+     middlename:   ''
+     suffix:       ''
+     company:      ''
+
+   - entity_id:    47
+     parent_id:    33
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+
+   - entity_id:    48
+     parent_id:    34
+     address_type: 'shipping'
+     firstname:    'James'
+     postcode:     '11 ftN'
+     lastname:     'Covington'
+     street:       '77 Minory'
+     city:         'London'
+     email:        'trinity@trash-mail.com'
+     country_id:   'GB'
+
+   - entity_id:    49
+     parent_id:    35
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+
+   - entity_id:    50
+     parent_id:    36
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+
+   - entity_id:    51
+     parent_id:    37
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+
+   - entity_id:    52
+     parent_id:    38
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+
+   - entity_id:    53
+     parent_id:    39
+     address_type: 'shipping'
+     firstname:    'Hubertus'
+     postcode:     '04229'
+     lastname:     'Fürstenberg'
+     street:       'An der Tabaksmühle 3a'
+     city:         'Leipzig'
+     email:        'hubertus.von.fuerstenberg@trash-mail.com'
+     country_id:   'DE'
+     prefix:       'Prof. Dr.'
+     middlename:   'von'
+     suffix:       'MdL'
+     company:      ''
+
+  sales/order_payment:
+   - entity_id:    23
+     parent_id:    31
+     method:       'checkmo'
+
+   - entity_id:    24
+     parent_id:    32
+     method:       'checkmo'
+
+   - entity_id:    25
+     parent_id:    33
+     method:       'checkmo'
+
+   - entity_id:    26
+     parent_id:    34
+     method:       'checkmo'
+
+   - entity_id:    27
+     parent_id:    35
+     method:       'cod'
+
+   - entity_id:    28
+     parent_id:    36
+     method:       'checkmo'
+
+   - entity_id:    29
+     parent_id:    37
+     method:       'cod'
+
+   - entity_id:    30
+     parent_id:    38
+     method:       'checkmo'
+
+   - entity_id:    31
+     parent_id:    39
+     method:       'checkmo'

@@ -1,0 +1,129 @@
+<style type="text/css">
+.dynamic-grid, .dynamic-grid tr td {
+    border:0!important
+}
+</style>
+<table class="dynamic-grid" cellspacing="0" cellpadding="0">
+    <tr id="packages-table">
+        <th><?php echo $this->__('Weight (in kg)') ?></th>
+        <th>
+            <?php if (!$this->getReadOnly()):?>
+                 <?php echo $this->getAddNewButtonHtml() ?>
+            <?php endif;?>
+        </th>
+    </tr>
+    <tr class="option-row">
+        <td><input class="input-text" type="text" name="shipment[packages][package_0][weight]" value="<?php echo $this->getDefaultWeight() ?>" /></td>
+        <td class="a-left"></td>
+    </tr>
+</table>
+<input type="hidden" id="option-count-check" value="" />
+<script type="text/javascript">
+//<![CDATA[
+           var optionDefaultInputType = 'radio';
+// IE removes quotes from element.innerHTML whenever it thinks they're not needed, which breaks html.
+var templateText =
+        '<tr id="intraship_package_{{id}}" class="intraship_package option-row">'+
+            '<td><input class="input-text" type="text" name="shipment[packages][{{id}}][weight]" value="<?php echo $this->getDefaultWeight() ?>" /><\/td>'+
+            '<td class="a-left">'+
+                '<input type="hidden" class="delete-flag" name="shipment[packages][{{id}}][delete]" value="" />'+
+                '<?php echo $this->getDeleteButtonHtml() ?>'+
+            '<\/td>'+
+        '<\/tr>';
+
+var attributeOption = {
+    table : $('packages-table'),
+    templateSyntax : /(^|.|\r|\n)({{(\w+)}})/,
+    templateText : templateText,
+    itemCount : 1,
+    totalItems : 1,
+    add : function(data) {
+        try {
+            if (null != $('intraship_settings_personally') && null != $('intraship_settings_bulkfreight')) {
+                if ($('intraship_settings_personally').value == 1 || $('intraship_settings_bulkfreight').value == 1
+                ) {
+                    $('add_new_option_button').addClassName('disabled');
+                    return;
+                }
+            }
+        } catch(e) {
+            return;
+        }
+
+        this.template = new Template(this.templateText, this.templateSyntax);
+        if(!data.id){
+            data = {};
+            data.id  = 'package_'+this.itemCount;
+        }
+        if (!data.intype)
+            data.intype = optionDefaultInputType;
+
+        Element.insert(this.table, {after: this.template.evaluate(data)});
+        this.bindRemoveButtons();
+        this.itemCount++;
+        this.totalItems++;
+        this.updateItemsCountField();
+    },
+    remove : function(event){
+        var element = $(Event.findElement(event, 'tr')); // !!! Button already
+                                                               // have table parent in safari
+        // Safari workaround
+        element.ancestors().each(function(parentItem){
+           if (parentItem.hasClassName('option-row')) {
+               element = parentItem;
+               throw $break;
+           } else if (parentItem.hasClassName('box')) {
+               throw $break;
+           }
+        });
+
+
+        if(element){
+            var elementFlags = element.getElementsByClassName('delete-flag');
+            if(elementFlags[0]){
+                elementFlags[0].value=1;
+            }
+
+            element.addClassName('no-display');
+            element.addClassName('template');
+            element.hide();
+            this.totalItems--;
+            this.updateItemsCountField();
+        }
+    },
+    updateItemsCountField: function() {
+        if (this.totalItems > 0) {
+            $('option-count-check').value = '1';
+        } else {
+            $('option-count-check').value = '';
+        }
+    },
+    bindRemoveButtons : function(){
+        var buttons = $$('.delete-option');
+        for(var i=0;i<buttons.length;i++){
+            if(!$(buttons[i]).binded){
+                $(buttons[i]).binded = true;
+                Event.observe(buttons[i], 'click', this.remove.bind(this));
+            }
+        }
+    }
+
+}
+if($('row-template')){
+    $('row-template').remove();
+}
+attributeOption.bindRemoveButtons();
+
+if($('add_new_option_button')){
+    Event.observe('add_new_option_button', 'click', attributeOption.add.bind(attributeOption));
+}
+Validation.addAllThese([
+    ['required-option', '<?php echo $this->__('Failed') ?>', function(v) {
+        return !Validation.get('IsEmpty').test(v);
+}]]);
+Validation.addAllThese([
+    ['required-options-count', '<?php echo $this->__('Options is required') ?>', function(v) {
+        return !Validation.get('IsEmpty').test(v);
+}]]);
+//]]>
+</script>

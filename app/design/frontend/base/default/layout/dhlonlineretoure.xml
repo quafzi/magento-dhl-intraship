@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category   Dhl
+ * @package    Dhl_OnlineRetoure
+ * @author     André Herrn <andre.herrn@netresearch.de>
+ * @copyright  Copyright (c) 2013 Netresearch GmbH & Co. KG
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<layout>
+    <dhlonlineretoure_address_confirm>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="dhlonlineretoure/customer_address_edit" name="dhlonlineretoure_customer_address_edit" template="dhlonlineretoure/customer/address/edit.phtml">
+                <action method="setData"><name>title</name><value>Verify Shipping Address</value></action>
+                <action method="setData"><name>back_url</name><value></value></action>
+            </block>
+        </reference>
+        <reference name="root">
+            <action method="setHeaderTitle" translate="title" module="dhlonlineretoure">
+                <title>DHL Online Retoure</title>
+            </action>
+        </reference>
+    </dhlonlineretoure_address_confirm>
+    
+    <dhlonlineretoure_address_error>
+        <update handle="customer_account"/>
+    </dhlonlineretoure_address_error>
+
+    <dhlonlineretoure_button_return_15>
+        <reference name="my.account.wrapper">
+            <reference name="sales.order.info">
+                <action method="setTemplate"><template>dhlonlineretoure/sales/order/info/buttons.phtml</template></action>
+                <block type="dhlonlineretoure/sales_order_info_buttons_return"
+                       name="dhlonlineretoure.sales.order.info.buttons.return"
+                       as="dhlreturn"
+                       template="dhlonlineretoure/sales/order/info/buttons/return.phtml"
+                />
+            </reference>
+        </reference>
+    </dhlonlineretoure_button_return_15>
+    
+    <dhlonlineretoure_button_return_16>
+        <reference name="my.account.wrapper">
+            <reference name="sales.order.info">
+                <reference name="sales.order.info.buttons">
+                    <block type="dhlonlineretoure/sales_order_info_buttons_return"
+                           name="dhlonlineretoure.sales.order.info.buttons.return"
+                           as="dhlreturn"
+                           template="dhlonlineretoure/sales/order/info/buttons/return.phtml"
+                    />
+                </reference>
+            </reference>
+        </reference>
+    </dhlonlineretoure_button_return_16>
+</layout>

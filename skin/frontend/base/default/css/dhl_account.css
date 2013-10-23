@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+#dhlaccount_shipping_packstation input.packstation_checkbox {
+  margin-left: 5px; margin-right: 5px;
+}
+
+#shipping_dhl_account_number {
+  display: none;
+}
+
+#shipping_dhl_account_label > em, #dhl_account_label > em,
+#dhl_packingstation_label > em {
+  float: none; position: static; right: 0px;
+}
+
+#shipping_dhl_account_label > span, #dhl_account_label > span {
+  font-size: 15px; text-decoration: none; color: #1E7EC8;
+}
+
+#dhl_account_label + div {
+  width: 400px;
+}
+
+#dhl_packstation {
+  display: none; width: 100%;
+}
+
+#dhl_packstation > span {
+  display: inline;
+}
+
+#dhl_packstation span.input-box {
+  width: 100%
+}
+
+#dhl_packstation a > img {
+  padding: 1px;
+}
+
+#dhl_packstation a + span {
+  font-size: 0.6em;
+}
+
+#dhl_packstation label + span {
+  clear: left; display: block; font-size: 0.85em;
+}
+/*
+#shipping:packstationerrors {
+  display: none; background: none; padding-left: 0px;
+}
+*/
+
+#shipping-packstationbuttons {
+	display: none; margin-top: 1px;
+}
+
+#shipping-packstationbuttons button{
+	margin-left: 3px;
+	margin-top: 3px;
+}
+
+.dhl-packstation-select {
+	padding-bottom: 0;
+	padding-top: 0;
+}

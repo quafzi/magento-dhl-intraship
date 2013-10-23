@@ -1,0 +1,25 @@
+<?php $order = $this->getOrder(); ?>
+<?php $validateHelper = Mage::helper("dhlonlineretoure/validate"); ?>
+
+<?php
+/*
+ * If the block should be only visible for orders with shipments, add the check ...
+ * true === $validateHelper->isOrderHasShipments($order)
+ * ... to the following if-statement
+ */
+if ($order && true === $validateHelper->isDeliveryNameAvailable($order)
+    && true === Mage::getModel("dhlonlineretoure/config")->isAllowedShippingMethod($order->getShippingMethod())):
+?>
+    <div class="dhlonlineretoure_retoure" style="border-top:2px solid #EAEAEA;">
+        <b><?php echo $validateHelper->__('DHL Online Return');?></b>
+        <p>
+            <?php
+                echo $validateHelper->__(
+                    'Create your <a href="%s">return label</a> online and deliver your parcel to a <a href="%s">nearby location</a>.',
+                    $this->getReturnLinkWithHash(),
+                    'http://standorte.deutschepost.de'
+                );
+            ?>
+        </p>
+    </div>
+<?php endif; ?>
