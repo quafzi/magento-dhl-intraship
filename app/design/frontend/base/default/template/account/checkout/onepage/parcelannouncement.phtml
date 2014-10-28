@@ -1,35 +1,53 @@
+<?php /* @var $this Dhl_Account_Block_Checkout_Onepage_Parcelannouncement */?>
+
+<?php if ($this->isParcelAnnouncementEnabled() || $this->isPreferredDeliveryDateEnabled()): ?>
 <ul id="parcel_announcement_box" class="form-list" style="margin: 5px; background-color: rgb(255,204,0); padding: 5px;">
+    <?php if ($this->isParcelAnnouncementEnabled()): ?>
     <li>
-        <input type="checkbox" onclick="toggleDhlAccount()" class="checkbox" title="DHL <?php print $this->__('Package announcement'); ?>" name="billing[parcel_announcement]" value="0" id="billing:package_announcement">
-        <label style="float: none;" id="package_announcement_label" for="billing:package_announcement">DHL <?php print $this->__('Package announcement') ?></label>
+        <input type="checkbox" class="checkbox" title="DHL <?php echo $this->__('Package Notification') ?>" name="billing[package_notification]" value="package_notification" id="billing:package_notification" />
+        <label style="float: none;" id="package_notification_label" for="billing:package_notification">DHL <?php print $this->__('Package Notification') ?></label>
     </li>
     <li>
         <span>
-            <?php print $this->__('DHL keeps you informed about the planned delivery of your parcel via SMS or e-mail.'); ?>
-            <?php print $this->__('If desired, you can defer the delivery to another day.'); ?>
-            <?php print $this->__('Please use your street address for using this service.'); ?>
+            <?php print $this->__('DHL keeps you informed about the planned delivery day via email.'); ?>
         </span>
     </li>
-    <li id="dhl_account_number" style="display: none;">
-        <label id="dhl_account_label" class="required text" for="billing:dhl-account">
-            <?php print $this->__('DHL account number'); ?>
-            <em style="float: none; position: static; right: 0px;">*</em>
-            <span style="font-size: 15px; text-decoration: none; color: #1E7EC8;"
-                  title="<?php print $this->__('DHL customer account number'); ?>">
-                ?
+    <?php endif; ?>
+    <?php if ($this->isPreferredDeliveryDateEnabled()): ?>
+        <li>
+            <input type="checkbox" onclick="toggleDhlAccount()" class="checkbox" title="DHL <?php print $this->__('Preferred Delivery Date'); ?>" name="billing[preferred_date]" value="0" id="billing:preferred_date">
+            <label style="float: none;" id="preferred_date_label" for="billing:preferred_date">DHL <?php print $this->__('Preferred Delivery Date') ?></label>
+        </li>
+        <li>
+            <span>
+                <?php print $this->__('DHL wants to deliver your parcel but you are not at home?'); ?>
+                <?php print $this->__('You can move the delivery date for your parcel by up to four working days. To do this, simply log in to your Paket.de account.'); ?>
+                <?php print $this->__('In order to use this service, please provide your PostNumber with your order.'); ?>
             </span>
-        </label>
-        <div class="input-box" style="width: 350px;">
-            <input type="text"
-                   class="text required-entry"
-                   title="<?php print $this->__('DHL account number'); ?>"
-                   name="billing[dhlaccount]" value="" id="billing:dhl-account">
-        </div>
-    </li>
+        </li>
+        <li id="dhl_account_number" style="display: none;">
+            <label id="dhl_account_label" class="required text" for="billing:dhl-account">
+                <?php print $this->__('DHL account number'); ?>
+                <em style="float: none; position: static; right: 0px;">*</em>
+                <span style="font-size: 15px; text-decoration: none; color: #1E7EC8;"
+                      title="<?php print $this->__('DHL customer account number'); ?>">
+                    ?
+                </span>
+            </label>
+            <div class="input-box" style="width: 350px;">
+                <input type="text"
+                       class="text required-entry"
+                       title="<?php print $this->__('DHL account number'); ?>"
+                       name="billing[dhlaccount]" value="" id="billing:dhl-account">
+            </div>
+        </li>
+    <?php endif; ?>
     <li style="text-align: right;">
         <img src="<?php echo $this->getSkinUrl('images/dhl/dhl_logo.png'); ?>">
     </li>
 </ul>
+<?php endif; ?>
+
 <input type="checkbox" name="shipping[resetParcelAnnouncement]" style="display: none;" id="shipping:resetParcelAnnouncement">
 <script type="text/javascript">
     if ($('billing:ship_to_packstation') != null) {
@@ -44,7 +62,7 @@
     function toggleDhlAccount()
     {
         var display = 'none';
-        if ($('billing:package_announcement').checked) {
+        if ($('billing:preferred_date').checked) {
             display = 'inline';
             $('billing:dhl-account').addClassName('required-entry');
             $('billing:dhl-account').addClassName('validate-six-to-ten-digits');

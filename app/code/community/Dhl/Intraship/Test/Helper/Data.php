@@ -4,27 +4,27 @@ class Dhl_Intraship_Test_Helper_Data extends EcomDev_PHPUnit_Test_Case
 {
     protected $config = null;
     protected $helper = null;
-  
+
     public function setUp()
     {
       parent::setUp();
       $this->config = new Config();
       $this->helper = new Dhl_Intraship_Helper_Data();
     }
-    
+
     public function testG()
     {
       $config = $this->config;
       $config->setProductWeightUnit($config::WEIGHT_UNIT_G);
       $this->assertEquals(1, $this->helper->convertWeight(1000, $this->config));
     }
-  
+
     public function testKg()
     {
       $config = $this->config;
       $config->setProductWeightUnit($config::WEIGHT_UNIT_KG);
       $this->assertEquals(1000, $this->helper->convertWeight(1000, $this->config));
-    }  
+    }
 
     public function testSplitStreet()
     {
@@ -52,7 +52,7 @@ class Dhl_Intraship_Test_Helper_Data extends EcomDev_PHPUnit_Test_Case
             'M4 8'                              => array('street_name' => 'M4',                           'street_number' => '8',     'care_of' => ''),
             '1.Straße'                          => array('street_name' => '1.Straße',                     'street_number' => '',      'care_of' => ''),
         );
-        
+
         foreach ($streets as $given=>$expected) {
             $result = Mage::helper('intraship/data')->splitStreet($given);
             $this->assertEquals($expected, $result);

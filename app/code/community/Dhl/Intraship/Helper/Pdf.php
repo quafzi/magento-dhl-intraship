@@ -57,10 +57,10 @@ class Dhl_Intraship_Helper_Pdf extends Mage_Core_Helper_Abstract
     public function merge()
     {
         // Include required fpdi library.
-        if (!class_exists(FPDF)) {
+        if (!class_exists('FPDF', false)) {
              require_once Mage::getBaseDir('base').DS.'lib'.DS.'fpdf'.DS.'fpdf.php';
         }
-        if (!class_exists(FPDI)) {
+        if (!class_exists('FPDI', false)) {
                 require_once Mage::getBaseDir('base').DS.'lib'.DS.'fpdf'.DS.'fpdi.php';
         }
 
@@ -68,17 +68,14 @@ class Dhl_Intraship_Helper_Pdf extends Mage_Core_Helper_Abstract
         try {
             // Create new FPDI document
             $this->_document = new FPDI('P', 'mm', $this->getConfig()->getFormat());
-            $margins = $this->getConfig()->getMargins();
             $this->_document->SetAutoPageBreak(false);
-            $page = 1;              
+            $page = 1;
             foreach ($this->_collection as $document):
                $pages = $this->_document->setSourceFile($document->getFilePath());
                for ($i = 1; $i <= $pages; $i++):
                    $this->_document->addPage();
                    $this->_document->useTemplate(
-                       $this->_document->importPage($i, '/MediaBox'),
-                       $margins['left'],
-                       $margins['top']
+                       $this->_document->importPage($i, '/MediaBox')
                    );
                    $page++;
                 endfor;
@@ -94,7 +91,7 @@ class Dhl_Intraship_Helper_Pdf extends Mage_Core_Helper_Abstract
 
     /**
      * get config model
-     * 
+     *
      * @return Dhl_Intraship_Model_Config
      */
     public function getConfig()
@@ -164,10 +161,12 @@ class Dhl_Intraship_Helper_Pdf extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Return merged PDF document with header application/pdf.
+     * Send merged PDF document to client.
      *
+     * @deprecated 13.11.28 Direct output not recommended, use controller functionality instead.
+     * @see Dhl_Intraship_Helper_Pdf::retrieve()
+     * @see Mage_Core_Controller_Varien_Action::_prepareDownloadResponse()
      * @param  string $pdfOutputName
-     * 
      * @return void
      */
     public function render($pdfOutputName='intraship')
@@ -175,5 +174,16 @@ class Dhl_Intraship_Helper_Pdf extends Mage_Core_Helper_Abstract
         // header('Content-type: application/pdf');
         // header('Content-Disposition: attachment; filename="' . $pdfOutputName . '.pdf"');
         $this->_document->Output($pdfOutputName, 'D');
+    }
+
+    /**
+     * Retrieve current PDF buffer as string.
+     *
+     * @param string $pdfOutputName
+     * @return string
+     */
+    public function retrieve($pdfOutputName = 'doc.pdf')
+    {
+        return $this->_document->Output($pdfOutputName, 'S');
     }
 }

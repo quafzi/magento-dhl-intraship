@@ -54,7 +54,7 @@ class Dhl_Account_Model_Quote_Address extends Mage_Sales_Model_Quote_Address
                     $errors[] = Mage::helper('customer')->__('Only 3 digits are allowed for packstations.');
                 }
                 if ((Mage::getModel('dhlaccount/config')->isPackstationEnabled()
-                    || Mage::getModel('dhlaccount/config')->isParcelAnnouncementEnabled())
+                    || Mage::getModel('dhlaccount/config')->isPreferredDeliveryDateEnabled())
                      && 0 < strlen(trim($this->getDhlaccount()))
                      && !preg_match('/^\d{6,10}$/i',trim($this->getDhlaccount()))) {
                     $errors[] = Mage::helper('customer')->__('Only 6 to 10 digits are allowed for DHL account number') . ' '. $this->getDhlaccount() . '.';

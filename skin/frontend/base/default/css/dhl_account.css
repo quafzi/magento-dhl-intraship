@@ -1,65 +1,87 @@
 @CHARSET "UTF-8";
 
+
 #dhlaccount_shipping_packstation input.packstation_checkbox {
-  margin-left: 5px; margin-right: 5px;
+    margin-left: 5px; margin-right: 5px;
 }
-
 #shipping_dhl_account_number {
-  display: none;
+    display: none;
 }
-
 #shipping_dhl_account_label > em, #dhl_account_label > em,
 #dhl_packingstation_label > em {
-  float: none; position: static; right: 0px;
+    float: none; position: static; right: 0px;
 }
-
 #shipping_dhl_account_label > span, #dhl_account_label > span {
-  font-size: 15px; text-decoration: none; color: #1E7EC8;
+    font-size: 15px; text-decoration: none; color: #1E7EC8;
 }
-
 #dhl_account_label + div {
-  width: 400px;
+    width: 400px;
 }
-
 #dhl_packstation {
-  display: none; width: 100%;
+    display: none; width: 100%;
 }
-
 #dhl_packstation > span {
-  display: inline;
+    display: inline;
 }
-
 #dhl_packstation span.input-box {
-  width: 100%
+    width: 100%;
 }
-
 #dhl_packstation a > img {
-  padding: 1px;
+    padding: 1px;
 }
-
 #dhl_packstation a + span {
-  font-size: 0.6em;
+    font-size: 0.6em;
 }
-
 #dhl_packstation label + span {
-  clear: left; display: block; font-size: 0.85em;
+    clear: left; display: inline-block; font-size: 0.85em;
 }
-/*
+#dhl_packstation div.field {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    /* IE9 fixing settings*/
+    display: block \9;
+    margin-bottom: 1em \9;
+
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -webkit-box-align: flex-start;
+    -moz-box-align: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+}
+/*shipping:packstationfinder_label
 #shipping:packstationerrors {
-  display: none; background: none; padding-left: 0px;
+display: none; background: none; padding-left: 0px;
 }
 */
-
 #shipping-packstationbuttons {
-	display: none; margin-top: 1px;
+    display: none; margin-top: 1px;
 }
-
+#dhl_packstation div.field label{
+    display: block \9;
+}
 #shipping-packstationbuttons button{
-	margin-left: 3px;
-	margin-top: 3px;
+    margin-left: 3px;
+    margin-top: 3px;
 }
-
 .dhl-packstation-select {
-	padding-bottom: 0;
-	padding-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
 }

@@ -1,0 +1,9 @@
+<?php /* @var $this DHL_Intraship_Block_Adminhtml_Notifications */ ?>
+<?php if ($message = $this->getMessage()): ?>
+    <div class="notification-global">
+        <span class="f-right">
+            <img src="<?php echo $this->getSkinUrl('images/dhl/dhl_logo.png') ?>" alt="DHL Logo" height="16" style="vertical-align: middle"/>
+        </span>
+        <span><?php echo $this->__($message) ?></span>
+    </div>
+<?php endif; ?>

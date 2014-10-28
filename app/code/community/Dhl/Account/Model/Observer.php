@@ -19,9 +19,8 @@ class Dhl_Account_Model_Observer
      */
     public function appendParcelAnnouncementToBilling($observer)
     {
-        if ($observer->getBlock() instanceof Mage_Checkout_Block_Onepage_Billing 
+        if ($observer->getBlock() instanceof Mage_Checkout_Block_Onepage_Billing
             && false == $observer->getBlock() instanceof Mage_Paypal_Block_Express_Review_Billing
-            && Mage::getStoreConfig('intraship/dhlaccount/active')
         ) {
             $transport = $observer->getTransport();
             $block     = $observer->getBlock();
@@ -44,13 +43,13 @@ class Dhl_Account_Model_Observer
      */
     public function appendPackingstationToShipping($observer)
     {
-        if ($observer->getBlock() instanceof Mage_Checkout_Block_Onepage_Shipping
-            && false == $observer->getBlock() instanceof Mage_Paypal_Block_Express_Review_Shipping
+        $block     = $observer->getBlock();
+        if ($block instanceof Mage_Checkout_Block_Onepage_Shipping
+            && false == $block instanceof Mage_Paypal_Block_Express_Review_Shipping
             && Mage::getModel('intraship/config')->isEnabled()
-            && Mage::getModel('dhlaccount/config')->isPackstationEnabled()
+            && Mage::getModel('dhlaccount/config')->isPackstationEnabled($block->getQuote()->getStoreId())
         ) {
             $transport = $observer->getTransport();
-            $block     = $observer->getBlock();
             $layout    = $block->getLayout();
             $html      = $transport->getHtml();
             $parcelAnnouncementHtml = $layout->createBlock(
@@ -91,7 +90,7 @@ class Dhl_Account_Model_Observer
     {
         $data = Mage::app()->getRequest()->getPost();
         if (array_key_exists('billing', $data) &&
-            array_key_exists('parcel_announcement', $data['billing']) &&
+            array_key_exists('preferred_date', $data['billing']) &&
             array_key_exists('dhlaccount', $data['billing']) &&
             0 < strlen(trim($data['billing']['dhlaccount']))
         ) {
@@ -99,9 +98,34 @@ class Dhl_Account_Model_Observer
                 ->setData('dhlaccount', $data['billing']['dhlaccount'])
                 ->save();
 
-            Mage::getSingleton('checkout/session')->getQuote()->getShippingAddress()->setData('dhlaccount', Mage::getSingleton('checkout/session')->getQuote()->getBillingAddress()->getDhlaccount())->save();
-
+            Mage::getSingleton('checkout/session')->getQuote()->getShippingAddress()
+                ->setData('dhlaccount', Mage::getSingleton('checkout/session')->getQuote()->getBillingAddress()->getDhlaccount())
+                ->save();
         }
+    }
+
+    /**
+     * Save package notification flag to quote, i.e. whether email address should
+     * get transferred to Intraship web service for package notification or not.
+     *
+     * @param Varien_Event_Observer $observer
+     * @return Dhl_Account_Model_Observer
+     */
+    public function savePackageNotificationFlag(Varien_Event_Observer $observer)
+    {
+        $data = Mage::app()->getRequest()->getPost();
+        $address = Mage::getSingleton('checkout/session')->getQuote()->getBillingAddress();
+
+        if ((array_key_exists('billing', $data)
+            && array_key_exists('package_notification', $data['billing']))
+        ) {
+            $address->setPackageNotification(true);
+        } else {
+            $address->setPackageNotification(false);
+        }
+
+        $address->save();
+        return $this;
     }
 
     /**
@@ -150,6 +174,8 @@ class Dhl_Account_Model_Observer
     public function dhlIntrashipSendShipmentBefore($event)
     {
         $request = $event->getRequest();
+
+
         $parcel = $request->offsetGet('shipment');
         $dhlaccount = $parcel->getShipment()->getBillingAddress()->getDhlaccount();
         if (!is_null($parcel->getShipment()->getShippingAddress()->getDhlaccount()))  {
@@ -182,6 +208,28 @@ class Dhl_Account_Model_Observer
             }
             $request->offsetGet('params')->offsetSet('ShipmentOrder', $data);
         }
+    }
+
+    public function appendReceiverEmail(Varien_Event_Observer $observer)
+    {
+        /* @var $request Dhl_Intraship_Model_Soap_Client_Shipment_Create */
+        $request = $observer->getEvent()->getRequest();
+        $parcel = $request->offsetGet('shipment');
+
+
+        $packageNotification = (bool) $parcel
+            ->getShipment()
+            ->getBillingAddress()
+            ->getPackageNotification();
+
+        if ($packageNotification) {
+            $email = trim($request->offsetGet('receiver')->getEmail());
+            $shipmentOrder = $request->offsetGet('params')->offsetGet('ShipmentOrder');
+            $shipmentOrder['Shipment']['Receiver']['Communication']['email'] = $email;
+            $request->offsetGet('params')->offsetSet('ShipmentOrder', $shipmentOrder);
+        }
+
+        return $this;
     }
 
     public function dhlIntrashipShipmentLoadAfter($event)

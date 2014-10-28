@@ -39,25 +39,14 @@ class Dhl_Intraship_Model_Autocreate
      */
     public function execute(ArrayObject $settings = null)
     {
-        foreach ($this->_getCollection() as $order):
-            // Compare order creation date with dhl instrahip install date.
-            if (false === $this->_compareWithInstallDate($order)):
-                continue;
-            endif;
-            //Don't send orders with disabled shipping method
-            if (false === Mage::getModel('intraship/config')
-                    ->isAllowedShippingMethod($order->getShippingMethod())):
-                continue;
-            endif;
-            
-            // DHLIS-313: Do not handle orders to be sent outside the EU
+        foreach (Mage::helper('intraship/data')->getAutocreateOrders() as $order) {
             $countryId = $order->getShippingAddress()->getCountryId();
-            if (true === $this->getConfig()->isInternationalShipping($countryId)):
-                continue;
-            endif;
-            // Handle order.
-            $this->_handleOrder($order, $settings);
-        endforeach;
+            // DHLIS-313: Do not handle orders to be sent outside the EU
+            if (!$this->getConfig()->isInternationalShipping($countryId)) {
+                $this->_handleOrder($order, $settings);
+            }
+        }
+
         return $this;
     }
 
@@ -85,12 +74,12 @@ class Dhl_Intraship_Model_Autocreate
             if (true === $notify):
                 $shipment->addComment($message, $notify)->setEmailSent($notify);
             endif;
-            
+
             // Notify customer
             $shipment->getOrder()->setCustomerNoteNotify($notify);
             // Save shipment.
             $this->saveShipment($shipment, $settings)->sendEmail(
-                $notify, $message);                
+                $notify, $message);
 
         } catch (Exception $e) {
             // Add comment to order if exception appears.
@@ -155,7 +144,7 @@ class Dhl_Intraship_Model_Autocreate
      * @param  Mage_Sales_Model_Order   		$order
      * @param  string                   		$comment
      * @param  boolean  						$isShipmentSuccessfullyCreated
-     * 
+     *
      * @return void
      */
     public function addCommentToOrder(Mage_Sales_Model_Order $order, $comment, $isShipmentSuccessfullyCreated = false)
@@ -172,29 +161,29 @@ class Dhl_Intraship_Model_Autocreate
         /*
          * for Magento 1.3.x.x
          */
-        else:        	
+        else:
         	//Get existing order status
-        	$status = $order->getStatus(); 
-        	
+        	$status = $order->getStatus();
+
         	//If shipment was created successfully
         	if (true === $isShipmentSuccessfullyCreated):
         		$status = Mage_Sales_Model_Order::STATE_PROCESSING;
         	endif;
-        	
+
         	//Is status is empty, take state
         	if ($status==""):
         		$status = $order->getState();
-        	endif;        	
-        	
+        	endif;
+
         	if (false === $isShipmentSuccessfullyCreated):
         		/*
-        		 * reload the order to avoid that unwanted order data is saved | SEE DHLIS-181 
+        		 * reload the order to avoid that unwanted order data is saved | SEE DHLIS-181
         		 *  Order Items are set as shipped in CE 1.3 even if there was an exception
         		 */
 				$order = Mage::getModel('sales/order')->load($order->getId());
         	endif;
-        	   	
-            $order->addStatusToHistory($status, $comment)->save();     
+
+            $order->addStatusToHistory($status, $comment)->save();
         endif;
     }
 
@@ -207,14 +196,14 @@ class Dhl_Intraship_Model_Autocreate
      * @return Mage_Sales_Model_Order_Shipment  $shipment
      */
     public function saveShipment(Mage_Sales_Model_Order_Shipment $shipment,
-        ArrayObject $settings = null) 
+        ArrayObject $settings = null)
     {
         /* @var $order Mage_Sales_Model_Order */
         $order = $shipment->getOrder();
         // Create default shipment.
         $order->setIsInProcess(true);
         $transaction = Mage::getModel('core/resource_transaction')
-            ->addObject($shipment)->addObject($order)->save();       
+            ->addObject($shipment)->addObject($order)->save();
 
         // Create intraship shipment.
         $countryId = $shipment->getShippingAddress()->getCountryId();
@@ -258,7 +247,7 @@ class Dhl_Intraship_Model_Autocreate
             foreach ($shipment->getOrder()->getItemsCollection() as $item):
                 if (false === Mage::helper('intraship')->isAllowedProductTypeForWeightCalculation($item->getProductType()))
                     continue;
-                
+
                 $weight += Mage::helper('intraship')->convertWeight(
                     (float) $item->getWeight() * (float) $item->getQtyOrdered()
                 );
@@ -372,18 +361,18 @@ class Dhl_Intraship_Model_Autocreate
     {
         $codes     = $this->getConfig()->getAutocreateStatusCodes()->getArrayCopy();
         $payments  = $this->getConfig()->getAutocreatePaymentMethods()->getArrayCopy();
-        
+
         //Check if all configurations was done
         if (empty($codes)):
         	 throw new Dhl_Intraship_Model_Autocreate_Exception(
         	 	'Please set the order status for the autocreate mode in the config area.');
         endif;
-        
+
         if (empty($payments)):
         	 throw new Dhl_Intraship_Model_Autocreate_Exception(
         	 	'Please set the payment methods for the autocreate mode in the config area.');
-        endif;  
-        	 
+        endif;
+
         /*
          * Get collection for Magento 1.4.x.x
          */
@@ -399,7 +388,7 @@ class Dhl_Intraship_Model_Autocreate
                 'join_table' => Mage::getSingleton('core/resource')
                                   ->getTableName('sales_flat_order_payment')),
                 'main_table.entity_id = join_table.entity_id',
-                array('join_table.*'))->where($paymentWhere);  
+                array('join_table.*'))->where($paymentWhere);
         /*
          * Get collection for Magento 1.3.x.x
          */
@@ -441,7 +430,7 @@ class Dhl_Intraship_Model_Autocreate
                 );
                 $paymentWhere = sprintf("soev.value = '%s'", implode(
                     "' OR soev.value = '", $payments));
-                $sql = $collection->getSelect()->where($paymentWhere);        
+                $sql = $collection->getSelect()->where($paymentWhere);
         endif;
         return $collection;
     }
@@ -475,21 +464,5 @@ class Dhl_Intraship_Model_Autocreate
             $this->addCommentToOrder($order, $e->getMessage());
          }
          return $this;
-    }
-
-    /**
-     * Compare order creation date with dhl intraship install date.
-     * Return TRUE if order create date is larger than install date,
-     * otherwise return FALSE.
-     *
-     * @param  Mage_Sales_Model_Order   $order
-     * @return boolean
-     */
-    protected function _compareWithInstallDate(Mage_Sales_Model_Order $order)
-    {
-        $installDate = $this->getConfig()->getInstallDate(true);
-        $orderDate   = strtotime($order->getCreatedAtDate());
-        // Compare unix timestamps and return result.
-        return ($orderDate >= $installDate);
     }
 }

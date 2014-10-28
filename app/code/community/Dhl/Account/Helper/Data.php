@@ -28,4 +28,48 @@ class Dhl_Account_Helper_Data extends Mage_Core_Helper_Data
         return $this;
     }
 
+    /**
+     * Build JSON string for frontend display.
+     * @param string $error Error message
+     */
+    public function buildPackstationError($error)
+    {
+        $result = array();
+        $key = Zend_Json::encode(array(
+            'packstationnumber' => '',
+            'zip'               => '',
+            'city'              => '',
+            'errors'            => $this->__($error),
+            'distance'          => '',
+        ));
+        $result[$key] = $this->__($error);
+        return Zend_Json::encode($result);
+    }
+
+    /**
+     * Build JSON string for frontend display.
+     * @param array $automats Automats
+     */
+    public function buildPackstationSuccess(array $automats)
+    {
+        $result = array();
+        foreach ($automats as $automat) {
+            $key = Zend_Json::encode(array(
+                'packstationnumber' => $automat['packstationnumber'],
+                'zip'               => $automat['zip'],
+                'city'              => $automat['city'],
+                'errors'            => '',
+                'distance'          => $this->__('distance') . ': ' . $automat['distance'],
+            ));
+            $result[$key] = sprintf(
+                "%s: %s %s, %s %s",
+                $automat['packstationnumber'],
+                $automat['street'],
+                $automat['streetno'],
+                $automat['zip'],
+                $automat['city']
+            );
+        }
+        return Zend_Json::encode($result);
+    }
 }

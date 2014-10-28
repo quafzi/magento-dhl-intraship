@@ -42,12 +42,32 @@ endobj
 % 'Page1': class PDFPage 
 5 0 obj
 % Page dictionary
-<< /Contents 14 0 R
+<< /Contents 15 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 13 0 R
+ /Parent 14 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ]
+ /XObject << /FormXob.67a4ead415e6259bc52bc1b1ab1928bd 4 0 R >> >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page2': class PDFPage 
+6 0 obj
+% Page dictionary
+<< /Contents 16 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 14 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -60,7 +80,7 @@ endobj
  /Type /Page >>
 endobj
 % 'Annot.NUMBER1': class PDFDictionary 
-6 0 obj
+7 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (http://dhl.de/webservice/cisbase:EKP) >>
@@ -68,42 +88,22 @@ endobj
  0
  0 ]
  /Rect [ 313.6102
- 180.9243
+ 318.9243
  478.1302
- 192.9243 ]
+ 330.9243 ]
  /Subtype /Link
  /Type /Annot >>
-endobj
-% 'Page2': class PDFPage 
-7 0 obj
-% Page dictionary
-<< /Annots [ 6 0 R ]
- /Contents 15 0 R
- /MediaBox [ 0
- 0
- 595.2756
- 841.8898 ]
- /Parent 13 0 R
- /Resources << /Font 1 0 R
- /ProcSet [ /PDF
- /Text
- /ImageB
- /ImageC
- /ImageI ]
- /XObject << /FormXob.67a4ead415e6259bc52bc1b1ab1928bd 4 0 R >> >>
- /Rotate 0
- /Trans <<  >>
- /Type /Page >>
 endobj
 % 'Page3': class PDFPage 
 8 0 obj
 % Page dictionary
-<< /Contents 16 0 R
+<< /Annots [ 7 0 R ]
+ /Contents 17 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 13 0 R
+ /Parent 14 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -118,12 +118,12 @@ endobj
 % 'Page4': class PDFPage 
 9 0 obj
 % Page dictionary
-<< /Contents 17 0 R
+<< /Contents 18 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 13 0 R
+ /Parent 14 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -138,12 +138,12 @@ endobj
 % 'Page5': class PDFPage 
 10 0 obj
 % Page dictionary
-<< /Contents 18 0 R
+<< /Contents 19 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 13 0 R
+ /Parent 14 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -155,39 +155,60 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'R11': class PDFCatalog 
+% 'Page6': class PDFPage 
 11 0 obj
+% Page dictionary
+<< /Contents 20 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 14 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ]
+ /XObject << /FormXob.67a4ead415e6259bc52bc1b1ab1928bd 4 0 R >> >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'R12': class PDFCatalog 
+12 0 obj
 % Document Root
-<< /Outlines 19 0 R
- /PageLabels 20 0 R
+<< /Outlines 21 0 R
+ /PageLabels 22 0 R
  /PageMode /UseNone
- /Pages 13 0 R
+ /Pages 14 0 R
  /Type /Catalog >>
 endobj
-% 'R12': class PDFInfo 
-12 0 obj
+% 'R13': class PDFInfo 
+13 0 obj
 << /Author ()
- /CreationDate (D:20130705144555-01'00')
+ /CreationDate (D:20140819133430-01'00')
  /Keywords ()
  /Producer (ReportLab http://www.reportlab.com)
  /Subject (\(unspecified\))
  /Title (DHL Paket - Magento Extension zur Einbindung des Versandlogistiksystems "Intraship") >>
 endobj
-% 'R13': class PDFPages 
-13 0 obj
+% 'R14': class PDFPages 
+14 0 obj
 % page tree
-<< /Count 5
+<< /Count 6
  /Kids [ 5 0 R
- 7 0 R
+ 6 0 R
  8 0 R
  9 0 R
- 10 0 R ]
+ 10 0 R
+ 11 0 R ]
  /Type /Pages >>
 endobj
-% 'R14': class PDFStream 
-14 0 obj
+% 'R15': class PDFStream 
+15 0 obj
 % page stream
-<< /Length 8983 >>
+<< /Length 8500 >>
 stream
 1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
 q
@@ -208,19 +229,19 @@ q
 1 0 0 1 62.69291 665.3543 cm
 Q
 q
-1 0 0 1 62.69291 221.3543 cm
+1 0 0 1 62.69291 269.3543 cm
 1 1 1 rg
-n 0 444 469.8898 -18 re f*
+n 0 396 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 426 469.8898 -234 re f*
+n 0 378 469.8898 -210 re f*
 1 1 1 rg
-n 0 192 469.8898 -192 re f*
+n 0 168 469.8898 -168 re f*
 .960784 .960784 .862745 rg
-n 0 444 469.8898 -18 re f*
+n 0 396 469.8898 -18 re f*
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 429 cm
+1 0 0 1 6 381 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 46.73622 12 re f*
@@ -231,7 +252,7 @@ BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL 2.52811 0 Td (Revision) Tj T* -2.52811 0 Td
 Q
 Q
 q
-1 0 0 1 64.73622 429 cm
+1 0 0 1 64.73622 381 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 46.73622 12 re f*
@@ -242,7 +263,7 @@ BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL 7.81311 0 Td (Datum) Tj T* -7.81311 0 Td ET
 Q
 Q
 q
-1 0 0 1 123.4724 429 cm
+1 0 0 1 123.4724 381 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 340.4173 12 re f*
@@ -253,34 +274,536 @@ BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL 136.8687 0 Td (Beschreibung) Tj T* -136.868
 Q
 Q
 q
-1 0 0 1 6 411 cm
+1 0 0 1 6 363 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (14.08.19) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 363 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (19.08.2014) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 363 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 357 cm
+Q
+q
+1 0 0 1 123.4724 357 cm
+Q
+q
+1 0 0 1 123.4724 345 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Layout-Anpassungen f\374r RWD-Theme) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 339 cm
+Q
+q
+1 0 0 1 123.4724 327 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Refactoring der automatischen Sendungserstellung) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 321 cm
+Q
+q
+1 0 0 1 123.4724 309 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Paketank\374ndigung separat \(de-\)aktivierbar) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 303 cm
+Q
+q
+1 0 0 1 123.4724 279 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 11.95955 Tw (Ersetzen von Umlauten f\374r den Verwendungszweck bei) Tj T* 0 Tw (Nachnahme-Sendungen) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 279 cm
+Q
+q
+1 0 0 1 123.4724 267 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 261 cm
+Q
+q
+1 0 0 1 123.4724 261 cm
+Q
+q
+1 0 0 1 123.4724 249 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Ber\374cksichtigung von Store Codes in URL) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 243 cm
+Q
+q
+1 0 0 1 123.4724 219 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 4.919554 Tw (Anpassen des Encodings im Packstationsfinder nach Umstellung) Tj T* 0 Tw (seitens DHL) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 213 cm
+Q
+q
+1 0 0 1 123.4724 201 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Behandlung von Sonderzeichen in Intraship-Benutzerdaten) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 195 cm
+Q
+q
+1 0 0 1 123.4724 171 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 1.124554 Tw (Zur\374cksetzen der Wunschtermin-Option bei Wahl einer abweichenden) Tj T* 0 Tw (Lieferadresse) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 171 cm
+Q
+q
+1 0 0 1 6 153 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (13.11.28) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 153 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (28.11.2013) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 153 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 147 cm
+Q
+q
+1 0 0 1 123.4724 147 cm
+Q
+q
+1 0 0 1 123.4724 123 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 6.839618 Tw (Umstellung der DHL Intraship Schnittstelle auf das Customer) Tj T* 0 Tw (Integration Gateway \(CIG\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 117 cm
+Q
+q
+1 0 0 1 123.4724 105 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (\334berarbeitung Passwort-Validierung) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 99 cm
+Q
+q
+1 0 0 1 123.4724 87 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (\334berarbeitung Postleitzahl-Validierung) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 81 cm
+Q
+q
+1 0 0 1 123.4724 69 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Erweiterung Intraship-Dokumentation) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 69 cm
+Q
+q
+1 0 0 1 123.4724 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 51 cm
+Q
+q
+1 0 0 1 123.4724 51 cm
+Q
+q
+1 0 0 1 123.4724 39 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Laden der PDF-Bibliothek im PHP Strict Mode) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 33 cm
+Q
+q
+1 0 0 1 123.4724 21 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Korrekte Anwendung der PDF-Seitenrand-Konfiguration) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 15 cm
+Q
+q
+1 0 0 1 123.4724 3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (\334bernahme der Referenznummer auf Retoure-Label) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 3 cm
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 0 m 469.8898 0 l S
+n 0 378 m 469.8898 378 l S
+n 0 168 m 469.8898 168 l S
+n 58.73622 0 m 58.73622 396 l S
+n 117.4724 0 m 117.4724 396 l S
+n 0 396 m 469.8898 396 l S
+n 0 0 m 0 396 l S
+n 469.8898 0 m 469.8898 396 l S
+Q
+Q
+q
+1 0 0 1 411.0236 779.5276 cm
+q
+127.5591 0 0 34.01575 0 0 cm
+/FormXob.67a4ead415e6259bc52bc1b1ab1928bd Do
+Q
+Q
+q
+1 0 0 1 56.69291 56.69291 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 19/08/2014) Tj T* ET
+Q
+Q
+q
+1 0 0 1 246.9449 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (1/6) Tj T* -215.0449 0 Td ET
+Q
+Q
+q
+Q
+Q
+ 
+endstream
+
+endobj
+% 'R16': class PDFStream 
+16 0 obj
+% page stream
+<< /Length 10611 >>
+stream
+1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 195.3543 cm
+1 1 1 rg
+n 0 564 469.8898 -234 re f*
+.878431 .878431 .878431 rg
+n 0 330 469.8898 -192 re f*
+1 1 1 rg
+n 0 138 469.8898 -138 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 549 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (13.07.04) Tj T* ET
 Q
 Q
 q
-1 0 0 1 64.73622 411 cm
+1 0 0 1 64.73622 549 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (04.07.2013) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 411 cm
+1 0 0 1 123.4724 549 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 405 cm
+1 0 0 1 123.4724 543 cm
 Q
 q
-1 0 0 1 123.4724 405 cm
+1 0 0 1 123.4724 543 cm
 Q
 q
-1 0 0 1 123.4724 381 cm
+1 0 0 1 123.4724 519 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -301,10 +824,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 375 cm
+1 0 0 1 123.4724 513 cm
 Q
 q
-1 0 0 1 123.4724 363 cm
+1 0 0 1 123.4724 501 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -325,7 +848,981 @@ q
 Q
 Q
 q
+1 0 0 1 123.4724 501 cm
+Q
+q
+1 0 0 1 123.4724 489 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 483 cm
+Q
+q
+1 0 0 1 123.4724 483 cm
+Q
+q
+1 0 0 1 123.4724 471 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Fehlende Validierung der erlaubten Zeichenanzahl f\374r Adressfelder) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 465 cm
+Q
+q
+1 0 0 1 123.4724 441 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 8.801465 Tw (Intraship Tracking-Link wird auch f\374r Nicht-DHL-Versandarten) Tj T* 0 Tw (verwendet) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 435 cm
+Q
+q
+1 0 0 1 123.4724 411 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 6.353465 Tw (Intraship Tracking-Popup wird auch bei Nicht-DHL-Versandarten) Tj T* 0 Tw (verwendet) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 405 cm
+Q
+q
+1 0 0 1 123.4724 393 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Link zur Dokumentation in Modulkonfiguration inkorrekt) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 387 cm
+Q
+q
+1 0 0 1 123.4724 375 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (PHP Notice bei Zugriff auf undefinierte Konstante) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 375 cm
+Q
+q
 1 0 0 1 123.4724 363 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Anderes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 357 cm
+Q
+q
+1 0 0 1 123.4724 357 cm
+Q
+q
+1 0 0 1 123.4724 333 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL .008415 Tw (Umstellung der DHL Intraship Verwaltung von eingebettetem Frame auf) Tj T* 0 Tw (externen Link) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 333 cm
+Q
+q
+1 0 0 1 6 315 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (13.04.08) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 315 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (08.04.2013) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 315 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 309 cm
+Q
+q
+1 0 0 1 123.4724 309 cm
+Q
+q
+1 0 0 1 123.4724 297 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Kompatibilit\344t mit meinPaket.de-Import) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 291 cm
+Q
+q
+1 0 0 1 123.4724 267 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 1.118415 Tw (Es stehen f\374r den Verwendungszweck nun zus\344tzliche Platzhalter zur) Tj T* 0 Tw (Verf\374gung) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 267 cm
+Q
+q
+1 0 0 1 123.4724 255 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 249 cm
+Q
+q
+1 0 0 1 123.4724 249 cm
+Q
+q
+1 0 0 1 123.4724 225 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 2.072475 Tw (Trennung von Stra\337enname und Hausnummer bei Stra\337enname die) Tj T* 0 Tw (Nummern enthalten) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 219 cm
+Q
+q
+1 0 0 1 123.4724 207 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Einstellige Hausnummern werden falsch getrennt) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 201 cm
+Q
+q
+1 0 0 1 123.4724 189 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Label f\374r die Postnummer wird nicht angezeigt) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 189 cm
+Q
+q
+1 0 0 1 123.4724 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Anderes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 171 cm
+Q
+q
+1 0 0 1 123.4724 171 cm
+Q
+q
+1 0 0 1 123.4724 159 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Falscher ISO-L\344ndercode in Intraship-Doku) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 153 cm
+Q
+q
+1 0 0 1 123.4724 141 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Erweiterte Kurz-Tipps f\374r Passwort-Feld) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 141 cm
+Q
+q
+1 0 0 1 6 123 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (13.02.05) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 123 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (05.02.2013) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 123 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 117 cm
+Q
+q
+1 0 0 1 123.4724 117 cm
+Q
+q
+1 0 0 1 123.4724 105 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Extension nun kompatibel mit der Payone Extension) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 105 cm
+Q
+q
+1 0 0 1 123.4724 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 87 cm
+Q
+q
+1 0 0 1 123.4724 87 cm
+Q
+q
+1 0 0 1 123.4724 75 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Packstation finder fehlt bei checkout als Gast) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 69 cm
+Q
+q
+1 0 0 1 123.4724 57 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Infoblock im Backend falsch) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 51 cm
+Q
+q
+1 0 0 1 123.4724 39 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Falscher Stra\337ensplit falls keine Hausnummer angebenen wird) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 33 cm
+Q
+q
+1 0 0 1 123.4724 21 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Label "Postnummer" im Checkout ist unsichtbar) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 15 cm
+Q
+q
+1 0 0 1 123.4724 3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Packstationsfinder fehlt bei aktivierter Paketank\374ndigung) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 3 cm
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 564 m 469.8898 564 l S
+n 0 0 m 469.8898 0 l S
+n 0 330 m 469.8898 330 l S
+n 0 138 m 469.8898 138 l S
+n 58.73622 0 m 58.73622 564 l S
+n 117.4724 0 m 117.4724 564 l S
+n 0 0 m 0 564 l S
+n 469.8898 0 m 469.8898 564 l S
+Q
+Q
+q
+1 0 0 1 411.0236 779.5276 cm
+q
+127.5591 0 0 34.01575 0 0 cm
+/FormXob.67a4ead415e6259bc52bc1b1ab1928bd Do
+Q
+Q
+q
+1 0 0 1 56.69291 56.69291 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 19/08/2014) Tj T* ET
+Q
+Q
+q
+1 0 0 1 246.9449 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (2/6) Tj T* -215.0449 0 Td ET
+Q
+Q
+q
+Q
+Q
+ 
+endstream
+
+endobj
+% 'R17': class PDFStream 
+17 0 obj
+% page stream
+<< /Length 12102 >>
+stream
+1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 129.3543 cm
+1 1 1 rg
+n 0 630 469.8898 -114 re f*
+.878431 .878431 .878431 rg
+n 0 516 469.8898 -36 re f*
+1 1 1 rg
+n 0 480 469.8898 -36 re f*
+.878431 .878431 .878431 rg
+n 0 444 469.8898 -78 re f*
+1 1 1 rg
+n 0 366 469.8898 -96 re f*
+.878431 .878431 .878431 rg
+n 0 270 469.8898 -36 re f*
+1 1 1 rg
+n 0 234 469.8898 -108 re f*
+.878431 .878431 .878431 rg
+n 0 126 469.8898 -126 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 615 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.12.11) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 615 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (11.12.2012) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 615 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 609 cm
+Q
+q
+1 0 0 1 123.4724 609 cm
+Q
+q
+1 0 0 1 123.4724 597 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Gewichtsberechnung in Abh\344ngigkeit vom Produkttyp) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 597 cm
+Q
+q
+1 0 0 1 123.4724 585 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 579 cm
+Q
+q
+1 0 0 1 123.4724 579 cm
+Q
+q
+1 0 0 1 123.4724 555 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 5.805332 Tw (Bei aktiver Packstation bleibt der OnePageCheckout im Schritt) Tj T* 0 Tw (Lieferadresse h\344ngen) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 549 cm
+Q
+q
+1 0 0 1 123.4724 537 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Der Packstationsfinder wird au\337erhalb Deutschlands angezeigt) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 531 cm
+Q
+q
+1 0 0 1 123.4724 519 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Paypal Express Checkout wird blockiert) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 519 cm
+Q
+q
+1 0 0 1 6 501 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.09.10) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 501 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (10.09.2012) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 501 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 495 cm
+Q
+q
+1 0 0 1 123.4724 495 cm
+Q
+q
+1 0 0 1 123.4724 483 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Fehler im Order-Grid beim Laden der DHL-Kundennummer) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 483 cm
+Q
+q
+1 0 0 1 6 465 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.08.29) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 465 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (29.08.2012) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 465 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 459 cm
+Q
+q
+1 0 0 1 123.4724 459 cm
+Q
+q
+1 0 0 1 123.4724 447 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Fehler beim Anlegen einer Bestellung im Backend) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 447 cm
+Q
+q
+1 0 0 1 6 429 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.07.26) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 429 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.07.2012) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 429 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 423 cm
+Q
+q
+1 0 0 1 123.4724 423 cm
+Q
+q
+1 0 0 1 123.4724 399 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 4.08622 Tw (Implementierung des Service Paketank\374ndigung im Checkout \(bei) Tj T* 0 Tw (Rechnungsadresse\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 393 cm
+Q
+q
+1 0 0 1 123.4724 369 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 11.35346 Tw (Implementierung des Packstationsfinders im Checkout \(bei) Tj T* 0 Tw (Versandadresse\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 369 cm
+Q
+q
+1 0 0 1 6 351 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.07.03) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 351 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (03.07.2012) Tj T* ET
+Q
 Q
 q
 1 0 0 1 123.4724 351 cm
@@ -355,7 +1852,7 @@ q
 1 0 0 1 23 -3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Fehlende Validierung der erlaubten Zeichenanzahl f\374r Adressfelder) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Fehler beim Aufruf der Intraship-Konfiguration und PHP Mode "Strict") Tj T* ET
 Q
 Q
 q
@@ -378,980 +1875,6 @@ Q
 q
 1 0 0 1 23 -3 cm
 q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 8.801465 Tw (Intraship Tracking-Link wird auch f\374r Nicht-DHL-Versandarten) Tj T* 0 Tw (verwendet) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 297 cm
-Q
-q
-1 0 0 1 123.4724 273 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 6.353465 Tw (Intraship Tracking-Popup wird auch bei Nicht-DHL-Versandarten) Tj T* 0 Tw (verwendet) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 267 cm
-Q
-q
-1 0 0 1 123.4724 255 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Link zur Dokumentation in Modulkonfiguration inkorrekt) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 249 cm
-Q
-q
-1 0 0 1 123.4724 237 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (PHP Notice bei Zugriff auf undefinierte Konstante) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 237 cm
-Q
-q
-1 0 0 1 123.4724 225 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Anderes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 219 cm
-Q
-q
-1 0 0 1 123.4724 219 cm
-Q
-q
-1 0 0 1 123.4724 195 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL .008415 Tw (Umstellung der DHL Intraship Verwaltung von eingebettetem Frame auf) Tj T* 0 Tw (externen Link) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 195 cm
-Q
-q
-1 0 0 1 6 177 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (13.04.08) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 177 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (08.04.2013) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 177 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 171 cm
-Q
-q
-1 0 0 1 123.4724 171 cm
-Q
-q
-1 0 0 1 123.4724 159 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Kompatibilit\344t mit meinPaket.de-Import) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 153 cm
-Q
-q
-1 0 0 1 123.4724 129 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 1.118415 Tw (Es stehen f\374r den Verwendungszweck nun zus\344tzliche Platzhalter zur) Tj T* 0 Tw (Verf\374gung) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 129 cm
-Q
-q
-1 0 0 1 123.4724 117 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 111 cm
-Q
-q
-1 0 0 1 123.4724 111 cm
-Q
-q
-1 0 0 1 123.4724 87 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 2.072475 Tw (Trennung von Stra\337enname und Hausnummer bei Stra\337enname die) Tj T* 0 Tw (Nummern enthalten) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 81 cm
-Q
-q
-1 0 0 1 123.4724 69 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Einstellige Hausnummern werden falsch getrennt) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 63 cm
-Q
-q
-1 0 0 1 123.4724 51 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Label f\374r die Postnummer wird nicht angezeigt) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 51 cm
-Q
-q
-1 0 0 1 123.4724 39 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Anderes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 33 cm
-Q
-q
-1 0 0 1 123.4724 33 cm
-Q
-q
-1 0 0 1 123.4724 21 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Falscher ISO-L\344ndercode in Intraship-Doku) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 15 cm
-Q
-q
-1 0 0 1 123.4724 3 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Erweiterte Kurz-Tipps f\374r Passwort-Feld) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 3 cm
-Q
-q
-1 J
-1 j
-0 0 0 RG
-.25 w
-n 0 0 m 469.8898 0 l S
-n 0 426 m 469.8898 426 l S
-n 0 192 m 469.8898 192 l S
-n 58.73622 0 m 58.73622 444 l S
-n 117.4724 0 m 117.4724 444 l S
-n 0 444 m 469.8898 444 l S
-n 0 0 m 0 444 l S
-n 469.8898 0 m 469.8898 444 l S
-Q
-Q
-q
-1 0 0 1 411.0236 779.5276 cm
-q
-127.5591 0 0 34.01575 0 0 cm
-/FormXob.67a4ead415e6259bc52bc1b1ab1928bd Do
-Q
-Q
-q
-1 0 0 1 56.69291 56.69291 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 3 cm
-q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 05/07/2013) Tj T* ET
-Q
-Q
-q
-1 0 0 1 246.9449 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (1/5) Tj T* -215.0449 0 Td ET
-Q
-Q
-q
-Q
-Q
- 
-endstream
-
-endobj
-% 'R15': class PDFStream 
-15 0 obj
-% page stream
-<< /Length 12802 >>
-stream
-1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
-q
-1 0 0 1 62.69291 117.3543 cm
-1 1 1 rg
-n 0 642 469.8898 -138 re f*
-.878431 .878431 .878431 rg
-n 0 504 469.8898 -114 re f*
-1 1 1 rg
-n 0 390 469.8898 -36 re f*
-.878431 .878431 .878431 rg
-n 0 354 469.8898 -36 re f*
-1 1 1 rg
-n 0 318 469.8898 -78 re f*
-.878431 .878431 .878431 rg
-n 0 240 469.8898 -96 re f*
-1 1 1 rg
-n 0 144 469.8898 -36 re f*
-.878431 .878431 .878431 rg
-n 0 108 469.8898 -108 re f*
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 627 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (13.02.05) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 627 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (05.02.2013) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 627 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 621 cm
-Q
-q
-1 0 0 1 123.4724 621 cm
-Q
-q
-1 0 0 1 123.4724 609 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Extension nun kompatibel mit der Payone Extension) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 609 cm
-Q
-q
-1 0 0 1 123.4724 597 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 591 cm
-Q
-q
-1 0 0 1 123.4724 591 cm
-Q
-q
-1 0 0 1 123.4724 579 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Packstation finder fehlt bei checkout als Gast) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 573 cm
-Q
-q
-1 0 0 1 123.4724 561 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Infoblock im Backend falsch) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 555 cm
-Q
-q
-1 0 0 1 123.4724 543 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Falscher Stra\337ensplit falls keine Hausnummer angebenen wird) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 537 cm
-Q
-q
-1 0 0 1 123.4724 525 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Label "Postnummer" im Checkout ist unsichtbar) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 519 cm
-Q
-q
-1 0 0 1 123.4724 507 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Packstationsfinder fehlt bei aktivierter Paketank\374ndigung) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 507 cm
-Q
-q
-1 0 0 1 6 489 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.12.11) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 489 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (11.12.2012) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 489 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 483 cm
-Q
-q
-1 0 0 1 123.4724 483 cm
-Q
-q
-1 0 0 1 123.4724 471 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Gewichtsberechnung in Abh\344ngigkeit vom Produkttyp) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 471 cm
-Q
-q
-1 0 0 1 123.4724 459 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 453 cm
-Q
-q
-1 0 0 1 123.4724 453 cm
-Q
-q
-1 0 0 1 123.4724 429 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 5.805332 Tw (Bei aktiver Packstation bleibt der OnePageCheckout im Schritt) Tj T* 0 Tw (Lieferadresse h\344ngen) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 423 cm
-Q
-q
-1 0 0 1 123.4724 411 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Der Packstationsfinder wird au\337erhalb Deutschlands angezeigt) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 405 cm
-Q
-q
-1 0 0 1 123.4724 393 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Paypal Express Checkout wird blockiert) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 393 cm
-Q
-q
-1 0 0 1 6 375 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.09.10) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 375 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (10.09.2012) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 375 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 369 cm
-Q
-q
-1 0 0 1 123.4724 369 cm
-Q
-q
-1 0 0 1 123.4724 357 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Fehler im Order-Grid beim Laden der DHL-Kundennummer) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 357 cm
-Q
-q
-1 0 0 1 6 339 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.08.29) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 339 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (29.08.2012) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 339 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 333 cm
-Q
-q
-1 0 0 1 123.4724 333 cm
-Q
-q
-1 0 0 1 123.4724 321 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Fehler beim Anlegen einer Bestellung im Backend) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 321 cm
-Q
-q
-1 0 0 1 6 303 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.07.26) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 303 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.07.2012) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 303 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 297 cm
-Q
-q
-1 0 0 1 123.4724 297 cm
-Q
-q
-1 0 0 1 123.4724 273 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 4.08622 Tw (Implementierung des Service Paketank\374ndigung im Checkout \(bei) Tj T* 0 Tw (Rechnungsadresse\)) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 267 cm
-Q
-q
-1 0 0 1 123.4724 243 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 11.35346 Tw (Implementierung des Packstationsfinders im Checkout \(bei) Tj T* 0 Tw (Versandadresse\)) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 243 cm
-Q
-q
-1 0 0 1 6 225 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.07.03) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 225 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (03.07.2012) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 225 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 219 cm
-Q
-q
-1 0 0 1 123.4724 219 cm
-Q
-q
-1 0 0 1 123.4724 207 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Fehler beim Aufruf der Intraship-Konfiguration und PHP Mode "Strict") Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 201 cm
-Q
-q
-1 0 0 1 123.4724 177 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
 BT 1 0 0 1 0 16.82 Tm 5.485332 Tw 12 TL /F1 10 Tf 0 0 0 rg (Irref\374hrende Meldung beim Erstellen einer Sendung und einem) Tj T* 0 Tw (Gewicht > 31.5kg in Magento CE 1.7) Tj T* ET
 Q
 Q
@@ -1359,10 +1882,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 171 cm
+1 0 0 1 123.4724 297 cm
 Q
 q
-1 0 0 1 123.4724 147 cm
+1 0 0 1 123.4724 273 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1383,37 +1906,37 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 147 cm
+1 0 0 1 123.4724 273 cm
 Q
 q
-1 0 0 1 6 129 cm
+1 0 0 1 6 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (0.3.9) Tj T* ET
 Q
 Q
 q
-1 0 0 1 64.73622 129 cm
+1 0 0 1 64.73622 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (16.05.2012) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 129 cm
+1 0 0 1 123.4724 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Maintenance-Update:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 123 cm
+1 0 0 1 123.4724 249 cm
 Q
 q
-1 0 0 1 123.4724 123 cm
+1 0 0 1 123.4724 249 cm
 Q
 q
-1 0 0 1 123.4724 111 cm
+1 0 0 1 123.4724 237 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1434,37 +1957,37 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 111 cm
+1 0 0 1 123.4724 237 cm
 Q
 q
-1 0 0 1 6 93 cm
+1 0 0 1 6 219 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (0.3.7) Tj T* ET
 Q
 Q
 q
-1 0 0 1 64.73622 93 cm
+1 0 0 1 64.73622 219 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (08.05.2012) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 93 cm
+1 0 0 1 123.4724 219 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Hotfixes:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 87 cm
+1 0 0 1 123.4724 213 cm
 Q
 q
-1 0 0 1 123.4724 87 cm
+1 0 0 1 123.4724 213 cm
 Q
 q
-1 0 0 1 123.4724 51 cm
+1 0 0 1 123.4724 177 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1484,23 +2007,23 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 51 cm
+1 0 0 1 123.4724 177 cm
 Q
 q
-1 0 0 1 123.4724 39 cm
+1 0 0 1 123.4724 165 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 33 cm
+1 0 0 1 123.4724 159 cm
 Q
 q
-1 0 0 1 123.4724 33 cm
+1 0 0 1 123.4724 159 cm
 Q
 q
-1 0 0 1 123.4724 21 cm
+1 0 0 1 123.4724 147 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1515,6 +2038,129 @@ q
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Nachnahme-Geb\374hr wird beim Versand ins Ausland abgezogen) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 141 cm
+Q
+q
+1 0 0 1 123.4724 129 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Kompatibilit\344t f\374r Versandarten ohne "Method" \(z.B. M2E Pro\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 129 cm
+Q
+q
+1 0 0 1 6 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (0.3.6) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (22.02.2012) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 105 cm
+Q
+q
+1 0 0 1 123.4724 105 cm
+Q
+q
+1 0 0 1 123.4724 81 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 19.29577 Tw (Gewichtsvalidierung trotz Standardgewichts-Einstellung im) Tj T* 0 Tw (automatischen Modus) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 75 cm
+Q
+q
+1 0 0 1 123.4724 51 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 7.234331 Tw (Wiederaufgenommene Sendungen speichern falsche bearbeitete) Tj T* 0 Tw (Adresse) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 45 cm
+Q
+q
+1 0 0 1 123.4724 21 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 15.94289 Tw (Weiterleitung vom Backend ins Frontend nach der) Tj T* 0 Tw (Sendungs\374bertragung \(HTTPS\)) Tj T* ET
 Q
 Q
 q
@@ -1538,7 +2184,7 @@ q
 1 0 0 1 23 -3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Kompatibilit\344t f\374r Versandarten ohne "Method" \(z.B. M2E Pro\)) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (fehlende \334bertragung der zweiten Kunden-Adresszeile aus Magento) Tj T* ET
 Q
 Q
 q
@@ -1552,19 +2198,19 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 642 m 469.8898 642 l S
+n 0 630 m 469.8898 630 l S
 n 0 0 m 469.8898 0 l S
-n 0 504 m 469.8898 504 l S
-n 0 390 m 469.8898 390 l S
-n 0 354 m 469.8898 354 l S
-n 0 318 m 469.8898 318 l S
-n 0 240 m 469.8898 240 l S
-n 0 144 m 469.8898 144 l S
-n 0 108 m 469.8898 108 l S
-n 58.73622 0 m 58.73622 642 l S
-n 117.4724 0 m 117.4724 642 l S
-n 0 0 m 0 642 l S
-n 469.8898 0 m 469.8898 642 l S
+n 0 516 m 469.8898 516 l S
+n 0 480 m 469.8898 480 l S
+n 0 444 m 469.8898 444 l S
+n 0 366 m 469.8898 366 l S
+n 0 270 m 469.8898 270 l S
+n 0 234 m 469.8898 234 l S
+n 0 126 m 469.8898 126 l S
+n 58.73622 0 m 58.73622 630 l S
+n 117.4724 0 m 117.4724 630 l S
+n 0 0 m 0 630 l S
+n 469.8898 0 m 469.8898 630 l S
 Q
 Q
 q
@@ -1581,14 +2227,14 @@ BT /F1 10 Tf 12 TL ET
 q
 1 0 0 1 6 3 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 05/07/2013) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 19/08/2014) Tj T* ET
 Q
 Q
 q
 1 0 0 1 246.9449 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (2/5) Tj T* -215.0449 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (3/6) Tj T* -215.0449 0 Td ET
 Q
 Q
 q
@@ -1598,176 +2244,53 @@ Q
 endstream
 
 endobj
-% 'R16': class PDFStream 
-16 0 obj
+% 'R18': class PDFStream 
+18 0 obj
 % page stream
-<< /Length 10349 >>
+<< /Length 10785 >>
 stream
 1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 207.3543 cm
+1 0 0 1 62.69291 201.3543 cm
 1 1 1 rg
-n 0 552 469.8898 -126 re f*
+n 0 558 469.8898 -144 re f*
 .878431 .878431 .878431 rg
-n 0 426 469.8898 -144 re f*
+n 0 414 469.8898 -168 re f*
 1 1 1 rg
-n 0 282 469.8898 -168 re f*
+n 0 246 469.8898 -114 re f*
 .878431 .878431 .878431 rg
-n 0 114 469.8898 -114 re f*
+n 0 132 469.8898 -132 re f*
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 537 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (0.3.6) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 537 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (22.02.2012) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 537 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 531 cm
-Q
-q
-1 0 0 1 123.4724 531 cm
-Q
-q
-1 0 0 1 123.4724 507 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 19.29577 Tw (Gewichtsvalidierung trotz Standardgewichts-Einstellung im) Tj T* 0 Tw (automatischen Modus) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 501 cm
-Q
-q
-1 0 0 1 123.4724 477 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 7.234331 Tw (Wiederaufgenommene Sendungen speichern falsche bearbeitete) Tj T* 0 Tw (Adresse) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 471 cm
-Q
-q
-1 0 0 1 123.4724 447 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 15.94289 Tw (Weiterleitung vom Backend ins Frontend nach der) Tj T* 0 Tw (Sendungs\374bertragung \(HTTPS\)) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 441 cm
-Q
-q
-1 0 0 1 123.4724 429 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (fehlende \334bertragung der zweiten Kunden-Adresszeile aus Magento) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 429 cm
-Q
-q
-1 0 0 1 6 411 cm
+1 0 0 1 6 543 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (0.3.5) Tj T* ET
 Q
 Q
 q
-1 0 0 1 64.73622 411 cm
+1 0 0 1 64.73622 543 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (10.01.2012) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 411 cm
+1 0 0 1 123.4724 543 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 405 cm
+1 0 0 1 123.4724 537 cm
 Q
 q
-1 0 0 1 123.4724 405 cm
+1 0 0 1 123.4724 537 cm
 Q
 q
-1 0 0 1 123.4724 381 cm
+1 0 0 1 123.4724 513 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1782,6 +2305,166 @@ q
 q
 0 0 0 rg
 BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 11.56946 Tw (Doppelte Sendungserstellung durch Cronjob und manuelle) Tj T* 0 Tw (\334bertragung) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 507 cm
+Q
+q
+1 0 0 1 123.4724 495 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Link zur Sendungsverfolgung im Ausland fehlerhaft) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 489 cm
+Q
+q
+1 0 0 1 123.4724 477 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Filter f\374r gedruckte Dokumente funktioniert nicht in CE 1.6) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 477 cm
+Q
+q
+1 0 0 1 123.4724 465 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 459 cm
+Q
+q
+1 0 0 1 123.4724 459 cm
+Q
+q
+1 0 0 1 123.4724 435 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 4.542887 Tw (Fehlerhafte Sendungen bei der Adressbearbeitung speichern und) Tj T* 0 Tw (wiederaufnehmen) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 429 cm
+Q
+q
+1 0 0 1 123.4724 417 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Verbesserte Stra\337en- und Hausnummerauftrennung) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 123.4724 417 cm
+Q
+q
+1 0 0 1 6 399 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (0.3.4) Tj T* ET
+Q
+Q
+q
+1 0 0 1 64.73622 399 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (16.12.2011) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 399 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 123.4724 393 cm
+Q
+q
+1 0 0 1 123.4724 393 cm
+Q
+q
+1 0 0 1 123.4724 381 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Virtuelle Produkte werden versendet) Tj T* ET
 Q
 Q
 q
@@ -1805,17 +2488,30 @@ q
 1 0 0 1 23 -3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Link zur Sendungsverfolgung im Ausland fehlerhaft) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Sendungen nach UK schlagen fehl) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 123.4724 357 cm
+1 0 0 1 123.4724 363 cm
+Q
+q
+1 0 0 1 123.4724 351 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
+Q
 Q
 q
 1 0 0 1 123.4724 345 cm
+Q
+q
+1 0 0 1 123.4724 345 cm
+Q
+q
+1 0 0 1 123.4724 333 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1829,24 +2525,11 @@ q
 1 0 0 1 23 -3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Filter f\374r gedruckte Dokumente funktioniert nicht in CE 1.6) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Komplette Unterst\374tzung UTF-8) Tj T* ET
 Q
 Q
 q
 Q
-Q
-q
-1 0 0 1 123.4724 345 cm
-Q
-q
-1 0 0 1 123.4724 333 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 327 cm
 Q
 q
 1 0 0 1 123.4724 327 cm
@@ -1866,7 +2549,7 @@ q
 1 0 0 1 23 -3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 4.542887 Tw (Fehlerhafte Sendungen bei der Adressbearbeitung speichern und) Tj T* 0 Tw (wiederaufnehmen) Tj T* ET
+BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 7.353465 Tw (Unterst\374tzung von Transaktions-IDs im Verwendungszweck bei) Tj T* 0 Tw (Nachnahme) Tj T* ET
 Q
 Q
 q
@@ -1890,166 +2573,6 @@ q
 1 0 0 1 23 -3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Verbesserte Stra\337en- und Hausnummerauftrennung) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 285 cm
-Q
-q
-1 0 0 1 6 267 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (0.3.4) Tj T* ET
-Q
-Q
-q
-1 0 0 1 64.73622 267 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (16.12.2011) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 267 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 261 cm
-Q
-q
-1 0 0 1 123.4724 261 cm
-Q
-q
-1 0 0 1 123.4724 249 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Virtuelle Produkte werden versendet) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 243 cm
-Q
-q
-1 0 0 1 123.4724 231 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Sendungen nach UK schlagen fehl) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 231 cm
-Q
-q
-1 0 0 1 123.4724 219 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 123.4724 213 cm
-Q
-q
-1 0 0 1 123.4724 213 cm
-Q
-q
-1 0 0 1 123.4724 201 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Komplette Unterst\374tzung UTF-8) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 195 cm
-Q
-q
-1 0 0 1 123.4724 171 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 7.353465 Tw (Unterst\374tzung von Transaktions-IDs im Verwendungszweck bei) Tj T* 0 Tw (Nachnahme) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 123.4724 165 cm
-Q
-q
-1 0 0 1 123.4724 153 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Voraussetzungen f\374r DHL Intraship dokumentiert) Tj T* ET
 Q
 Q
@@ -2057,10 +2580,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 147 cm
+1 0 0 1 123.4724 279 cm
 Q
 q
-1 0 0 1 123.4724 135 cm
+1 0 0 1 123.4724 267 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2081,10 +2604,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 129 cm
+1 0 0 1 123.4724 261 cm
 Q
 q
-1 0 0 1 123.4724 117 cm
+1 0 0 1 123.4724 249 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2105,37 +2628,37 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 117 cm
+1 0 0 1 123.4724 249 cm
 Q
 q
-1 0 0 1 6 87 cm
+1 0 0 1 6 219 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL (0.3.2 +) Tj T* (0.3.3) Tj T* ET
 Q
 Q
 q
-1 0 0 1 64.73622 99 cm
+1 0 0 1 64.73622 231 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (11.11.2011) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 99 cm
+1 0 0 1 123.4724 231 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 93 cm
+1 0 0 1 123.4724 225 cm
 Q
 q
-1 0 0 1 123.4724 93 cm
+1 0 0 1 123.4724 225 cm
 Q
 q
-1 0 0 1 123.4724 69 cm
+1 0 0 1 123.4724 201 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2156,10 +2679,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 63 cm
+1 0 0 1 123.4724 195 cm
 Q
 q
-1 0 0 1 123.4724 51 cm
+1 0 0 1 123.4724 183 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2180,10 +2703,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 45 cm
+1 0 0 1 123.4724 177 cm
 Q
 q
-1 0 0 1 123.4724 33 cm
+1 0 0 1 123.4724 165 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2203,23 +2726,23 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 33 cm
+1 0 0 1 123.4724 165 cm
 Q
 q
-1 0 0 1 123.4724 21 cm
+1 0 0 1 123.4724 153 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 15 cm
+1 0 0 1 123.4724 147 cm
 Q
 q
-1 0 0 1 123.4724 15 cm
+1 0 0 1 123.4724 147 cm
 Q
 q
-1 0 0 1 123.4724 3 cm
+1 0 0 1 123.4724 135 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2240,106 +2763,37 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 3 cm
+1 0 0 1 123.4724 135 cm
 Q
 q
-1 J
-1 j
-0 0 0 RG
-.25 w
-n 0 552 m 469.8898 552 l S
-n 0 0 m 469.8898 0 l S
-n 0 426 m 469.8898 426 l S
-n 0 282 m 469.8898 282 l S
-n 0 114 m 469.8898 114 l S
-n 58.73622 0 m 58.73622 552 l S
-n 117.4724 0 m 117.4724 552 l S
-n 0 0 m 0 552 l S
-n 469.8898 0 m 469.8898 552 l S
-Q
-Q
-q
-1 0 0 1 411.0236 779.5276 cm
-q
-127.5591 0 0 34.01575 0 0 cm
-/FormXob.67a4ead415e6259bc52bc1b1ab1928bd Do
-Q
-Q
-q
-1 0 0 1 56.69291 56.69291 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 3 cm
-q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 05/07/2013) Tj T* ET
-Q
-Q
-q
-1 0 0 1 246.9449 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (3/5) Tj T* -215.0449 0 Td ET
-Q
-Q
-q
-Q
-Q
- 
-endstream
-
-endobj
-% 'R17': class PDFStream 
-17 0 obj
-% page stream
-<< /Length 11104 >>
-stream
-1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
-q
-1 0 0 1 62.69291 183.3543 cm
-1 1 1 rg
-n 0 576 469.8898 -132 re f*
-.878431 .878431 .878431 rg
-n 0 444 469.8898 -144 re f*
-1 1 1 rg
-n 0 300 469.8898 -96 re f*
-.878431 .878431 .878431 rg
-n 0 204 469.8898 -120 re f*
-1 1 1 rg
-n 0 84 469.8898 -54 re f*
-.878431 .878431 .878431 rg
-n 0 30 469.8898 -30 re f*
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 561 cm
+1 0 0 1 6 117 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (0.3.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 64.73622 561 cm
+1 0 0 1 64.73622 117 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (12.09.2011) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 561 cm
+1 0 0 1 123.4724 117 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Bugfixes:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 555 cm
+1 0 0 1 123.4724 111 cm
 Q
 q
-1 0 0 1 123.4724 555 cm
+1 0 0 1 123.4724 111 cm
 Q
 q
-1 0 0 1 123.4724 543 cm
+1 0 0 1 123.4724 99 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2360,10 +2814,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 537 cm
+1 0 0 1 123.4724 93 cm
 Q
 q
-1 0 0 1 123.4724 525 cm
+1 0 0 1 123.4724 81 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2384,10 +2838,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 519 cm
+1 0 0 1 123.4724 75 cm
 Q
 q
-1 0 0 1 123.4724 507 cm
+1 0 0 1 123.4724 63 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2408,23 +2862,23 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 507 cm
+1 0 0 1 123.4724 63 cm
 Q
 q
-1 0 0 1 123.4724 495 cm
+1 0 0 1 123.4724 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Features:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 123.4724 489 cm
+1 0 0 1 123.4724 45 cm
 Q
 q
-1 0 0 1 123.4724 489 cm
+1 0 0 1 123.4724 45 cm
 Q
 q
-1 0 0 1 123.4724 477 cm
+1 0 0 1 123.4724 33 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2445,10 +2899,10 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 471 cm
+1 0 0 1 123.4724 27 cm
 Q
 q
-1 0 0 1 123.4724 447 cm
+1 0 0 1 123.4724 3 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2469,8 +2923,75 @@ q
 Q
 Q
 q
-1 0 0 1 123.4724 447 cm
+1 0 0 1 123.4724 3 cm
 Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 558 m 469.8898 558 l S
+n 0 0 m 469.8898 0 l S
+n 0 414 m 469.8898 414 l S
+n 0 246 m 469.8898 246 l S
+n 0 132 m 469.8898 132 l S
+n 58.73622 0 m 58.73622 558 l S
+n 117.4724 0 m 117.4724 558 l S
+n 0 0 m 0 558 l S
+n 469.8898 0 m 469.8898 558 l S
+Q
+Q
+q
+1 0 0 1 411.0236 779.5276 cm
+q
+127.5591 0 0 34.01575 0 0 cm
+/FormXob.67a4ead415e6259bc52bc1b1ab1928bd Do
+Q
+Q
+q
+1 0 0 1 56.69291 56.69291 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 19/08/2014) Tj T* ET
+Q
+Q
+q
+1 0 0 1 246.9449 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (4/6) Tj T* -215.0449 0 Td ET
+Q
+Q
+q
+Q
+Q
+ 
+endstream
+
+endobj
+% 'R19': class PDFStream 
+19 0 obj
+% page stream
+<< /Length 8632 >>
+stream
+1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 315.3543 cm
+1 1 1 rg
+n 0 444 469.8898 -144 re f*
+.878431 .878431 .878431 rg
+n 0 300 469.8898 -96 re f*
+1 1 1 rg
+n 0 204 469.8898 -120 re f*
+.878431 .878431 .878431 rg
+n 0 84 469.8898 -54 re f*
+1 1 1 rg
+n 0 30 469.8898 -30 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
 q
 1 0 0 1 6 429 cm
 q
@@ -2963,17 +3484,16 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 576 m 469.8898 576 l S
-n 0 0 m 469.8898 0 l S
 n 0 444 m 469.8898 444 l S
+n 0 0 m 469.8898 0 l S
 n 0 300 m 469.8898 300 l S
 n 0 204 m 469.8898 204 l S
 n 0 84 m 469.8898 84 l S
 n 0 30 m 469.8898 30 l S
-n 58.73622 0 m 58.73622 576 l S
-n 117.4724 0 m 117.4724 576 l S
-n 0 0 m 0 576 l S
-n 469.8898 0 m 469.8898 576 l S
+n 58.73622 0 m 58.73622 444 l S
+n 117.4724 0 m 117.4724 444 l S
+n 0 0 m 0 444 l S
+n 469.8898 0 m 469.8898 444 l S
 Q
 Q
 q
@@ -2990,14 +3510,14 @@ BT /F1 10 Tf 12 TL ET
 q
 1 0 0 1 6 3 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 05/07/2013) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 19/08/2014) Tj T* ET
 Q
 Q
 q
 1 0 0 1 246.9449 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (4/5) Tj T* -215.0449 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (5/6) Tj T* -215.0449 0 Td ET
 Q
 Q
 q
@@ -3007,8 +3527,8 @@ Q
 endstream
 
 endobj
-% 'R18': class PDFStream 
-18 0 obj
+% 'R20': class PDFStream 
+20 0 obj
 % page stream
 << /Length 6458 >>
 stream
@@ -3404,14 +3924,14 @@ BT /F1 10 Tf 12 TL ET
 q
 1 0 0 1 6 3 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 05/07/2013) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (Stand: 19/08/2014) Tj T* ET
 Q
 Q
 q
 1 0 0 1 246.9449 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (5/5) Tj T* -215.0449 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 215.0449 0 Td (6/6) Tj T* -215.0449 0 Td ET
 Q
 Q
 q
@@ -3421,91 +3941,102 @@ Q
 endstream
 
 endobj
-% 'R19': class PDFOutlines 
-19 0 obj
+% 'R21': class PDFOutlines 
+21 0 obj
 << /Count 0
  /Type /Outlines >>
 endobj
-% 'R20': class PDFPageLabels 
-20 0 obj
+% 'R22': class PDFPageLabels 
+22 0 obj
 % Document Root
 << /Nums [ 0
- 21 0 R
- 1
- 22 0 R
- 2
  23 0 R
- 3
+ 1
  24 0 R
+ 2
+ 25 0 R
+ 3
+ 26 0 R
  4
- 25 0 R ] >>
-endobj
-% 'R21': class PDFPageLabel 
-21 0 obj
-% None
-<< /S /D
- /St 1 >>
-endobj
-% 'R22': class PDFPageLabel 
-22 0 obj
-% None
-<< /S /D
- /St 2 >>
+ 27 0 R
+ 5
+ 28 0 R ] >>
 endobj
 % 'R23': class PDFPageLabel 
 23 0 obj
 % None
 << /S /D
- /St 3 >>
+ /St 1 >>
 endobj
 % 'R24': class PDFPageLabel 
 24 0 obj
 % None
 << /S /D
- /St 4 >>
+ /St 2 >>
 endobj
 % 'R25': class PDFPageLabel 
 25 0 obj
 % None
 << /S /D
+ /St 3 >>
+endobj
+% 'R26': class PDFPageLabel 
+26 0 obj
+% None
+<< /S /D
+ /St 4 >>
+endobj
+% 'R27': class PDFPageLabel 
+27 0 obj
+% None
+<< /S /D
  /St 5 >>
 endobj
+% 'R28': class PDFPageLabel 
+28 0 obj
+% None
+<< /S /D
+ /St 6 >>
+endobj
 xref
-0 26
+0 29
 0000000000 65535 f
 0000000113 00000 n
 0000000221 00000 n
 0000000386 00000 n
 0000000602 00000 n
 0000079864 00000 n
-0000080222 00000 n
-0000080462 00000 n
-0000080826 00000 n
+0000080208 00000 n
+0000080566 00000 n
+0000080806 00000 n
 0000081170 00000 n
 0000081514 00000 n
-0000081860 00000 n
-0000082019 00000 n
-0000082311 00000 n
-0000082451 00000 n
-0000091535 00000 n
-0000104439 00000 n
-0000114890 00000 n
-0000126096 00000 n
-0000132657 00000 n
-0000132740 00000 n
-0000132885 00000 n
-0000132962 00000 n
-0000133039 00000 n
-0000133116 00000 n
-0000133193 00000 n
+0000081859 00000 n
+0000082205 00000 n
+0000082364 00000 n
+0000082656 00000 n
+0000082805 00000 n
+0000091406 00000 n
+0000102119 00000 n
+0000114323 00000 n
+0000125210 00000 n
+0000133943 00000 n
+0000140504 00000 n
+0000140587 00000 n
+0000140745 00000 n
+0000140822 00000 n
+0000140899 00000 n
+0000140976 00000 n
+0000141053 00000 n
+0000141130 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(\206\266\3451\3521\375\013JIO\026\234X\220a) (\206\266\3451\3521\375\013JIO\026\234X\220a)] 
+ [(\246\202\006\377\003&]\364\221\341\324l\026\006@\363) (\246\202\006\377\003&]\364\221\341\324l\026\006@\363)] 
 
- /Info 12 0 R
- /Root 11 0 R
- /Size 26 >>
+ /Info 13 0 R
+ /Root 12 0 R
+ /Size 29 >>
 startxref
-133240
+141177
 %%EOF

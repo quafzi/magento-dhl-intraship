@@ -26,10 +26,10 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Order_Shipment_Create_Intraship
     public function _construct()
     {
         parent::_construct();
-        $this->_countryId = $this
+        $this->_countryId = strtoupper($this
             ->getMageShipment()
             ->getShippingAddress()
-            ->getCountryId();
+            ->getCountryId());
     }
 
     /**

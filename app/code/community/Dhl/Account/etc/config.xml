@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Dhl_Account>
-            <version>13.07.04</version>
+            <version>14.08.19</version>
         </Dhl_Account>
     </modules>
     <global>
@@ -25,7 +25,6 @@
                     <quote_address>Dhl_Account_Model_Quote_Address</quote_address>
                 </rewrite>
             </sales>
-
         </models>
         <helpers>
             <dhlaccount>
@@ -41,6 +40,7 @@
             </sales_copy_order_shipping_address>
             <sales_convert_quote_address>
                 <dhlaccount><to_order_address>*</to_order_address><to_customer_address>*</to_customer_address></dhlaccount>
+                <package_notification><to_order_address>*</to_order_address></package_notification>
             </sales_convert_quote_address>
             <sales_convert_order_address>
                 <dhlaccount><to_quote_address>*</to_quote_address></dhlaccount>
@@ -84,6 +84,10 @@
                         <class>dhlaccount/observer</class>
                         <method>dhlIntrashipSendShipmentBefore</method>
                     </add_dhlaccount_to_request>
+                    <add_email_to_request>
+                        <class>dhlaccount/observer</class>
+                        <method>appendReceiverEmail</method>
+                    </add_email_to_request>
                 </observers>
             </dhl_intraship_send_shipment_before>
             <dhl_intraship_shipment_load_after>
@@ -174,6 +178,10 @@
                         <class>dhlaccount/observer</class>
                         <method>saveDhlAccount</method>
                     </save_dhlaccount>
+                    <save_package_notification_flag>
+                        <class>dhlaccount/observer</class>
+                        <method>savePackageNotificationFlag</method>
+                    </save_package_notification_flag>
                 </observers>
             </controller_action_postdispatch_checkout_onepage_saveBilling>
 
@@ -249,12 +257,15 @@ T: {{var telephone}}
             <dhlaccount>
                 <active>1</active>
             </dhlaccount>
+            <webservice>
+                <auth_username>magento_1</auth_username>
+                <auth_password>2de26b775e59279464d1c2f8546432e62413372421c672db36eaacfc2f</auth_password>
+            </webservice>
             <packstation>
                 <active>1</active>
+                <endpoint_production><![CDATA[https://cig.dhl.de/services/production/rest]]></endpoint_production>
+                <endpoint_sandbox><![CDATA[https://cig.dhl.de/services/sandbox/rest]]></endpoint_sandbox>
             </packstation>
-            <url>
-                <packstationfinder_url><![CDATA[http://www.dhl.de/maptos/pfind?PARTNER_ID=DHLDS&standorttyp=packstation_paketbox&pmtype=1]]></packstationfinder_url>
-            </url>
         </intraship>
     </default>
     <phpunit>

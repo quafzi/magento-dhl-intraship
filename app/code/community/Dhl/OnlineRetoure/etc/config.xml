@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Dhl_OnlineRetoure>
-            <version>13.07.04</version>
+            <version>14.08.19</version>
         </Dhl_OnlineRetoure>
     </modules>
     <global>

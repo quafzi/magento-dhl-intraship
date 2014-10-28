@@ -23,4 +23,24 @@ class Dhl_Account_Block_Checkout_Onepage_Parcelannouncement
         $this->setTemplate('account/checkout/onepage/parcelannouncement.phtml');
     }
 
+    /**
+     * wrapper for config getter
+     *
+     * @return bool
+     */
+    public function isParcelAnnouncementEnabled()
+    {
+        return Mage::getModel('dhlaccount/config')->isParcelAnnouncementEnabled();
+    }
+
+    /**
+     * wrapper for config getter
+     *
+     * @return bool
+     */
+    public function isPreferredDeliveryDateEnabled()
+    {
+        return Mage::getModel('dhlaccount/config')->isPreferredDeliveryDateEnabled();
+    }
+
 }

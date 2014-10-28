@@ -159,6 +159,7 @@ class Dhl_OnlineRetoure_Model_Soap_Client extends Zend_Soap_Client
             ->setSenderCareOfName($street['care_of'])
             ->setSenderPostalCode($shippingAddress->getPostcode())
             ->setSenderCity($shippingAddress->getCity())
+            ->setCustomerReference($this->_order->getIncrementId())
             ;
 
         return $this;

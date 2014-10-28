@@ -29,8 +29,6 @@ class Dhl_Intraship_ShipmentController extends Mage_Adminhtml_Controller_Action
             if (!$shipmentId):
                 $this->_throwAdminException('Parameter "id" is required.');
             endif;
-            // Set name of the merged shipping document.
-            $pdfName = sprintf('intraship-%s-pdfs-%s.pdf', date('Y-m-d'), $shipmentId);
             /* @var $shipment Dhl_Intraship_Model_Shipment */
             $shipment = Mage::getModel('intraship/shipment')->load($shipmentId,
                 'shipment_id');
@@ -53,17 +51,21 @@ class Dhl_Intraship_ShipmentController extends Mage_Adminhtml_Controller_Action
                 ->addFieldToFilter('shipment_id', $shipmentId)
                 ->addFieldToFilter('status', $status)
                 ->addFieldToFilter('status', array('notnull' => true));
+
+            Mage::dispatchEvent('intraship_shipment_document_print', array('collection' => $collection));
+
             /* @var $helper Dhl_Intraship_Helper_Pdf */
             $helper = Mage::helper('intraship/pdf');
-            // Render merged pdfs if exists, otherwise recover first.
-            Mage::dispatchEvent('intraship_shipment_document_print', array('collection' => $collection));
-            $helper
-                ->setDocuments($collection)
-                ->recover($shipment)
-                ->merge()
-                ->render($pdfName);
+
+            $this->_prepareDownloadResponse(
+                sprintf('intraship-%s-pdfs-%s.pdf', date('Y-m-d'), $shipmentId),
+                // Render merged pdfs if exists, otherwise recover first.
+                $helper->setDocuments($collection)->recover($shipment)->merge()->retrieve(),
+                'application/pdf'
+            );
+
         } catch (Exception $e) {
-            Mage::logException($e);
+            Mage::log($e->getMessage());
             $this->_throwAdminException('service temporary not available');
         }
     }
@@ -81,7 +83,7 @@ class Dhl_Intraship_ShipmentController extends Mage_Adminhtml_Controller_Action
                     $this->_throwAdminException('Please select some documents!');
                 }
             }
-            Mage::log('selectBy: ' . $selectBy);
+
             /* @var $helper Dhl_Intraship_Helper_Pdf */
             $helper   = Mage::helper('intraship/pdf');
             $shipment = Mage::getModel('intraship/shipment');
@@ -119,16 +121,14 @@ class Dhl_Intraship_ShipmentController extends Mage_Adminhtml_Controller_Action
                 }
             }
 
-            $filename = 'intraship_labels_'
-                . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s')
-                . '.pdf';
             Mage::dispatchEvent('intraship_shipment_document_print', array('collection' => $collection));
-            return $helper->setDocuments($collection)->merge()->render($filename);
-            return $this->_prepareDownloadResponse(
-                $filename,
-                $helper->setDocuments($collection)->merge()->render($filename),
+
+            $this->_prepareDownloadResponse(
+                sprintf('intraship_labels_%s.pdf', Mage::getSingleton('core/date')->date('Y-m-d_H-i-s')),
+                $helper->setDocuments($collection)->merge()->retrieve(),
                 'application/pdf'
             );
+
         } catch (Exception $e) {
             Mage::log($e->getMessage());
             $this->_throwAdminException($e->getMessage());
@@ -166,11 +166,15 @@ class Dhl_Intraship_ShipmentController extends Mage_Adminhtml_Controller_Action
                 ->getCollection()
                 ->addFieldToFilter('document_id', $documentId);
             Mage::dispatchEvent('intraship_shipment_document_print', array('collection' => $collection));
+
             // Return pdf.
-            header('Content-type: application/pdf');
-            header('Content-Disposition: attachment; filename="intraship-document-' . $documentId . '.pdf"');
-            print file_get_contents($document->getFilePath());
+            $this->_prepareDownloadResponse(
+                sprintf("intraship-document-%d.pdf", $documentId),
+                array('type' => 'filename', 'value' => $document->getFilePath()),
+                'application/pdf'
+            );
         } catch (Exception $e) {
+            Mage::log($e->getMessage());
             $this->_throwAdminException($e->getMessage());
         }
     }
@@ -184,6 +188,12 @@ class Dhl_Intraship_ShipmentController extends Mage_Adminhtml_Controller_Action
     public function documentsAction()
     {
         $this->loadLayout();
+
+        /**
+         * Set active menu item
+         */
+        $this->_setActiveMenu('sales/shipment/intraship_shipment_documents');
+
         $this->renderLayout();
     }
 

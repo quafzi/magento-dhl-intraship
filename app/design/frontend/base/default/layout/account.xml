@@ -3,7 +3,7 @@
     <checkout_onepage_index>
         <reference name="head">
             <action method="addJs"><script>dhl/account.js</script></action>
-            <action method="addCss"><stylesheet>css/dhl_account.css</stylesheet></action>
+            <action method="addCss"><script>css/dhl_account.css</script></action>
         </reference>
     </checkout_onepage_index>
 </layout>

@@ -26,7 +26,7 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Edit_Form
     protected function _prepareForm()
     {
         $parcel = Mage::registry('shipment');
-        
+
         if ($parcel->getCustomerAddress()):
             foreach ($parcel->getCustomerAddress() as $key => $value):
                 if ($key == 'street' && preg_match('/^(\d+)\s(packstation\s\d+)$/i', $value, $match)) {
@@ -45,7 +45,7 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Edit_Form
                 $parcel->setData('settings_' . $key, $value);
             endforeach;
         endif;
-        
+
         $form = new Varien_Data_Form(array(
             'id'     => 'edit_form',
             'action'    => $this->getUrl('*/shipment/save'),
@@ -58,7 +58,7 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Edit_Form
 
         $fieldset->addField('shipment_id', 'hidden', array(
             'name' => 'shipment_id'));
-        
+
         $fieldset->addField('save_and_resume', 'hidden', array(
             'name' => 'save_and_resume'));
 
@@ -199,7 +199,7 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Edit_Form
             'note'      => '<a href="http://intraship.dhl-partner.de/DHL-PLZFormate-international.pdf" onclick="window.open(this.href); return false;">'.
                            $this->__('International zip code formats').
                            '</a>',
-            'class'     => ' validate-zip ',
+            'class'     => ' validate-zip-dhl ',
         ));
 
         $fieldset->addField('customer_country_id', 'select', array(
@@ -209,14 +209,14 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Edit_Form
             'required'  => true,
             'values'    => Mage::getModel('adminhtml/system_config_source_country')->toOptionArray()
         ));
-        
+
         $fieldset->addField('customer_telephone', 'text', array(
             'name'      => 'customer[telephone]',
             'label'     => Mage::helper('intraship')->__('Telephone'),
             'title'     => Mage::helper('intraship')->__('Telephone'),
             'class'     => ' validate-number validate-length maximum-length-20',
         ));
-        
+
         $fieldset->addField('customer_email', 'text', array(
             'name'      => 'customer[email]',
             'label'     => Mage::helper('intraship')->__('Email'),
@@ -238,14 +238,14 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Edit_Form
             'title'     => Mage::helper('intraship')->__('DHL Customer ID Number'),
             'required'  => false,
         ));
-        
+
         $fieldset->addField('customer_station_id', 'text', array(
             'name'      => 'customer[station_id]',
             'label'     => Mage::helper('intraship')->__('DHL PACKSTATION Number'),
             'title'     => Mage::helper('intraship')->__('DHL PACKSTATION Number'),
             'required'  => false,
         ));
-        
+
         if (is_null($parcel->getCustomerEmail())) {
             $parcel->setCustomerEmail($parcel->getShipment()->getOrder()->getCustomerEmail());
         }

@@ -11,6 +11,11 @@
 class Dhl_Intraship_Model_Config
 {
     /**
+     * default language for intraship
+     */
+    const DEFAULT_INTRASHIP_LANGUAGE = 'DE';
+
+    /**
      * Set up the recommended version for this module.
      *
      * @var string
@@ -36,9 +41,9 @@ class Dhl_Intraship_Model_Config
      */
     const WEIGHT_UNIT_KG = 'kg';
     const WEIGHT_UNIT_G  = 'g';
-    
+
     /*
-     * Name of the log file 
+     * Name of the log file
      */
     const LOG_FILE = 'intraship.log';
 
@@ -83,7 +88,7 @@ class Dhl_Intraship_Model_Config
      *
      * @param string $index
      * @param mixed  $store Store or storeId
-     * 
+     *
      * @return mixed
      */
     public function getConfig($index, $store=null)
@@ -138,17 +143,17 @@ class Dhl_Intraship_Model_Config
 
     /**
      * if we've got an account user
-     * 
+     *
      * @return boolean
      */
     public function hasAccountUser($store=null)
     {
         return 0 < strlen(trim($this->getAccountUser($store)));
     }
-    
+
     /**
      * if we've got an account signature
-     * 
+     *
      * @return boolean
      */
     public function hasAccountSignature($store=null)
@@ -158,7 +163,7 @@ class Dhl_Intraship_Model_Config
 
     /**
      * if we've got credentials
-     * 
+     *
      * @return boolean
      */
     public function hasCredentials($store=null)
@@ -248,7 +253,7 @@ class Dhl_Intraship_Model_Config
      * @return flaot    $weight
      */
     public function getWeightDefault($countryCode)
-    {   
+    {
         $countryCode = strtoupper($countryCode);
         $weight  = null;
         if (true === $this->isInternationalShipping($countryCode)):
@@ -281,14 +286,14 @@ class Dhl_Intraship_Model_Config
         return $this->_toArrayObject($this->getConfig(
             'packages/global_settings_enabled-profiles'));
     }
-    
+
     /**
      * Get all available profiles.
      *
      * @return array
      */
     public function getAllProfiles()
-    {        
+    {
         return self::$profiles;
     }
 
@@ -351,7 +356,7 @@ class Dhl_Intraship_Model_Config
      * @return ArrayObject  $profile
      */
     public function getProfileByCountryCode($countryCode, $profileName = null)
-    {   
+    {
         $countryCode = strtoupper($countryCode);
         $match = null;
         foreach (self::$_packageCodes as $code):
@@ -407,7 +412,7 @@ class Dhl_Intraship_Model_Config
      * @return ArrayObject
      */
     public function getShipmentTypes($countryCode)
-    {   
+    {
         $countryCode = strtoupper($countryCode);
         return $this->getProfileByCountryCode($countryCode)
             ->offsetGet('enabled-profiles');
@@ -420,14 +425,29 @@ class Dhl_Intraship_Model_Config
      */
     public function getBackendUrl($store = null)
     {
-        if (true === $this->isTestmode($store)):
+        $url = $this->getConfig('url/login_production');
+        if (true === $this->isTestmode($store)) {
             $url = $this->getConfig('url/login_test');
-        else:
-            $url = $this->getConfig('url/login_production');
-        endif;
-        
-        return sprintf('%s?login=%s&pwd=%s&LANGUAGE=%s', $url,
-            $this->getAccountUser($store), $this->getAccountSignature($store), 'DE');
+        }
+
+        return $url .'?'. $this->getBackendUrlParams($store);
+    }
+
+    /**
+     * return params for backend url
+     *
+     * @param $store
+     *
+     * @return string
+     */
+    protected function getBackendUrlParams($store)
+    {
+        $params = array(
+            'login' =>  $this->getAccountUser($store),
+            'pwd'   =>  $this->getAccountSignature($store),
+            'LANGUAGE'=> self::DEFAULT_INTRASHIP_LANGUAGE
+        );
+        return http_build_query($params);
     }
 
     /**
@@ -437,10 +457,50 @@ class Dhl_Intraship_Model_Config
      */
     public function getSoapWsdl($store = null)
     {
-        if (true === $this->isTestmode($store)):
-            return $this->getConfig('url/wsdl_test');
-        endif;
-        return $this->getConfig('url/wsdl_production');
+        return $this->getConfig('url/wsdl', $store);
+    }
+
+    /**
+     * Obtain the Intraship web service endpoint.
+     *
+     * $param mixed $store
+     * @param bool $production Indicate whether to retrieve production or sandbox endpoint.
+     * @return string
+     */
+    public function getWebserviceEndpoint($store = null, $production = null)
+    {
+        if (false === $production) {
+            return $this->getConfig('url/endpoint_sandbox', $store);
+        }
+
+        if (true === $production) {
+            return $this->getConfig('url/endpoint_production', $store);
+        }
+
+        // production parameter not given, check test mode setting
+        if ($this->isTestmode($store)) {
+            return $this->getConfig('url/endpoint_sandbox', $store);
+        }
+
+        return $this->getConfig('url/endpoint_production', $store);
+    }
+
+    /**
+     * Obtain application wide HTTP Basic auth credentials (username)
+     * @return string
+     */
+    public function getWebserviceAuthUsername()
+    {
+        return $this->getConfig('webservice/auth_username');
+    }
+
+    /**
+     * Obtain application wide HTTP Basic auth credentials (password)
+     * @return string
+     */
+    public function getWebserviceAuthPassword()
+    {
+        return $this->getConfig('webservice/auth_password');
     }
 
     /**
@@ -482,10 +542,10 @@ class Dhl_Intraship_Model_Config
     {
         return (1 == $this->getConfig('general/testmode', $store));
     }
-    
+
     /**
      * Get mode (test|prod)
-     * 
+     *
      * @return string ("test"|"prod")
      */
     public function getMode($store=null)
@@ -510,14 +570,14 @@ class Dhl_Intraship_Model_Config
      * @return boolean
      */
     public function isInternationalShipping($countryCode)
-    {   
+    {
         $countrycode = strtoupper($countryCode);
         return (null === $this->getProfileByCountryCode($countryCode));
     }
 
     /**
-     * get label format 
-     * 
+     * get label format
+     *
      * @return string
      */
     public function getFormat()
@@ -526,8 +586,8 @@ class Dhl_Intraship_Model_Config
     }
 
     /**
-     * get label margins 
-     * 
+     * get label margins
+     *
      * @return array
      */
     public function getMargins()
@@ -561,6 +621,8 @@ class Dhl_Intraship_Model_Config
     /**
      * Get allowed payment methods for autocreate
      *
+     * @deprecated 13.11.28
+     * @see Dhl_Intraship_Model_Config::getAutocreateAllowedPaymentMethods()
      * @return ArrayObject
      */
     public function getAutocreatePaymentMethods()
@@ -570,24 +632,46 @@ class Dhl_Intraship_Model_Config
     }
 
     /**
-     * Get deactivated shipping methods for autocreate
-     *
-     * @return ArrayObject
-     */
-    public function getDisabledShippingMethods()
-    {
-        return $this->getConfig('packages/disabled_shipping_methods');
-    }
-
-    /**
      * Get allowed order status codes
      *
+     * @deprecated 13.11.28
+     * @see Dhl_Intraship_Model_Config::getAutocreateAllowedStatusCodes()
      * @return ArrayObject
      */
     public function getAutocreateStatusCodes()
     {
         return $this->_toArrayObject($this->getConfig(
             'autocreate/autocreate_allowed-status-codes'));
+    }
+
+    /**
+     * Obtain comma-separated list of payment method codes that apply for shipment auto creation.
+     *
+     * @return string
+     */
+    public function getAutocreateAllowedPaymentMethods()
+    {
+        $path = 'intraship/autocreate/autocreate_allowed-payments';
+        $methodCodes = Mage::getStoreConfig($path);
+        if (null === $methodCodes) {
+            $methodCodes = '';
+        }
+        return $methodCodes;
+    }
+
+    /**
+     * Obtain comma-separated list of order status codes that apply for shipment auto creation.
+     *
+     * @return string
+     */
+    public function getAutocreateAllowedStatusCodes()
+    {
+        $path = 'intraship/autocreate/autocreate_allowed-status-codes';
+        $statusCodes = Mage::getStoreConfig($path);
+        if (null === $statusCodes) {
+            $statusCodes = '';
+        }
+        return $statusCodes;
     }
 
     /**
@@ -602,7 +686,7 @@ class Dhl_Intraship_Model_Config
 
     /**
      * Get notification message.
-     * 
+     *
      * @param mixed  $store Store or storeId
      *
      * @return string
@@ -611,20 +695,20 @@ class Dhl_Intraship_Model_Config
     {
         return (string) $this->getConfig('autocreate/autocreate_message', $store);
     }
-    
+
     /**
      * Get tracking notification message
-     * 
+     *
      * @return boolean
      */
     public function isTrackingNotification()
     {
         return (1 == $this->getConfig('notification/tracking_notification'));
     }
-    
+
     /**
      * Get tracking notification message
-     * 
+     *
      * @return string
      */
     public function getTrackingNotificationMessage($store=null)
@@ -640,7 +724,7 @@ class Dhl_Intraship_Model_Config
      * @return ArrayObject  $return
      */
     public function getAutocreateSettings($countryCode)
-    {   
+    {
         $countryCode = strtoupper($countryCode);
         $settings = new ArrayObject(array());
         // Append default profile from config.xml.
@@ -776,7 +860,7 @@ class Dhl_Intraship_Model_Config
         endif;
         return $result;
     }
-    
+
     /**
      * Check if COD Charge should be removed from order grand total
      *
@@ -786,7 +870,7 @@ class Dhl_Intraship_Model_Config
     {
         return (1 == $this->getConfig('packages/remove_cod_charge'));
     }
-    
+
     /**
      * get COD Charge
      *
@@ -799,17 +883,27 @@ class Dhl_Intraship_Model_Config
 
     /**
      * get name of the logging file
-     * 
+     *
      * @return string
      */
     public function getLogfile()
     {
         return self::LOG_FILE;
     }
-    
+
+    /**
+     * Get deactivated shipping methods for autocreate
+     *
+     * @return ArrayObject
+     */
+    public function getDisabledShippingMethods()
+    {
+        return $this->getConfig('packages/disabled_shipping_methods');
+    }
+
     /**
      * Check if shipping method is disabled
-     * 
+     *
      * @param  string $shippingCode
      * @return boolean
      */
@@ -824,28 +918,28 @@ class Dhl_Intraship_Model_Config
             return true;
         endif;
     }
-    
+
     /**
      * get allowed product types for weight calculation
-     * 
+     *
      * @return string
      */
     public function getProductTypesForWeightCalculation()
     {
         return explode(",", $this->getConfig('packages/global_settings_weight_product_types'));
     }
-    
+
     /**
      * return the tracking url from the config.xml
-     * 
+     *
      * @return string
      */
 //    public function getTrackingUrl()
 //    {
 //        return (string) $this->getconfig('tracking/url');
 //    }
-    
-    
+
+
     /**
      * get tracking link (pattern or for given parcel
      *
@@ -854,7 +948,7 @@ class Dhl_Intraship_Model_Config
      */
     public function getTrackingUrl($orderNo=null)
     {
-        
+
         $link = '';
         if (is_string($orderNo) && 0 < strlen($orderNo)) {
             $link = Mage::getStoreConfig('intraship/tracking/url');

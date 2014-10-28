@@ -91,5 +91,8 @@
     'Continue',
     '<?php echo $this->__('Continue'); ?>'
     );
+        
+    // Magento StoreView-URL, relevant for Ajax-Calls on Helpers
+    var BASE_URL = '<?php echo Mage::getUrl('', array('_forced_secure' => $this->getRequest()->isSecure())); ?>';
 
 </script>

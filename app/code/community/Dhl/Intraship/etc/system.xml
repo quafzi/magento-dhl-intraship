@@ -100,8 +100,8 @@
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
                         </login_test>
-                        <wsdl_production translate="label comment">
-                            <label>WSDL Production</label>
+                        <wsdl translate="label comment">
+                            <label>WSDL</label>
                             <frontend_type>text</frontend_type>
                             <comment><![CDATA[This URL should not be changed by default.]]></comment>
                             <validate>validate-url</validate>
@@ -109,17 +109,25 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
-                        </wsdl_production>
-                        <wsdl_test translate="label comment">
-                            <label>WSDL Test</label>
+                        </wsdl>
+                        <endpoint_production translate="label comment">
+                            <label>Production URL</label>
                             <frontend_type>text</frontend_type>
                             <comment><![CDATA[This URL should not be changed by default.]]></comment>
-                            <validate>validate-url</validate>
                             <sort_order>200</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
-                        </wsdl_test>
+                        </endpoint_production>
+                        <endpoint_sandbox translate="label comment">
+                            <label>Sandbox URL</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[This URL should not be changed by default.]]></comment>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </endpoint_sandbox>
                     </fields>
                 </url>
 
@@ -142,7 +150,7 @@
                         <margin_left translate="label comment">
                             <label>Left margin</label>
                             <frontend_type>text</frontend_type>
-                            <comment><![CDATA[The recommended left margin is 2 in testmode and 10 in livemode.]]></comment>
+                            <comment><![CDATA[The recommended left margin is 2 in testmode and 10 in livemode. The unit of measurement are millimeters.]]></comment>
                             <validate>validate-number</validate>
                             <sort_order>200</sort_order>
                             <show_in_default>1</show_in_default>
@@ -152,6 +160,7 @@
                         <margin_top translate="label comment">
                             <label>Top margin</label>
                             <frontend_type>text</frontend_type>
+                             <comment><![CDATA[The unit of measurement are millimeters.]]></comment>
                             <validate>validate-number</validate>
                             <sort_order>300</sort_order>
                             <show_in_default>1</show_in_default>
@@ -181,8 +190,8 @@
                         <signature translate="label comment">
                             <label>Intraship Signature</label>
                             <frontend_type>text</frontend_type>
-                            <comment><![CDATA[The password should be 8-10 characters long, must contain at least one capital letter and one number and should not contain special characters. <br />These credentials will be used if <a href="#config_state[intraship_general]" onclick="highlightTestmodeConfiguration()">Testmode</a> is set "No"]]></comment>
-                            <validate>validate-alphanum validate-length minimum-length-8 maximum-length-10</validate>
+                            <comment><![CDATA[These credentials will be used if <a href="#config_state[intraship_general]" onclick="highlightTestmodeConfiguration()">Testmode</a> is set "No"]]></comment>
+                            <validate>validate-password-dhl</validate>
                             <sort_order>200</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -634,14 +643,14 @@
                         <bank_data_accountOwner translate="label comment" module="intraship">
                             <label>Account Owner *</label>
                             <frontend_type>text</frontend_type>
-                            <validate>validate-length maximum-length-50</validate>
+                            <validate>required-entry validate-length maximum-length-50</validate>
                             <sort_order>2100</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </bank_data_accountOwner>
                         <bank_data_accountNumber translate="label comment" module="intraship">
-                            <label>Account Number *</label>
+                            <label>Account Number</label>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
                             <sort_order>2200</sort_order>
@@ -650,7 +659,7 @@
                             <show_in_store>1</show_in_store>
                         </bank_data_accountNumber>
                         <bank_data_bankCode translate="label comment" module="intraship">
-                            <label>Bank Code *</label>
+                            <label>Bank Code</label>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
                             <sort_order>2300</sort_order>
@@ -661,14 +670,15 @@
                         <bank_data_bankName translate="label comment" module="intraship">
                             <label>Bank Name *</label>
                             <frontend_type>text</frontend_type>
-                            <validate>validate-length maximum-length-20</validate>
+                            <validate>required-entry validate-length maximum-length-20</validate>
                             <sort_order>2400</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </bank_data_bankName>
                         <bank_data_iban translate="label comment" module="intraship">
-                            <label>IBAN</label>
+                            <label>IBAN *</label>
+                            <validate>required-entry validate-alphanum validate-length maximum-length-34</validate>
                             <frontend_type>text</frontend_type>
                             <sort_order>2500</sort_order>
                             <show_in_default>1</show_in_default>
@@ -676,9 +686,9 @@
                             <show_in_store>1</show_in_store>
                         </bank_data_iban>
                         <bank_data_bic translate="label comment" module="intraship">
-                            <label>BIC</label>
+                            <label>BIC *</label>
                             <frontend_type>text</frontend_type>
-                            <validate>validate-length maximum-length-11</validate>
+                            <validate>required-entry validate-alphanum validate-length maximum-length-11</validate>
                             <sort_order>2600</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>

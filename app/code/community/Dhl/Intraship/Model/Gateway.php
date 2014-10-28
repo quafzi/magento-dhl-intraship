@@ -14,7 +14,7 @@ class Dhl_Intraship_Model_Gateway
      * @var Dhl_Intraship_Model_Config
      */
     protected $_config;
-    
+
     /**
      * Proccess queue
      *
@@ -42,14 +42,14 @@ class Dhl_Intraship_Model_Gateway
                 /* @var $row Dhl_Intraship_Model_Shipment */
                 foreach($collection as $shipment) {
                     ++$shipmentOffset;
-                    
+
                     //Skip shipment if current status has changed to avoid double shipment transmission
                     if (Mage::getModel('intraship/shipment')
                            ->load($shipment->getId())
                            ->getStatus() != $shipment->getStatus()) {
                         continue;
-                    } 
-                    
+                    }
+
                     try {
                         $fallback = new ArrayObject(array());
                         if (!$shipment instanceof Dhl_Intraship_Model_Shipment) {
@@ -61,7 +61,7 @@ class Dhl_Intraship_Model_Gateway
                                 $fallback->offsetSet('type', 'create');
                                 $fallback->offsetSet('status',
                                     Dhl_Intraship_Model_Shipment::STATUS_NEW_FAILED);
-                                $shipment = $this->_create($shipment);
+                                $this->_create($shipment);
                                 break;
                             case Dhl_Intraship_Model_Shipment::STATUS_CANCEL_QUEUED:
                             case Dhl_Intraship_Model_Shipment::STATUS_CANCEL_RETRY:
@@ -117,7 +117,7 @@ class Dhl_Intraship_Model_Gateway
         try {
             //Set Shipment to "in transmission" to avoid double shipment transmission
             $shipment->setAsInTransmission();
-            
+
             /* @var $client Dhl_Intraship_Model_Soap_Client_Shipment */
             $client = Mage::getModel(
                 'intraship/soap_client_shipment',
@@ -127,10 +127,10 @@ class Dhl_Intraship_Model_Gateway
             $response = $client->create($shipment);
             if (!$response instanceof Dhl_Intraship_Model_Soap_Client_Response):
                throw new Dhl_Intraship_Model_Soap_Client_Response_Exception('DHL Response is not valid');
-            endif;            
+            endif;
             $response->validate();
-            
-            /* @var $helper Dhl_Intraship_Helper_Pdf_Document */ 
+
+            /* @var $helper Dhl_Intraship_Helper_Pdf_Document */
             $helper = Mage::helper('intraship/pdf_document');
             $helper
                 ->setPdfName($helper->getFileNameLabel($response->getShipmentNumber()))
@@ -158,7 +158,7 @@ class Dhl_Intraship_Model_Gateway
             if ($this->getConfig()->isTrackingNotification()):
                 $message = $this->getConfig()->getTrackingNotificationMessage(
                 	$shipment->getShipment()->getOrder()->getStoreId()
-                );                
+                );
                 $mageShipment = $shipment->getShipment();
                 $mageShipment
                     ->addComment($message, true)
@@ -170,9 +170,7 @@ class Dhl_Intraship_Model_Gateway
             $shipment->addComment(
                 $shipment->getClientStatusMessage(),
                 $shipment->getClientStatusCode(), 'create');
-            return $shipment;
         } catch (Exception $e) {
-            throw $e;
             // Handle exceptions
             $code = Dhl_Intraship_Model_Shipment::STATUS_NEW_RETRY;
             if ($e instanceof Dhl_Intraship_Model_Soap_Client_Response_Exception):
@@ -200,7 +198,7 @@ class Dhl_Intraship_Model_Gateway
         try {
             //Set Shipment to "in transmission" to avoid double shipment transmission
             $shipment->setAsInTransmission();
-            
+
             /* @var $client Dhl_Intraship_Model_Soap_Client_Shipment */
             $client = Mage::getModel(
                 'intraship/soap_client_shipment',
@@ -260,10 +258,10 @@ class Dhl_Intraship_Model_Gateway
                 return $failed;
         endswitch;
     }
-    
+
     /**
      * get module configuration model
-     * 
+     *
      * @return Dhl_Intraship_Model_Config
      */
     protected function getConfig()
@@ -273,7 +271,7 @@ class Dhl_Intraship_Model_Gateway
         }
         return $this->_config;
     }
-    
+
     /*
      * write a message to the log (if this is enabled)
      *

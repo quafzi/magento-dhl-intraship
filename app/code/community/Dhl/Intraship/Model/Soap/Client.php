@@ -26,8 +26,11 @@ class Dhl_Intraship_Model_Soap_Client extends Zend_Soap_Client
         /* @var $config Dhl_Intraship_Model_Config */
         $config = Mage::getModel('intraship/config');
         parent::__construct($config->getSoapWsdl($store), array(
-            'encoding'    => 'UTF-8',
-            'compression' => SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_DEFLATE
+            'location'       => $config->getWebserviceEndpoint($store),
+            'login'          => $config->getWebserviceAuthUsername(),
+            'password'       => $config->getWebserviceAuthPassword(),
+            'encoding'       => 'UTF-8',
+            'compression'    => SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_DEFLATE,
         ));
         $header = sprintf(
             '<ns1:Authentification>
@@ -61,30 +64,30 @@ class Dhl_Intraship_Model_Soap_Client extends Zend_Soap_Client
     protected function _preProcessResult($result)
     {
         $result = parent::_preProcessResult($result);
-        
+
         /**
          * catch interface errors
-         * 
+         *
          * Excerpt of interface documentation:
          *   A value of zero means, the request was processed without error.
          *   A value greater than zero indicates that an error occurred.
          *   The detailed mapping and explanation of returned status codes is
          *   contained in the list.
-         * 
-         * @var stdClass $status Interface status response 
+         *
+         * @var stdClass $status Interface status response
          */
         if (Mage::getStoreConfig('intraship/general/logging_enabled')) {
             $logfile = Mage::getModel('intraship/config')->getLogfile();
             Mage::log('REQUEST: ' . $this->getLastRequest(), null, $logfile);
             Mage::log('RESPONSE: ' . $this->getLastResponse(), null, $logfile);
         }
-        
+
         $status = isset($result->status) ? $result->status : $result->Status;
         if (0 < (int) $status->StatusCode):
            throw new Dhl_Intraship_Model_Soap_Client_Response_Exception(
                $this->getErrorMessage($result), $status->StatusCode);
         endif;
-        
+
         return $result;
     }
 
@@ -105,14 +108,14 @@ class Dhl_Intraship_Model_Soap_Client extends Zend_Soap_Client
         header('Content-type: text/xml');
         print parent::getLastResponse();
     }
-    
+
     protected function getErrorMessage($result)
     {
         $errorMessage = "";
-        if (isset($result->status)) $errorMessage = $result->status->StatusMessage;        
+        if (isset($result->status)) $errorMessage = $result->status->StatusMessage;
         if (isset($result->CreationState) && ($result->CreationState instanceof Dhl_Intraship_Model_Soap_Client_Response)):
             $errorMessage .= " | ".$result->CreationState->getStatusMessage();
-        endif;        
+        endif;
         return $errorMessage;
     }
 }

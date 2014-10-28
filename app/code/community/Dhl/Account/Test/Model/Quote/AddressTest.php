@@ -131,9 +131,11 @@ class Dhl_Account_Test_Model_Quote_AddressTest extends EcomDev_PHPUnit_Test_Case
         $this->model->setStreet("packstation 123");
         $this->assertTrue($this->model->validate());
 
+        $this->store->setConfig('intraship/packstation/active', false);
         $this->model->setStreet("123");
         $this->assertTrue($this->model->validate());
 
+        $this->store->setConfig('intraship/packstation/active', true);
         $this->model->setStreet("1234");
         $this->assertTrue(is_array($this->model->validate()));
         $this->assertEquals(Mage::helper('customer')->__('Only 3 digits are allowed for packstations.'), current($this->model->validate()));

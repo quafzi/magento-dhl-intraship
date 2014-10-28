@@ -30,17 +30,24 @@
  */
 class Dhl_Account_Model_Config
 {
-
-
     const SHIP_TO_PACKSTATION = 1;
 
     /**
-     * gets the url for packstation finder service
-     * @return String the url of packstation finder
+     * Obtain application wide HTTP Basic auth credentials (username)
+     * @return string
      */
-    public function getPackstationFinderUrl()
+    public function getWebserviceAuthUsername()
     {
-        return Mage::getStoreConfig('intraship/url/packstationfinder_url');
+        return Mage::getStoreConfig('intraship/webservice/auth_username');
+    }
+
+    /**
+     * Obtain application wide HTTP Basic auth credentials (password)
+     * @return string
+     */
+    public function getWebserviceAuthPassword()
+    {
+        return Mage::getStoreConfig('intraship/webservice/auth_password');
     }
 
     /**
@@ -48,18 +55,23 @@ class Dhl_Account_Model_Config
      *
      * @return boolean - true if the packstation service is enabled, false otherwise
      */
-    public function isPackstationEnabled()
+    public function isPackstationEnabled($storeId = null)
     {
-        return (bool)Mage::getStoreConfig('intraship/packstation/active');
+        return (bool)Mage::getStoreConfig('intraship/packstation/active',$storeId);
     }
 
+
+    public function isParcelAnnouncementEnabled($storeId = null)
+    {
+        return (bool)Mage::getStoreConfig('intraship/parcel_announcement/active',$storeId);
+    }
 
     /**
      * is the parcel announcement service active or not
      *
      * @return boolean - true if the parcel announcement service is enabled, false otherwise
      */
-    public function isParcelAnnouncementEnabled()
+    public function isPreferredDeliveryDateEnabled()
     {
         return (bool)Mage::getStoreConfig('intraship/dhlaccount/active');
     }

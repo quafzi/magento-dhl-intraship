@@ -29,9 +29,9 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
 
     /**
      * split street into street name, number and care of
-     * 
+     *
      * @param string $street
-     * 
+     *
      * @return array
      */
     public function splitStreet($street)
@@ -45,11 +45,11 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
          * third pattern  | care_of                 | optional | ([^0-9]+.*)?      | all characters != 0-9 + any character except newline
          */
         if (preg_match("/^([^0-9]+)([0-9]+[ ])*[ \t]*([0-9]*[-\w^.]*)?[, \t]*([^0-9]+.*)?\$/", $street, $matches)) {
-            
+
             //check if street has additional value and add it to streetname
             if (preg_match("/^([0-9]+)?\$/", trim($matches[2]))) {
                 $matches[1] = $matches[1] . $matches[2];
-                
+
             }
             return array(
                 'street_name'   => trim($matches[1]),
@@ -83,11 +83,11 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
     {
         return (bool)$address->getStationId();
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     protected function _setReceiverCompanyCompany(Mage_Sales_Model_Order_Address $address, array &$receiver)
     {
         $receiver['Company']['Company']['name1'] = $address->getCompany();
@@ -101,14 +101,14 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
         $receiver['Company']['Person']['firstname']  = $address->getFirstname();
         $receiver['Company']['Person']['middlename'] = $address->getMiddlename();
         $receiver['Company']['Person']['lastname']   = $address->getLastname();
-        
+
         unset($receiver['Company']['Company']);
     }
-    
+
     protected function _setReceiverAddress(Mage_Sales_Model_Order_Address $address, array &$receiver)
     {
         $receiver['Address']['careOfName'] = $address->getCareOf();
-        
+
         $countryId = $address->getCountryId();
         switch ($countryId) {
             case 'DE':
@@ -122,23 +122,25 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
             break;
         }
         unset($receiver['Address']['Zip']['__country_id__']);
-        
+
         $receiver['Address']['city'] = $address->getCity();
-        
+
         $receiver['Address']['Origin']['country'] = Mage::getModel('directory/country')->load($countryId)->getName();
         $receiver['Address']['Origin']['countryISOCode'] = $countryId;
     }
-    
+
     protected function _setReceiverCommunication(Mage_Sales_Model_Order_Address $address, array &$receiver)
     {
         $receiver['Communication']['phone'] = $address->getTelephone();
-        $receiver['Communication']['email'] = $address->getEmail();
+        // @desc Removed email field
+        // @see  DHLIS-563
+        unset($receiver['Communication']['email']);
     }
 
-    
-    
-    
-    
+
+
+
+
     protected function _setCompanyPackstationReceiver(
         Mage_Sales_Model_Order_Address $address, array &$receiver)
     {
@@ -146,18 +148,18 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
         $this->_setReceiverCompanyCompany($address, $receiver);
         // add dhl customer id from first address row
         $receiver['Company']['Company']['name2'] = preg_replace('/\D/', '', $address->getIdNumber());
-        
+
         // ADDRESS
         $receiver['Address']['streetName'] = 'Packstation';
         // add station id
         $receiver['Address']['streetNumber'] = preg_replace('/\D/', '', $address->getStationId());
         $this->_setReceiverAddress($address, $receiver);
-        
+
         // COMMUNICATION
         $this->_setReceiverCommunication($address, $receiver);
         $receiver['Communication']['contactPerson'] = sprintf('%s %s', $address->getFirstname(), $address->getLastname());
     }
-    
+
     protected function _setCompanyNoPackstationReceiver(
         Mage_Sales_Model_Order_Address $address, array &$receiver)
     {
@@ -165,7 +167,7 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
         $this->_setReceiverCompanyCompany($address, $receiver);
         // no dhl customer id available
         unset($receiver['Company']['Company']['name2']);
-        
+
         // ADDRESS
         $receiver['Address']['streetName'] = $address->getStreetName();
         $receiver['Address']['streetNumber'] = $address->getStreetNumber();
@@ -175,7 +177,7 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
         $this->_setReceiverCommunication($address, $receiver);
         $receiver['Communication']['contactPerson'] = sprintf('%s %s', $address->getFirstname(), $address->getLastname());
     }
-    
+
     protected function _setNoCompanyPackstationReceiver(
         Mage_Sales_Model_Order_Address $address, array &$receiver)
     {
@@ -187,12 +189,12 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
         // add station id
         $receiver['Address']['streetNumber'] = preg_replace('/\D/', '', $address->getStationId());
         $this->_setReceiverAddress($address, $receiver);
-        
+
         // COMMUNICATION
         $this->_setReceiverCommunication($address, $receiver);
         $receiver['Communication']['contactPerson'] = preg_replace('/\D/', '', $address->getIdNumber());
     }
-    
+
     protected function _setNoCompanyNoPackstationReceiver(
         Mage_Sales_Model_Order_Address $address, array &$receiver)
     {
@@ -208,10 +210,10 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
         $this->_setReceiverCommunication($address, $receiver);
         $receiver['Communication']['contactPerson'] = '';
     }
-    
-    
-    
-    
+
+
+
+
     public function getReceiver(Mage_Sales_Model_Order_Address $address)
     {
         // default dhl receiver array.
@@ -249,37 +251,37 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
                 'contactPerson' => '__contactPerson__'
             )
         );
-        
+
         // switch. makes things easier to maintain…
         if ($this->_isCompanyAddress($address) && $this->_isPackstationAddress($address)) {
             // company: yes, packstation: yes
             $this->_setCompanyPackstationReceiver($address, $receiver);
-            
+
         } elseif ($this->_isCompanyAddress($address) && !$this->_isPackstationAddress($address)) {
             // company: yes, packstation: no
             $this->_setCompanyNoPackstationReceiver($address, $receiver);
-            
+
         } elseif (!$this->_isCompanyAddress($address) && $this->_isPackstationAddress($address)) {
             // company: no, packstation: yes
             $this->_setNoCompanyPackstationReceiver($address, $receiver);
-            
+
         } elseif (!$this->_isCompanyAddress($address) && !$this->_isPackstationAddress($address)) {
             // company: no, packstation: no
             $this->_setNoCompanyNoPackstationReceiver($address, $receiver);
-            
+
         }
 
         // finally, trim and utf8-decode all values
         array_walk_recursive($receiver, create_function('&$value, $key', '$value = trim($value);'));
-        
+
         return array('Receiver' => $receiver);
     }
-    
+
     /**
      * Check if product type is allowed for weight calculation
      *
      * @param  string $productType
-     * 
+     *
      * @return boolean
      */
     public function isAllowedProductTypeForWeightCalculation($productType)
@@ -290,14 +292,56 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
             return false;
         endif;
     }
-    
+
     /**
      * get store id which is selected in the admin store switcher
-     * 
+     *
      * @return string
      */
     public function getAdminStoreId()
     {
         return Mage::app()->getRequest()->getParam('store');
+    }
+
+    /**
+     * Obtain all orders that, according to config, apply for shipment auto creation.
+     *
+     * @return Mage_Sales_Model_Mysql4_Order_Collection
+     */
+    public function getAutocreateOrders()
+    {
+        /* @var $config Dhl_Intraship_Model_Config */
+        $config = Mage::getModel('intraship/config');
+        $allowedStatusCodes      = $config->getAutocreateAllowedStatusCodes();
+        $allowedPaymentMethods   = $config->getAutocreateAllowedPaymentMethods();
+        $disabledShippingMethods = $config->getDisabledShippingMethods();
+        $installDate             = $config->getInstallDate();
+
+        /* @var $orderCollection Mage_Sales_Model_Resource_Order_Collection */
+        $orderCollection = Mage::getModel('sales/order')->getCollection();
+
+        $coreVersion = Mage::getConfig()->getModuleConfig('Mage_Core')->version;
+        if (version_compare($coreVersion, '1.6.0.0', '<')) {
+            $orderCollection->getSelect()->join(
+                array('payment_table' => $orderCollection->getTable('sales/order_payment')),
+                "`main_table`.`entity_id` = `payment_table`.`parent_id`",
+                array()
+            );
+        } else {
+            $orderCollection->join(
+                array('payment_table' => 'sales/order_payment'),
+                "`main_table`.`entity_id` = `payment_table`.`parent_id`",
+                array()
+            );
+        }
+
+        $orderCollection
+            ->addFieldToFilter('status', array('in' => explode(',', $allowedStatusCodes)))
+            ->addFieldToFilter('method', array('in' => explode(',', $allowedPaymentMethods)))
+            ->addFieldToFilter('shipping_method', array('nin' => explode(',', $disabledShippingMethods)))
+            ->addFieldToFilter('created_at', array('gteq' => $installDate))
+        ;
+
+        return $orderCollection;
     }
 }

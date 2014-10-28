@@ -43,17 +43,6 @@ class Dhl_Account_Test_Model_ConfigTest extends EcomDev_PHPUnit_Test_Case
         parent::setUp();
     }
 
-    public function testGetPackstationFinderUrl()
-    {
-        $this->assertEquals('http://www.dhl.de/maptos/pfind?PARTNER_ID=DHLDS&standorttyp=packstation_paketbox&pmtype=1', $this->config->getPackstationFinderUrl());
-
-        $this->store->resetConfig();
-        $this->store->setConfig('intraship/url/packstationfinder_url', 'http://www.heise.de');
-        $this->assertNotEquals('http://www.dhl.de/maptos/pfind?PARTNER_ID=DHLDS&standorttyp=packstation_paketbox&pmtype=1', $this->config->getPackstationFinderUrl());
-        $this->assertEquals('http://www.heise.de', $this->config->getPackstationFinderUrl());
-    }
-
-
     public function testIsPackstationEnabled()
     {
         $this->store->setConfig('intraship/packstation/active', true);
@@ -65,14 +54,38 @@ class Dhl_Account_Test_Model_ConfigTest extends EcomDev_PHPUnit_Test_Case
     }
 
 
-    public function testIsParcelAnnouncementEnabled()
+    public function testIsPreferredDeliveryDateEnabled()
     {
         $this->store->setConfig('intraship/dhlaccount/active', true);
-        $this->assertTrue($this->config->isParcelAnnouncementEnabled());
+        $this->assertTrue($this->config->isPreferredDeliveryDateEnabled());
 
         $this->store->resetConfig();
         $this->store->setConfig('intraship/dhlaccount/active', false);
+        $this->assertFalse($this->config->isPreferredDeliveryDateEnabled());
+    }
+
+    public function testIsParcelAnnouncementEnabled()
+    {
+        $this->store->setConfig('intraship/parcel_announcement/active', true);
+        $this->assertTrue($this->config->isParcelAnnouncementEnabled());
+
+        $this->store->resetConfig();
+        $this->store->setConfig('intraship/parcel_announcement/active', false);
         $this->assertFalse($this->config->isParcelAnnouncementEnabled());
+    }
+
+    public function testGetWebserviceAuthPassword()
+    {
+        $this->store->setConfig('intraship/webservice/auth_password','1234');
+        $this->assertEquals('1234',$this->config->getWebserviceAuthPassword());
+        $this->assertNotEquals('123',$this->config->getWebserviceAuthPassword());
+    }
+
+    public function testGetWebserviceAuthUsername()
+    {
+        $this->store->setConfig('intraship/webservice/auth_username','Karl');
+        $this->assertEquals('Karl',$this->config->getWebserviceAuthUsername());
+        $this->assertNotEquals('Marx',$this->config->getWebserviceAuthUsername());
     }
 
 }

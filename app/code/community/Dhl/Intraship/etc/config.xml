@@ -1,14 +1,19 @@
 <?xml version="1.0"?>
-<!-- /** * @category Config * @package Dhl_Intraship * @author Jochen Werner 
-    <jochen.werner@netresearch.de> * @author Stephan Hoyer <stephan.hoyer@netresearch.de> 
-    * @author André Herrn <andre.herrn@netresearch.de> * @copyright Copyright 
-    (c) 2010 Netresearch GmbH & Co.KG <http://www.netresearch.de/> * @license 
-    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0) 
-    */ -->
+<!--
+/**
+ * @category Config
+ * @package Dhl_Intraship
+ * @author Jochen Werner <jochen.werner@netresearch.de>
+ * @author Stephan Hoyer <stephan.hoyer@netresearch.de> 
+ * @author André Herrn <andre.herrn@netresearch.de>
+ * @copyright Copyright (c) 2010 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0) 
+ */
+-->
 <config>
     <modules>
         <Dhl_Intraship>
-            <version>13.07.04</version>
+            <version>14.08.19</version>
         </Dhl_Intraship>
     </modules>
     <global>
@@ -324,14 +329,19 @@
             </packages>
             <account_test>
                 <user>magento</user>
-                <signature>m1a2$!</signature>
+                <signature><![CDATA[m1a2$!]]></signature>
                 <ekp>5000000000</ekp>
             </account_test>
+            <webservice>
+                <auth_username>magento_1</auth_username>
+                <auth_password>2de26b775e59279464d1c2f8546432e62413372421c672db36eaacfc2f</auth_password>
+            </webservice>
             <url>
                 <login_production><![CDATA[https://www.intraship.de/intraship/jsp/Login_WS.jsp]]></login_production>
                 <login_test><![CDATA[https://test-intraship.dhl.com/intraship.591/jsp/Login_WS.jsp]]></login_test>
-                <wsdl_production><![CDATA[http://www.intraship.de/ws/1_0/ISService/DE.wsdl]]></wsdl_production>
-                <wsdl_test><![CDATA[http://test-intraship.dhl.com/ws/1_0/ISService/DE.wsdl]]></wsdl_test>
+                <wsdl><![CDATA[https://cig.dhl.de/cig-wsdls/com/dpdhl/wsdl/intraship/1.0/intraship-1.0.wsdl]]></wsdl>
+                <endpoint_production><![CDATA[https://cig.dhl.de/services/production/soap]]></endpoint_production>
+                <endpoint_sandbox><![CDATA[https://cig.dhl.de/services/sandbox/soap]]></endpoint_sandbox>
             </url>
             <!-- Package settings for germany (EPN) -->
             <epn>
@@ -378,11 +388,11 @@
                 <contactPerson></contactPerson>
                 <!-- The note "bankData" is required for COD (Cash on Delivery) -->
                 <bank_data_accountOwner></bank_data_accountOwner>
-                <bank_data_accountNumber></bank_data_accountNumber>
-                <bank_data_bankCode></bank_data_bankCode>
+                <bank_data_accountNumber></bank_data_accountNumber> <!-- optional -->
+                <bank_data_bankCode></bank_data_bankCode> <!-- optional -->
                 <bank_data_bankName></bank_data_bankName>
-                <bank_data_iban></bank_data_iban>   <!-- optional -->
-                <bank_data_bic></bank_data_bic>     <!-- optional -->
+                <bank_data_iban></bank_data_iban>   
+                <bank_data_bic></bank_data_bic>     
                 <bank_data_note>Bestellnummer %orderID%</bank_data_note>   <!-- optional -->
             </shipper>
             <tracking>

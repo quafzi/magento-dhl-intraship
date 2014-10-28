@@ -9,15 +9,15 @@ document.observe("dom:loaded", function() {
     }
 
     $(elementsToObserve).each(function(formElm) {
-           Event.observe(formElm, 'change', function(event) {
-               return checkAnnouncementBox(event, this);
-           });
+       Event.observe(formElm, 'change', function(event) {
+           return checkAnnouncementBox(event, this);
+       });
     });
 
 
-	Event.observe($('opc-billing'), 'click', function(event) {
-		return checkAnnouncementBox(event, this);
-	});
+    Event.observe($('opc-billing'), 'click', function(event) {
+        return checkAnnouncementBox(event, this);
+    });
 
     var elementsToHide = $$('#dhl_packstation > div').first().children;
     $A(elementsToHide).each(function(elm) {
@@ -29,45 +29,45 @@ document.observe("dom:loaded", function() {
         togglePackstation();
     }
 
-	$('co-billing-form').observe('click', function(event){
-		var triggerElem = Event.element(event);
-		if (triggerElem != null
-		    && triggerElem.type != null
-			&& triggerElem.type.toLowerCase() == 'button'
-			&& Translator.translate(triggerElem.title.toLowerCase()) == Translator.translate('Continue').toLowerCase()
-		&& $('shipping:packstation') != null
-		&& $('shipping:packstation').checked == true
-		) {
+    $('co-billing-form').observe('click', function(event){
+        var triggerElem = Event.element(event);
+        if (triggerElem != null
+            && triggerElem.type != null
+            && triggerElem.type.toLowerCase() == 'button'
+            && Translator.translate(triggerElem.title.toLowerCase()) == Translator.translate('Continue').toLowerCase()
+            && $('shipping:packstation') != null
+            && $('shipping:packstation').checked == true
+        ) {
             disablePackstation();
-		}
-	});
+        }
+    });
 
     Event.observe($('shipping:packstation'), 'click', function(event) {
         togglePackstation();
     });
 
     Event.observe($('shipping-packstation-data'), 'click', function(event) {
-		setPackstationdata($F('shipping:packstationfinder'));
-		event.stop();
+        setPackstationdata($F('shipping:packstationfinder'));
+        event.stop();
     });
 
 
-	Event.observe($('shipping:dhl_packstation_city'), 'blur', function(event) {
-		$('shipping:city').value = $F('shipping:dhl_packstation_city');
-	});
+    Event.observe($('shipping:dhl_packstation_city'), 'blur', function(event) {
+        $('shipping:city').value = $F('shipping:dhl_packstation_city');
+    });
 
-	Event.observe($('shipping:dhl_packstation_city'), 'keyup', function(event) {
-		$('shipping:postcode').value = '';
-		$('shipping:dhl_packstation_postcode').value = '';
-	});
+    Event.observe($('shipping:dhl_packstation_city'), 'keyup', function(event) {
+        $('shipping:postcode').value = '';
+        $('shipping:dhl_packstation_postcode').value = '';
+    });
 
-	Event.observe($('shipping:dhl_packstation_postcode'), 'blur', function(event) {
-		$('shipping:postcode').value = $F('shipping:dhl_packstation_postcode');
-	});
+    Event.observe($('shipping:dhl_packstation_postcode'), 'blur', function(event) {
+        $('shipping:postcode').value = $F('shipping:dhl_packstation_postcode');
+    });
 
 
     Event.observe($('shipping-search-packstation-button'), 'click', function(event) {
-		copyCityDataFromBillingAddress();
+        copyCityDataFromBillingAddress();
         findPackstations();
         event.stop();
     });
@@ -81,13 +81,13 @@ document.observe("dom:loaded", function() {
         }
     });
 
-	if ($('shipping-address-select') != null) {
-		Event.observe('shipping-address-select', 'change', function(event) {
-			if (this.value != '' && $('shipping:packstation') != null) {
+    if ($('shipping-address-select') != null) {
+        Event.observe('shipping-address-select', 'change', function(event) {
+            if (this.value != '' && $('shipping:packstation') != null) {
                 disablePackstation();
-			}
-		});
-	}
+            }
+        });
+    }
 
     $('shipping:dhl-account').hide();
     $('dhl_account_label').hide();
@@ -116,10 +116,10 @@ function toggleAnnouncementBox(triggerElm, countryDe, addressesEqual, accountNum
             }
         } else {
             // customer confirmed, so hide the box and uncheck package announcement
-            $('parcel_announcement_box').hide();
-            $('billing:package_announcement').checked = false;
-            $('dhl_account_number').hide();
             $('billing:dhl-account').clear();
+            $('billing:preferred_date').checked = false;
+            $('dhl_account_number').hide();
+            $('parcel_announcement_box').hide();
         }
     }
 }
@@ -129,7 +129,7 @@ function checkAnnouncementBox(event, triggerElm)
     if (null != $('parcel_announcement_box')) {
         if ((null != $('billing-address-select')) && $('billing-address-select').getValue()) {
             // currently an existing address is selected, request country code
-            new Ajax.Request('/dhlaccount/account/countrycode', {
+            new Ajax.Request(BASE_URL+'dhlaccount/account/countrycode', {
                 method: 'get',
                 parameters: new Hash({'address_id': $('billing-address-select').getValue()}),
                 onSuccess: function(transport) {
@@ -162,11 +162,11 @@ function addPackstationToShippingForm()
 {
     $('shipping-new-address-form').insert({
         top: $('dhlaccount_shipping_packstation')
-        });
+    });
 
     $($($('shipping:company').parentNode).parentNode).insert({
         before: $('shipping_dhl_account_number')
-        });
+    });
 }
 
 function togglePackstation()
@@ -187,19 +187,21 @@ function togglePackstation()
         $('shipping_dhl_account_number').style.display = 'block';
         $('shipping:dhl-account').show();
         $($($('shipping:company').parentNode).parentNode).insert({
-        before: $('dhl_packstation')
+            before: $('dhl_packstation')
         });
         $($('dhl_packstation').firstChild).show();
         $('shipping:dhl-account').addClassName('required-entry');
         $('shipping:dhl-account').addClassName('validate-six-to-ten-digits');
         $('shipping:dhl-packstation').addClassName('validate-three-digits');
-		$($($('shipping:postcode').parentNode).parentNode).hide();
-		$($($('shipping:city').parentNode).parentNode).hide();
-		copyCityDataFromBillingAddress();
-		findPackstations();
-		$('shipping:packstationfinder').show();
-		$('dhl_packstation').style.display = 'block';
-		$('shipping-packstationbuttons').style.display = 'block';
+        $($($('shipping:postcode').parentNode).parentNode).hide();
+        $($($('shipping:city').parentNode).parentNode).hide();
+        copyCityDataFromBillingAddress();
+        findPackstations();
+        $('shipping:packstationfinder_label').show();
+        $('shipping:packstationfinder').show();
+        $('shipping:packstationfinder').show();
+        $('dhl_packstation').style.display = 'block';
+        $('shipping-packstationbuttons').style.display = 'block';
 
     } else {
         $($($('shipping:company').parentNode).parentNode).style.display = 'block';
@@ -230,11 +232,11 @@ function togglePackstation()
         $('shipping_dhl_account_number').style.display = 'none';
         $('dhl_packstation').style.display = 'none';
         $('co-shipping-form').insert({
-        bottom: $('dhl_packstation')
+            bottom: $('dhl_packstation')
         });
-		$('dhl_packstation').hide();
-		$($($('shipping:postcode').parentNode).parentNode).show();
-		$($($('shipping:city').parentNode).parentNode).show();
+        $('dhl_packstation').hide();
+        $($($('shipping:postcode').parentNode).parentNode).show();
+        $($($('shipping:city').parentNode).parentNode).show();
     }
 }
 
@@ -253,7 +255,7 @@ function findPackstations()
     }
     $('shipping:packstationfinder').options.add(new Option(Translator.translate('Please select'), ''));
     $('shipping:packstationerrors').textContent = '';
-    new Ajax.Request('/dhlaccount/account/packstationdata', {
+    new Ajax.Request(BASE_URL+'dhlaccount/account/packstationdata', {
             method: 'post',
             parameters: new Hash({'zipcode': $F('shipping:dhl_packstation_postcode'), 'city' : $F('shipping:dhl_packstation_city')}),
             onSuccess: function(response) {

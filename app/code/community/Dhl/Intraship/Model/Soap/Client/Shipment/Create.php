@@ -26,7 +26,7 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
             throw new Dhl_Intraship_Model_Soap_Client_Shipment_Exception(
                 'Could not generate shipment without its receiver address');
         }
-        
+
         /* @var $order Mage_Sales_Model_Order */
         $order     = $shipment->getShipment()->getOrder();
         /* @var $config Dhl_Intraship_Model_Config */
@@ -60,7 +60,7 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
             'LabelResponseType' => 'URL',
             'Shipment'          => $data
         ));
-        
+
         //Zend_Debug::dump($this->toArray());
         //exit;
         return $this;
@@ -113,8 +113,8 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
         if (true === $isCOD && true === $this->_isBankDataEmpty()):
             throw new Dhl_Intraship_Model_Soap_Client_Response_Exception(
                 'Payment method cash on delivery is not possible without bank data.');
-        endif;          
-        
+        endif;
+
         /*
          * Set shipping details.
          */
@@ -205,8 +205,8 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
 
     /**
      * encode and trim value
-     * 
-     * @param string $value 
+     *
+     * @param string $value
      *
      * @return string
      */
@@ -324,18 +324,18 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
     {
         /* @var $address Mage_Sales_Model_Order_Address */
         $address = $this->get('receiver');
-        
+
         // make sure that helper always gets address data in correct format
         $this->_normalizeReceiverAddress($address);
-        
+
         $receiver = Mage::helper('intraship')->getReceiver($address);
-        
+
         // "contactPerson" must not be empty for countries outside DE (DHLIS-450)
         if (empty($receiver['Receiver']['Communication']['contactPerson'])
             && ($this->get('profile')->offsetGet('code') == strtoupper(Dhl_Intraship_Model_Config::PACKAGE_BPI))) {
             $receiver['Receiver']['Communication']['contactPerson'] = '.';
         }
-        
+
         $data += $receiver;
 
         return $this;
@@ -419,7 +419,7 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
      * @return string
      */
     protected function _setPlaceholder($notice)
-    {       
+    {
         $notice = str_replace('%shippingID%',
             $this->get('shipment')->getShipment()->getIncrementId(), $notice);
         $notice = str_replace('%orderID%',
@@ -428,11 +428,16 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
             $this->get('order')->getPayment()->getLastTransId(), $notice);
         $notice = str_replace('%customerName%',
             $this->get('order')->getCustomerName() , $notice);
-        $notice = str_replace('%customerID%', 
+        $notice = str_replace('%customerID%',
             $this->get('order')->getCustomerId(), $notice);
-        
-          
+
+        $notice = str_replace(
+            array('ä', 'ö', 'ü', 'ß'),
+            array('ae', 'oe', 'ue', 'ss'),
+            $notice
+        );
+
         return $notice;
-        
+
     }
 }

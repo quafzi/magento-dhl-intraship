@@ -10,12 +10,20 @@
  */
 -->
 <layout>
+    <default>
+        <reference name="notifications">
+            <block type="intraship/adminhtml_notifications" name="intraship_notifications" template="intraship/notifications.phtml"/>
+        </reference>
+    </default>
     <intraship_shipment_documents>
         <reference name="content">
             <block type="intraship/adminhtml_sales_order_shipment_documents_grid" name="shipment_documents_grid"></block>
         </reference>
     </intraship_shipment_documents>
     <intraship_shipment_edit>
+        <reference name="head">
+            <action method="addJs"><script>dhl/validation.js</script></action>
+        </reference>
         <reference name="content">
             <block type="intraship/adminhtml_sales_shipment_edit" name="shipment_edit"></block>
         </reference>
@@ -30,6 +38,7 @@
     <adminhtml_system_config_edit>
         <reference name="head">
             <action method="addJs"><script>dhl/intraship.js</script></action>
+            <action method="addJs"><script>dhl/validation.js</script></action>
         </reference>
     </adminhtml_system_config_edit>
     <adminhtml_sales_order_shipment_new>
