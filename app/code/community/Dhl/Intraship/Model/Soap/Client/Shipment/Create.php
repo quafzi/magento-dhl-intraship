@@ -44,7 +44,7 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
          * Set profile.
          */
         $this->set('profile', $config->getProfileByCountryCode(
-            $this->_getCorrectReceiverCountryId(), $shipment->getProfile()));
+            $this->_getCorrectReceiverCountryId(), $shipment->getProfile(), $order->getStoreId()));
         /*
          * Set default data for result array.
          */

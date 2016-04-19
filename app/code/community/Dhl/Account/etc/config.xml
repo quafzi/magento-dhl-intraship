@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Dhl_Account>
-            <version>14.08.19</version>
+            <version>15.10.29</version>
         </Dhl_Account>
     </modules>
     <global>
@@ -117,25 +117,6 @@
                 </Dhl_Account>
             </modules>
         </translate>
-        <acl>
-	        <resources>
-	            <admin>
-	                <children>
-	                    <system>
-	                        <children>
-	                            <config>
-	                                <children>
-	                                    <dhlaccount translate="title" module="dhlaccount">
-	                                        <title>DHL Account</title>
-	                                    </dhlaccount>
-	                                </children>
-	                            </config>
-	                        </children>
-	                    </system>
-	                </children>
-	            </admin>
-	       </resources>
-        </acl>
     </adminhtml>
     <frontend>
         <translate>

@@ -23,6 +23,24 @@ class Dhl_OnlineRetoure_Test_Block_Sales_Order_Email_RetoureTest
     }
 
     /**
+     * APPSEC-1057: Make sure online retoure block is on the whitelist.
+     *
+     * @test
+     */
+    public function blockTypeAllowed()
+    {
+        $adminVersion = Mage::getConfig()->getModuleConfig('Mage_Admin')->version;
+        if (version_compare($adminVersion, '1.6.1.2', '<')) {
+            $this->markTestSkipped("Test is only applicable for Mage_Admin 1.6.1.2 and up.");
+        }
+
+        $blockType = 'dhlonlineretoure/sales_order_email_retoure';
+        $block = Mage::getModel('admin/block');
+        $this->assertGreaterThan(0, $block->isTypeAllowed($blockType));
+    }
+
+    /**
+     * @loadFixture ../../../../../../var/fixtures/config.yaml
      * @loadFixture ../../../../../../var/fixtures/customers.yaml
      * @loadFixture ../../../../../../var/fixtures/orders.yaml
      */

@@ -1,2 +1,26 @@
+scope:
+  store:
+    - store_id: 1
+      website_id: 1
+      group_id: 1
+      code: foo
+      name: Foo Store
+      is_active: 1
+    - store_id: 2
+      website_id: 1
+      group_id: 1
+      code: bar
+      name: Bar Store
+      is_active: 1
 config:
     default/intraship/general/testmode: 1
+
+    default/intraship/epn/standard: 101
+    default/intraship/epn/go-green: 102
+    default/intraship/bpi/standard: 103
+    default/intraship/bpi/go-green: 104
+
+    stores/bar/intraship/epn/standard: 201
+    stores/bar/intraship/epn/go-green: 202
+    stores/bar/intraship/bpi/standard: 203
+    stores/bar/intraship/bpi/go-green: 204

@@ -9,6 +9,26 @@
  */
 -->
 <config>
+    <menu>
+        <sales>
+            <children>
+                <shipment>
+                    <children>
+                        <intraship_shipment_documents translate="title" module="intraship">
+                            <title>DHL intraship shipment documents</title>
+                            <action>adminhtml/shipment/documents/</action>
+                            <sort_order>2</sort_order>
+                        </intraship_shipment_documents>
+                        <intraship_shipment_triggerqueue translate="title" module="intraship">
+                            <title>Trigger DHL intraship PDF generation manually</title>
+                            <action>adminhtml/shipment/triggerQueue/</action>
+                            <sort_order>3</sort_order>
+                        </intraship_shipment_triggerqueue>
+                    </children>
+                </shipment>
+            </children>
+        </sales>
+    </menu>
     <acl>
         <resources>
             <admin>

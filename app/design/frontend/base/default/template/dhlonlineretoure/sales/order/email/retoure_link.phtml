@@ -1,4 +1,5 @@
 <?php $order = $this->getOrder(); ?>
+<?php /* @var $validateHelper Dhl_OnlineRetoure_Helper_Validate */ ?>
 <?php $validateHelper = Mage::helper("dhlonlineretoure/validate"); ?>
 
 <?php
@@ -7,8 +8,10 @@
  * true === $validateHelper->isOrderHasShipments($order)
  * ... to the following if-statement
  */
-if ($order && true === $validateHelper->isDeliveryNameAvailable($order)
-    && true === Mage::getModel("dhlonlineretoure/config")->isAllowedShippingMethod($order->getShippingMethod())):
+if (($order && $validateHelper->isModuleFrontendEnabled()
+    && $validateHelper->isDeliveryNameAvailable($order)
+    && Mage::getModel("dhlonlineretoure/config")->isAllowedShippingMethod($order->getShippingMethod()))
+):
 ?>
-      <?php echo $this->getReturnLinkWithHash();?>
+    <?php echo $this->getReturnLinkWithHash();?>
 <?php endif; ?>

@@ -85,3 +85,7 @@ display: none; background: none; padding-left: 0px;
     padding-bottom: 0;
     padding-top: 0;
 }
+
+#parcel_announcement_box{
+    display: inline-block;
+}

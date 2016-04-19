@@ -62,6 +62,7 @@ class Dhl_OnlineRetoure_Test_Helper_ValidateTest extends EcomDev_PHPUnit_Test_Ca
     }
 
     /**
+     * @loadFixture ../../../var/fixtures/config.yaml
      * @loadFixture ../../../var/fixtures/customers.yaml
      * @loadFixture ../../../var/fixtures/orders.yaml
      */
@@ -95,6 +96,7 @@ class Dhl_OnlineRetoure_Test_Helper_ValidateTest extends EcomDev_PHPUnit_Test_Ca
     }
 
     /**
+     * @loadFixture ../../../var/fixtures/config.yaml
      * @loadFixture ../../../var/fixtures/customers.yaml
      * @loadFixture ../../../var/fixtures/orders.yaml
      */
@@ -116,6 +118,7 @@ class Dhl_OnlineRetoure_Test_Helper_ValidateTest extends EcomDev_PHPUnit_Test_Ca
     }
 
     /**
+     * @loadFixture ../../../var/fixtures/config.yaml
      * @loadFixture ../../../var/fixtures/customers.yaml
      * @loadFixture ../../../var/fixtures/orders.yaml
      */
@@ -147,12 +150,14 @@ class Dhl_OnlineRetoure_Test_Helper_ValidateTest extends EcomDev_PHPUnit_Test_Ca
     }
 
     /**
+     * @loadFixture ../../../var/fixtures/config.yaml
      * @loadFixture ../../../var/fixtures/customers.yaml
      * @loadFixture ../../../var/fixtures/orders.yaml
      */
     public function testCanShowRetoureLink()
     {
         $this->setUp();
+        $this->store->setConfig('intraship/dhlonlineretoure/active', '1');
 
         $customerId = 4;
         $orderId    = 12;
@@ -199,7 +204,8 @@ class Dhl_OnlineRetoure_Test_Helper_ValidateTest extends EcomDev_PHPUnit_Test_Ca
     }
 
 
-     /**
+    /**
+     * @loadFixture ../../../var/fixtures/config.yaml
      * @loadFixture ../../../var/fixtures/customers.yaml
      * @loadFixture ../../../var/fixtures/orders.yaml
      */
@@ -218,6 +224,7 @@ class Dhl_OnlineRetoure_Test_Helper_ValidateTest extends EcomDev_PHPUnit_Test_Ca
 
 
     /**
+     * @loadFixture ../../../var/fixtures/config.yaml
      * @loadFixture ../../../var/fixtures/customers.yaml
      * @loadFixture ../../../var/fixtures/orders.yaml
      */
@@ -241,6 +248,7 @@ class Dhl_OnlineRetoure_Test_Helper_ValidateTest extends EcomDev_PHPUnit_Test_Ca
     }
 
     /**
+     * @loadFixture ../../../var/fixtures/config.yaml
      * @loadFixture ../../../var/fixtures/customers.yaml
      * @loadFixture ../../../var/fixtures/orders.yaml
      */
@@ -272,6 +280,7 @@ class Dhl_OnlineRetoure_Test_Helper_ValidateTest extends EcomDev_PHPUnit_Test_Ca
     }
 
     /**
+     * @loadFixture ../../../var/fixtures/config.yaml
      * @loadFixture ../../../var/fixtures/customers.yaml
      * @loadFixture ../../../var/fixtures/orders.yaml
      */

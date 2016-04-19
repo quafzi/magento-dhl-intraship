@@ -107,14 +107,25 @@ class Dhl_Intraship_Model_Observer
             endif;
 
 
-            //Insurance Check
-            if ('1' === Mage::getModel('intraship/config')->getAutocreateSettings($countryId)->offsetGet('insurance')
-                && false === $this->_checkInsuranceOfMassActionShipment($observer)):
+            //Insurance Check:
+            // - insurance request during mass action create
+            $insuranceMassActionReq = array_key_exists('insurance', $data)
+                && '1' === $data['insurance'];
+            // - insurance request during autocreate
+            $insuranceAutoCreateReq = !array_key_exists('insurance', $data)
+                && '1' === Mage::getModel('intraship/config')->getAutocreateSettings($countryId)->offsetGet('insurance');
+
+            // - throw exception if insurance is requested and shipment does not satisfy requirements
+            if ( ($insuranceMassActionReq || $insuranceAutoCreateReq)
+                && !$this->_checkInsuranceOfMassActionShipment($observer)
+            ) {
                 $message = Mage::helper('intraship')->__(
                     'The insurance option is not possible on a total amount greater than %s.',
-                    number_format(Dhl_Intraship_Model_Shipment::INSURANCE_A, 2, ',', '.'));
+                    number_format(Dhl_Intraship_Model_Shipment::INSURANCE_A, 2, ',', '.')
+                );
                 Mage::throwException($message);
-            endif;
+            }
+
             return;
         endif;
 
@@ -145,7 +156,7 @@ class Dhl_Intraship_Model_Observer
         endforeach;
 
         // Return if insurance is choosen but not possible.
-        if (true !== $this->checkInsurance() && $data['shipment']['settings']['insurance'] == 1):
+        if ($data['shipment']['settings']['insurance'] == 1 && true !== $this->checkInsurance()):
             $this->_setValidationFailure(Mage::helper('intraship')->__(
                 'The insurance option is not possible on a total amount greater than %s.',
                 number_format(Dhl_Intraship_Model_Shipment::INSURANCE_A, 2, ',', '.')));
@@ -194,25 +205,19 @@ class Dhl_Intraship_Model_Observer
     }
 
     /**
-     * Check if insurance is choosen but not possible.
+     * Check if insurance is chosen but not possible.
      *
      * @return boolean
      */
     public function checkInsurance()
     {
+        /** @var Mage_Sales_Model_Order_Shipment $shipment */
         $shipment = Mage::registry('current_shipment');
-        if (!$shipment instanceof Mage_Sales_Model_Order_Shipment):
-            return true;
-        endif;
-        $amount = 0;
-        foreach ($shipment->getItemsCollection()->getItems() as $item):
-            $amount += ((float) $item->getPrice() * (float) $item->getQty());
-        endforeach;
-        return ((float) $amount <= (float) Dhl_Intraship_Model_Shipment::INSURANCE_A);
+        return Mage::helper('intraship/data')->isInsurable($shipment);
     }
 
     /**
-     * Check if insurance is choosen but not possible.
+     * Check if insurance is chosen but not possible.
      *
      * @param Varien_Event_Observer $observer
      *
@@ -220,11 +225,9 @@ class Dhl_Intraship_Model_Observer
      */
     protected function _checkInsuranceOfMassActionShipment($observer)
     {
-        $amount = 0;
-        foreach ($observer->getShipment()->getItemsCollection() as $item):
-            $amount += ((float) $item->getPrice() * (float) $item->getQty());
-        endforeach;
-        return ((float) $amount <= (float) Dhl_Intraship_Model_Shipment::INSURANCE_A);
+        /** @var Mage_Sales_Model_Order_Shipment $shipment */
+        $shipment = $observer->getShipment();
+        return Mage::helper('intraship/data')->isInsurable($shipment);
     }
 
     /**

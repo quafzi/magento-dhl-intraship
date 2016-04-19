@@ -4,16 +4,16 @@
  * @category Config
  * @package Dhl_Intraship
  * @author Jochen Werner <jochen.werner@netresearch.de>
- * @author Stephan Hoyer <stephan.hoyer@netresearch.de> 
+ * @author Stephan Hoyer <stephan.hoyer@netresearch.de>
  * @author André Herrn <andre.herrn@netresearch.de>
  * @copyright Copyright (c) 2010 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
- * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0) 
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 -->
 <config>
     <modules>
         <Dhl_Intraship>
-            <version>14.08.19</version>
+            <version>15.10.29</version>
         </Dhl_Intraship>
     </modules>
     <global>
@@ -175,26 +175,6 @@
                 </Dhl_Intraship>
             </modules>
         </translate>
-        <menu>
-            <sales>
-                <children>
-                    <shipment>
-                        <children>
-                            <intraship_shipment_documents translate="title" module="intraship">
-                                <title>DHL intraship shipment documents</title>
-                                <action>intraship/shipment/documents/</action>
-                                <sort_order>2</sort_order>
-                            </intraship_shipment_documents>
-                            <intraship_shipment_triggerqueue translate="title" module="intraship">
-                                <title>Trigger DHL intraship PDF generation manually</title>
-                                <action>intraship/shipment/triggerQueue/</action>
-                                <sort_order>3</sort_order>
-                            </intraship_shipment_triggerqueue>
-                        </children>
-                    </shipment>
-                </children>
-            </sales>
-        </menu>
         <layout>
             <updates>
                 <intraship>
@@ -202,39 +182,6 @@
                 </intraship>
             </updates>
         </layout>
-        <acl>
-            <resources>
-                <admin>
-                    <children>
-                        <sales>
-                            <children>
-                                <shipment>
-                                    <children>
-                                        <intraship_shipment_documents translate="title">
-                                            <title>DHL intraship shipment documents</title>
-                                        </intraship_shipment_documents>
-                                        <intraship_shipment_triggerqueue translate="title">
-                                            <title>Trigger DHL intraship PDF generation manually</title>
-                                        </intraship_shipment_triggerqueue>
-                                    </children>
-                                </shipment>
-                            </children>
-                        </sales>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <intraship translate="title" module="intraship">
-                                            <title>DHL Intraship</title>
-                                        </intraship>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                    </children>
-                </admin>
-            </resources>
-        </acl>
     </adminhtml>
     <frontend>
         <translate>
@@ -261,8 +208,9 @@
             <intraship>
                 <use>admin</use>
                 <args>
-                    <module>Dhl_Intraship</module>
-                    <frontName>intraship</frontName>
+                    <modules>
+                        <Dhl_Intraship after="Mage_Adminhtml">Dhl_Intraship</Dhl_Intraship>
+                    </modules>
                 </args>
             </intraship>
         </routers>
@@ -359,7 +307,7 @@
             <!-- Package settings for world (BPI) -->
             <bpi>
                 <code>BPI</code>
-                <countryCodes>BE,BG,DK,EE,FI,FR,GR,IE,IT,LV,LT,LU,MT,NL,AT,PL,PT,RO,SE,SK,SI,ES,CZ,HU,DB,CY,GB</countryCodes>
+                <countryCodes>BE,BG,DK,EE,FI,FR,GR,IE,IT,LV,LT,LU,MT,NL,AT,PL,PT,RO,SE,SK,SI,ES,CZ,HU,DB,CY,GB,HR</countryCodes>
                 <!-- default weight -->
                 <weight>0.1</weight>
                 <!-- partner ids -->
@@ -391,8 +339,8 @@
                 <bank_data_accountNumber></bank_data_accountNumber> <!-- optional -->
                 <bank_data_bankCode></bank_data_bankCode> <!-- optional -->
                 <bank_data_bankName></bank_data_bankName>
-                <bank_data_iban></bank_data_iban>   
-                <bank_data_bic></bank_data_bic>     
+                <bank_data_iban></bank_data_iban>
+                <bank_data_bic></bank_data_bic>
                 <bank_data_note>Bestellnummer %orderID%</bank_data_note>   <!-- optional -->
             </shipper>
             <tracking>

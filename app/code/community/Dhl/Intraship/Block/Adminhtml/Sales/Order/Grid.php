@@ -37,7 +37,7 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
             true === $config->displayAutocreateButton()
         ):
             $urlModel  = Mage::getModel('adminhtml/url');
-            $target = $urlModel->getUrl('intraship/shipment/autocreate', array(
+            $target = $urlModel->getUrl('adminhtml/shipment/autocreate', array(
                 '_current' => false));
             $label  = Mage::helper('intraship')->__(
                 'Create DHL Intraship shipments');
@@ -107,7 +107,7 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
                 ->toOptionArray();
             $this->getMassactionBlock()->addItem('createshipment_order', array(
                 'label'          => Mage::helper('intraship')->__('Create shipment(s)'),
-                'url'            => $this->getUrl('intraship/shipment/mass'),
+                'url'            => $this->getUrl('adminhtml/shipment/mass'),
                 'additional'     => array(
                     'profile' => array(
                          'name'      => 'profile',

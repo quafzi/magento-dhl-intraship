@@ -426,7 +426,8 @@
                     <frontend_type>text</frontend_type>
                     <sort_order>31</sort_order>
                     <show_in_default>1</show_in_default>
-                    <show_in_website>0</show_in_website>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
                     <fields>
                         <weight translate="label comment" module="intraship">
                             <label>Default Weight</label>
@@ -444,8 +445,8 @@
                             <validate>validate-digits validate-length minimum-length-2 maximum-length-2</validate>
                             <sort_order>15</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </standard>
                         <go-green translate="label comment" module="intraship">
                             <label>DHL Package GoGreen - Participation</label>
@@ -453,8 +454,8 @@
                             <validate>validate-digits validate-length minimum-length-2 maximum-length-2</validate>
                             <sort_order>17</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </go-green>
                         <enabled-profiles translate="label comment" module="intraship">
                             <label>Enabled Profiles</label>
@@ -462,8 +463,8 @@
                             <source_model>Dhl_Intraship_Model_System_Config_Source_Profile_Epn</source_model>
                             <sort_order>19</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </enabled-profiles>
                     </fields>
                 </epn>
@@ -473,7 +474,8 @@
                     <frontend_type>text</frontend_type>
                     <sort_order>32</sort_order>
                     <show_in_default>1</show_in_default>
-                    <show_in_website>0</show_in_website>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
                     <fields>
                         <weight translate="label comment" module="intraship">
                             <label>Default Weight</label>
@@ -491,8 +493,8 @@
                             <validate>validate-digits validate-length minimum-length-2 maximum-length-2</validate>
                             <sort_order>35</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </standard>
                         <go-green translate="label comment" module="intraship">
                             <label>DHL Worldpackage GoGreen - Participation</label>
@@ -500,8 +502,8 @@
                             <validate>validate-digits validate-length minimum-length-2 maximum-length-2</validate>
                             <sort_order>37</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </go-green>
                         <enabled-profiles translate="label comment" module="intraship">
                             <label>Enabled Profiles</label>
@@ -509,8 +511,8 @@
                             <source_model>Dhl_Intraship_Model_System_Config_Source_Profile_Bpi</source_model>
                             <sort_order>39</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </enabled-profiles>
                     </fields>
                 </bpi>

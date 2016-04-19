@@ -31,6 +31,27 @@
 class Dhl_OnlineRetoure_Test_Controller_AddressControllerTest
     extends EcomDev_PHPUnit_Test_Case_Controller
 {
+    protected function setUp()
+    {
+        parent::setUp();
+
+        // The address controller actions are called within
+        // the secure frontend area (customer account).
+        $this->getRequest()->setIsSecure(true);
+    }
+
+    /**
+     * For fixture cleanup, switch store scope.
+     */
+    protected function tearDown()
+    {
+        Mage::app()->setCurrentStore(Mage_Core_Model_Store::ADMIN_CODE);
+        parent::tearDown();
+    }
+
+    /**
+     * @loadFixture ../../../var/fixtures/config.yaml
+     */
     public function testConfirmAction()
     {
         $orderMock = $this->getModelMock('sales/order', array('getShippingAddress'));
@@ -71,6 +92,9 @@ class Dhl_OnlineRetoure_Test_Controller_AddressControllerTest
         $this->assertRedirectTo('dhlonlineretoure/address/error');
     }
 
+    /**
+     * @loadFixture ../../../var/fixtures/config.yaml
+     */
     public function testFormPostActionInvalidFormKey()
     {
         $actual   = 'foo';
@@ -87,6 +111,9 @@ class Dhl_OnlineRetoure_Test_Controller_AddressControllerTest
         $this->assertRedirectTo('sales/order/history');
     }
 
+    /**
+     * @loadFixture ../../../var/fixtures/config.yaml
+     */
     public function testFormPostAction()
     {
         // mock soap client, never perform actual request

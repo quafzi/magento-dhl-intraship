@@ -16,12 +16,12 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Grid
         parent::_prepareMassaction();
         $this->getMassactionBlock()->addItem('dhl_intraship_downloadPdf', array(
              'label'=> Mage::helper('sales')->__('Download Intraship PDF'),
-             'url'  => $this->getUrl('intraship/shipment/massPdf'),
+             'url'  => $this->getUrl('adminhtml/shipment/massPdf'),
         ));
 
         return $this;
     }
-    
+
     /**
      * Adds join to collection select with intraship table
      * to get additional intraship collumns to display in grid.
@@ -141,7 +141,7 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Shipment_Grid
             'actions'   => array(
                 array(
                     'caption' => Mage::helper('sales')->__('PDF'),
-                    'url'     => array('base'=>'intraship/shipment/pdf'),
+                    'url'     => array('base'=>'adminhtml/shipment/pdf'),
                     'field'   => 'id',
                     'popup'   => true,
                 )

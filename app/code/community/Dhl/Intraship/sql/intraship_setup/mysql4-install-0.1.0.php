@@ -46,7 +46,7 @@ CREATE TABLE {$this->getTable('intraship_document')} (
 
 ALTER TABLE {$this->getTable('sales/order')} ADD `is_gogreen` TINYINT(1) UNSIGNED NOT NULL AFTER `store_id`;
 
-REPLACE INTO {$this->getTable('core_config_data')} (scope, scope_id, path, value) VALUES ('default', 0, 'intraship/general/install-date', NOW());
+REPLACE INTO {$this->getTable('core_config_data')} (scope, scope_id, path, value) VALUES ('default', 0, 'intraship/general/install-date', UTC_TIMESTAMP());
 ");
 
 $installer->endSetup();

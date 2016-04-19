@@ -10,12 +10,6 @@
  */
 class Dhl_Intraship_ShipmentController extends Mage_Adminhtml_Controller_Action
 {
-    public function testAction()
-    {
-        // Choose a order and click on reorder, but do not submit the form.
-        // Copy the increment id of this order and use it for the following method.
-        // Mage::getModel('intraship/test')->process(100000171, true);
-    }
     /**
      * Action to load a merged document.
      *
@@ -548,5 +542,11 @@ class Dhl_Intraship_ShipmentController extends Mage_Adminhtml_Controller_Action
     protected function _validateSecretKey()
     {
         return true;
+    }
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')
+            ->isAllowed('sales/shipment/intraship_shipment_documents');
     }
 }

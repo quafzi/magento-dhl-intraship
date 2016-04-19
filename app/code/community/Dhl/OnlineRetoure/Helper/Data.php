@@ -10,13 +10,14 @@
 class Dhl_OnlineRetoure_Helper_Data extends Mage_Core_Helper_Data
 {
     /**
-     * Check if the current installation is older than CE 1.7
+     * Check if the current installation is older than CE 1.7 / EE 1.12
      *
      * @return boolean
      */
     public function isLegacyInstallation()
     {
-        return version_compare(Mage::getVersion(), '1.7.0.0', '<');
+        $customerVersion = Mage::getConfig()->getModuleConfig('Mage_Customer')->version;
+        return version_compare($customerVersion, '1.6.2', '<');
     }
 
     /**

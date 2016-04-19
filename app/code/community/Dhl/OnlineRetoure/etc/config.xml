@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Dhl_OnlineRetoure>
-            <version>14.08.19</version>
+            <version>15.10.29</version>
         </Dhl_OnlineRetoure>
     </modules>
     <global>
@@ -31,6 +31,14 @@
                 <class>Dhl_OnlineRetoure_Block</class>
             </dhlonlineretoure>
         </blocks>
+        <resources>
+            <dhlonlineretoure_setup>
+                <setup>
+                    <module>Dhl_OnlineRetoure</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </dhlonlineretoure_setup>
+        </resources>
     </global>
     <adminhtml>
         <translate>
@@ -79,6 +87,9 @@
                 </args>
             </dhlonlineretoure>
         </routers>
+        <secure_url>
+            <dhlonlineretoure>/dhlonlineretoure/</dhlonlineretoure>
+        </secure_url>
     </frontend>
     <default>
         <intraship>

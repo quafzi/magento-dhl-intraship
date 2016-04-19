@@ -10,13 +10,13 @@
 ?>
 <?php if (($intraship = $this->getIntrashipShipment()) && !$intraship->isEmpty()): ?>
 <?php if ($intraship->getMode() == Dhl_Intraship_Model_Shipment::SHIPMENT_MODE_TEST):?>
-	<ul class="messages">
-		<li class="notice-msg">
-			<ul>
-				<li><?php echo $this->__('This Intraship-shipment was created in test mode. The generated labels are not valid for regular shipping.');?></li>
-			</ul>
-		</li>
-	</ul>		
+    <ul class="messages">
+        <li class="notice-msg">
+            <ul>
+                <li><?php echo $this->__('This Intraship-shipment was created in test mode. The generated labels are not valid for regular shipping.');?></li>
+            </ul>
+        </li>
+    </ul>
 <?php endif; ?>
 
 <h3><?php echo $this->__('Intraship Data');?></h3>
@@ -80,17 +80,17 @@
         </button>
     <?php endif; ?>
     <?php if($intraship->canCancel()) : ?>
-        <button id="cancel_shipment" type="button" class="scalable cancel" onclick="setLocation('<?php echo $this->getUrl('intraship/shipment/cancel', array('id' => $intraship->getShipmentId())); ?>')" style="">
+        <button id="cancel_shipment" type="button" class="scalable cancel" onclick="setLocation('<?php echo $this->getUrl('adminhtml/shipment/cancel', array('id' => $intraship->getShipmentId())); ?>')" style="">
             <span><?php echo $this->__('Cancel shipment') ?></span>
         </button>
     <?php endif; ?>
     <?php if($intraship->canResume()) : ?>
-        <button id="resume_shipment" type="button" class="scalable save" onclick="setLocation('<?php echo $this->getUrl('intraship/shipment/resume', array('id' => $intraship->getShipmentId())); ?>')" style="">
+        <button id="resume_shipment" type="button" class="scalable save" onclick="setLocation('<?php echo $this->getUrl('adminhtml/shipment/resume', array('id' => $intraship->getShipmentId())); ?>')" style="">
             <span><?php echo $this->__('Resume shipment') ?></span>
         </button>
     <?php endif; ?>
     <?php if($intraship->canEdit()) : ?>
-        <button id="edit_shipment" type="button" class="scalable save" onclick="setLocation('<?php echo $this->getUrl('intraship/shipment/edit', array('id' => $intraship->getShipmentId())); ?>')" style="">
+        <button id="edit_shipment" type="button" class="scalable save" onclick="setLocation('<?php echo $this->getUrl('adminhtml/shipment/edit', array('id' => $intraship->getShipmentId())); ?>')" style="">
             <span><?php echo $this->__('Edit') ?></span>
         </button>
     <?php endif; ?>

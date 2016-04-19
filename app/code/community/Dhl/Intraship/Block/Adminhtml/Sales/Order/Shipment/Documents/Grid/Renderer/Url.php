@@ -15,7 +15,7 @@ class Dhl_Intraship_Block_Adminhtml_Sales_Order_Shipment_Documents_Grid_Renderer
     {
         $urlModel = Mage::getModel('adminhtml/url')->setStore($row->getData(
             '_first_store_id'));
-        $href = $urlModel->getUrl('intraship/shipment/document', array(
+        $href = $urlModel->getUrl('adminhtml/shipment/document', array(
             '_current' => false, 'id' => $row->getDocumentId()));
         return sprintf('<a href="%s" target="_blank">%s</a>',
             $href, $this->__('Download PDF')

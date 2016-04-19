@@ -28,6 +28,30 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
     }
 
     /**
+     * Sum up all items value to check if insurance is possible.
+     *
+     * @param Mage_Sales_Model_Order_Shipment $shipment
+     * @return bool false if value exceeds max insurance, true otherwise
+     */
+    public function isInsurable(Mage_Sales_Model_Order_Shipment $shipment)
+    {
+        if (!$shipment instanceof Mage_Sales_Model_Order_Shipment) {
+            return true;
+        }
+
+        $amount = 0;
+
+        /** @var Mage_Sales_Model_Order_Shipment_Item $item */
+        foreach ($shipment->getAllItems() as $item) {
+            if($item->getOrderItem()->getParentItemId()){
+                continue;
+            }
+            $amount += (float) $item->getOrderItem()->getPriceInclTax() * $item->getQty();
+        }
+        return ((float) $amount <= (float) Dhl_Intraship_Model_Shipment::INSURANCE_A);
+    }
+
+    /**
      * split street into street name, number and care of
      *
      * @param string $street

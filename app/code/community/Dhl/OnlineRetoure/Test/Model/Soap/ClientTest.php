@@ -70,6 +70,7 @@ class Dhl_OnlineRetoure_Test_Model_Soap_ClientTest extends EcomDev_PHPUnit_Test_
     }
 
     /**
+     * @loadFixture ../../../../var/fixtures/config.yaml
      * @loadFixture ../../../../var/fixtures/customers.yaml
      * @loadFixture ../../../../var/fixtures/orders.yaml
      */
@@ -135,6 +136,7 @@ class Dhl_OnlineRetoure_Test_Model_Soap_ClientTest extends EcomDev_PHPUnit_Test_
     }
 
     /**
+     * @loadFixture ../../../../var/fixtures/config.yaml
      * @loadFixture ../../../../var/fixtures/customers.yaml
      * @loadFixture ../../../../var/fixtures/orders.yaml
      */

@@ -81,7 +81,6 @@ class Dhl_OnlineRetoure_Helper_Validate extends Dhl_OnlineRetoure_Helper_Data
         }
 
         return array(
-            '_secure' => true,
             '_nosid'  => true,
             '_query'  => $query
         );
@@ -120,7 +119,7 @@ class Dhl_OnlineRetoure_Helper_Validate extends Dhl_OnlineRetoure_Helper_Data
     public function isModuleFrontendEnabled()
     {
         return ($this->getConfig()->isEnabled()
-             && $this->isModuleOutputEnabled('dhlonlineretoure'));
+             && $this->isModuleOutputEnabled('Dhl_OnlineRetoure'));
     }
 
     /**
@@ -219,6 +218,10 @@ class Dhl_OnlineRetoure_Helper_Validate extends Dhl_OnlineRetoure_Helper_Data
      */
     public function canShowRetoureLink(Mage_Sales_Model_Order $order)
     {
+        if (!$this->isModuleFrontendEnabled()) {
+            return false;
+        }
+
         // We show the reture link only for internal requests
         if (!$this->isInternalRequest()) {
             return false;

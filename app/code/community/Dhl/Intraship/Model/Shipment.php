@@ -95,7 +95,7 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
      * @var integer
      */
     const STATUS_CLOSED          =  10;
-    
+
     /**
      * Statuscode for shipments which were currenctly transmitted
      *
@@ -123,14 +123,14 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
      * @var float
      */
     const MIN_WEIGHT_KG          = 0.1;
-    
+
     /**
      * If testmode is active, this value is used for the mode - column in the shipment table
      *
      * @var string
      */
     const SHIPMENT_MODE_TEST          = 'test';
-    
+
     /**
      * If testmode is disabled (Live mode), this value is used for the mode - column in the shipment table
      *
@@ -187,14 +187,14 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
      * @var boolean
      */
     protected $_hasCustomizedAddress = false;
-    
+
     /**
      * Shipment Price Calculator Object
      *
      * @var Dhl_Intraship_Model_Shipment_Price
      */
     protected $_shipmentPriceCalculator;
-    
+
 
     /**
      * Constructor
@@ -229,7 +229,7 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
         if (is_array($this->getCustomerAddress())):
             $customerAddress = $this->getCustomerAddress();
             /*
-             * Workarround, don't save customer address if "street_number" is not set. 
+             * Workarround, don't save customer address if "street_number" is not set.
              * "street_number" is only set if the address was really customized in the address edit form
              */
             if (array_key_exists('street_number',$customerAddress)):
@@ -385,7 +385,7 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
      */
     public function getDocumentsUrl()
     {
-        return Mage::getUrl('intraship/shipment/pdf', array(
+        return Mage::getUrl('adminhtml/shipment/pdf', array(
             '_current' => false,
             'id' => $this->getShipmentId()));
     }
@@ -638,12 +638,12 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
     public function getShipmentPriceInclTax()
     {
         $this->_shipmentPriceCalculator = Mage::getModel('intraship/shipment_price');
-    	
+
         //Add Shipment
-         $this->_shipmentPriceCalculator->setShipment($this->getShipment());             
+         $this->_shipmentPriceCalculator->setShipment($this->getShipment());
 
         return (float) $this->_shipmentPriceCalculator->getShipmentPrice();
-    }    
+    }
 
     /**
      * Get COD Order Total Price
@@ -655,14 +655,14 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
     public function getCODOrderTotal($countryId)
     {
         $this->_shipmentPriceCalculator = Mage::getModel('intraship/shipment_price');
-    	
+
         $this->_shipmentPriceCalculator
             ->setShipment($this->getShipment())
             ->setReceiverCountryId($countryId);
 
         return (float) $this->_shipmentPriceCalculator->getCODOrderTotal();
     }
-    
+
     /**
      * Can insurance (Versicherung)?
      *
@@ -813,7 +813,7 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
                 $this->setStatus(self::STATUS_NEW_QUEUED);
                 break;
         endswitch;
-        
+
         $this->save();
         return $this;
     }
@@ -868,7 +868,7 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
         endif;
         return $statues[$this->getStatus()];
     }
-    
+
     /**
      * Set Shipment to "in transmission" to avoid double shipment transmission
      *

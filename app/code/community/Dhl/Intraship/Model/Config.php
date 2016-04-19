@@ -315,17 +315,18 @@ class Dhl_Intraship_Model_Config
      * @see    Dhl_Intraship_Model_Config::PACKAGE_BPI
      * @throws Dhl_Intraship_Model_Config_Exception
      * @param  string       $code                       (epn|bpi)
+     * @param  int          $storeId
      * @return ArrayObject  $profile
      */
-    public function getProfileByPackageCode($code = self::PACKAGE_EPN)
+    public function getProfileByPackageCode($code = self::PACKAGE_EPN, $storeId = null)
     {
         $profile = null;
         // Throw new exception if given code not exists in config.xml.
-        if (!$this->getConfig($code)):
+        if (!$this->getConfig($code, $storeId)):
             throw new Dhl_Intraship_Model_Config_Exception(sprintf(
                 'package code "%s" is invalid.', $code));
         endif;
-        $profile = clone new ArrayObject($this->getConfig($code));
+        $profile = clone new ArrayObject($this->getConfig($code, $storeId));
         // Convert country codes values to array object.
         if ($profile->offsetExists('countryCodes') &&
             !$profile->offsetGet('countryCodes') instanceof ArrayObject
@@ -353,14 +354,15 @@ class Dhl_Intraship_Model_Config
      * @throws Dhl_Intraship_Model_Config_Exception
      * @param  string       $countryCode       (ISO)
      * @param  string|null  $profileName
+     * @param  int          $storeId
      * @return ArrayObject  $profile
      */
-    public function getProfileByCountryCode($countryCode, $profileName = null)
+    public function getProfileByCountryCode($countryCode, $profileName = null, $storeId = null)
     {
         $countryCode = strtoupper($countryCode);
         $match = null;
         foreach (self::$_packageCodes as $code):
-            $pack = $this->getProfileByPackageCode($code);
+            $pack = $this->getProfileByPackageCode($code, $storeId);
             // Find the right package for the given country code.
             if ($pack->offsetExists('countryCodes') &&
                 $pack->offsetGet('countryCodes') instanceof ArrayObject

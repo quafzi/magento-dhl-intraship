@@ -15,19 +15,19 @@
             <block type="intraship/adminhtml_notifications" name="intraship_notifications" template="intraship/notifications.phtml"/>
         </reference>
     </default>
-    <intraship_shipment_documents>
+    <adminhtml_shipment_documents>
         <reference name="content">
             <block type="intraship/adminhtml_sales_order_shipment_documents_grid" name="shipment_documents_grid"></block>
         </reference>
-    </intraship_shipment_documents>
-    <intraship_shipment_edit>
+    </adminhtml_shipment_documents>
+    <adminhtml_shipment_edit>
         <reference name="head">
             <action method="addJs"><script>dhl/validation.js</script></action>
         </reference>
         <reference name="content">
             <block type="intraship/adminhtml_sales_shipment_edit" name="shipment_edit"></block>
         </reference>
-    </intraship_shipment_edit>
+    </adminhtml_shipment_edit>
     <adminhtml_sales_order_shipment_view>
         <reference name="form">
             <block type="adminhtml/sales_order_comments_view"  name="order_comments" template="intraship/sales/order/shipment/view/comments.phtml">

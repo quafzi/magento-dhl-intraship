@@ -31,7 +31,9 @@
 class Dhl_Account_Test_Controller_AccountControllerTest
     extends EcomDev_PHPUnit_Test_Case_Controller
 {
-
+    /**
+     * @loadFixture ../../../var/fixtures/config.yaml
+     */
     public function testCountryCodeAction()
     {
         //$this->markTestSkipped('Needs rework.');
@@ -52,6 +54,9 @@ class Dhl_Account_Test_Controller_AccountControllerTest
 
     }
 
+    /**
+     * @loadFixture ../../../var/fixtures/config.yaml
+     */
     public function testPackstationdataAction()
     {
         $clientMock = $this->getModelMock('dhlaccount/http_adapter', array('findPackstations'));
@@ -84,6 +89,9 @@ class Dhl_Account_Test_Controller_AccountControllerTest
         $this->assertEquals($expectedResult, $this->getResponse()->getOutputBody());
     }
 
+    /**
+     * @loadFixture ../../../var/fixtures/config.yaml
+     */
     public function testPackstationdataActionWithException()
     {
 //        $this->markTestSkipped('Needs rework.');
@@ -105,8 +113,9 @@ class Dhl_Account_Test_Controller_AccountControllerTest
         $this->assertEquals($expectedResult, $this->getResponse()->getOutputBody());
     }
 
-
-
+    /**
+     * @loadFixture ../../../var/fixtures/config.yaml
+     */
     public function testPreDispatch()
     {
         $pageHelper = $this->getHelperMock('cms/page', array('renderPage'));

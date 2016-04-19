@@ -9,9 +9,9 @@ document.observe("dom:loaded", function() {
     }
 
     $(elementsToObserve).each(function(formElm) {
-       Event.observe(formElm, 'change', function(event) {
-           return checkAnnouncementBox(event, this);
-       });
+        Event.observe(formElm, 'change', function(event) {
+            return checkAnnouncementBox(event, this);
+        });
     });
 
 
@@ -19,17 +19,19 @@ document.observe("dom:loaded", function() {
         return checkAnnouncementBox(event, this);
     });
 
-    var elementsToHide = $$('#dhl_packstation > div').first().children;
-    $A(elementsToHide).each(function(elm) {
-        elm.style.display = 'none';
-    });
-
+    var dhlPackstation = $$('#dhl_packstation > div');
+    if (dhlPackstation.length > 0) {
+        var elementsToHide = dhlPackstation.first().children;
+        $A(elementsToHide).each(function(elm) {
+            elm.style.display = 'none';
+        });
+    }
     var disablePackstation = function() {
         $('shipping:packstation').checked = false;
         togglePackstation();
     }
 
-    $('co-billing-form').observe('click', function(event){
+    $('co-billing-form').observe('click', function(event) {
         var triggerElem = Event.element(event);
         if (triggerElem != null
             && triggerElem.type != null
@@ -41,38 +43,39 @@ document.observe("dom:loaded", function() {
             disablePackstation();
         }
     });
+    if ($('shipping:packstation') != null) {
+        Event.observe($('shipping:packstation'), 'click', function(event) {
+            togglePackstation();
+        });
 
-    Event.observe($('shipping:packstation'), 'click', function(event) {
-        togglePackstation();
-    });
-
-    Event.observe($('shipping-packstation-data'), 'click', function(event) {
-        setPackstationdata($F('shipping:packstationfinder'));
-        event.stop();
-    });
-
-
-    Event.observe($('shipping:dhl_packstation_city'), 'blur', function(event) {
-        $('shipping:city').value = $F('shipping:dhl_packstation_city');
-    });
-
-    Event.observe($('shipping:dhl_packstation_city'), 'keyup', function(event) {
-        $('shipping:postcode').value = '';
-        $('shipping:dhl_packstation_postcode').value = '';
-    });
-
-    Event.observe($('shipping:dhl_packstation_postcode'), 'blur', function(event) {
-        $('shipping:postcode').value = $F('shipping:dhl_packstation_postcode');
-    });
+        Event.observe($('shipping-packstation-data'), 'click', function(event) {
+            setPackstationdata($F('shipping:packstationfinder'));
+            event.stop();
+        });
 
 
-    Event.observe($('shipping-search-packstation-button'), 'click', function(event) {
-        copyCityDataFromBillingAddress();
-        findPackstations();
-        event.stop();
-    });
+        Event.observe($('shipping:dhl_packstation_city'), 'blur', function(event) {
+            $('shipping:city').value = $F('shipping:dhl_packstation_city');
+        });
 
-    $("shipping:country_id").observe('change', function(event){
+        Event.observe($('shipping:dhl_packstation_city'), 'keyup', function(event) {
+            $('shipping:postcode').value = '';
+            $('shipping:dhl_packstation_postcode').value = '';
+        });
+
+        Event.observe($('shipping:dhl_packstation_postcode'), 'blur', function(event) {
+            $('shipping:postcode').value = $F('shipping:dhl_packstation_postcode');
+        });
+
+
+        Event.observe($('shipping-search-packstation-button'), 'click', function(event) {
+            copyCityDataFromBillingAddress();
+            findPackstations();
+            event.stop();
+        });
+    }
+
+    $("shipping:country_id").observe('change', function(event) {
         if ('DE' != $F("shipping:country_id")) {
             disablePackstation();
             $('shipping:packstation').disable();
@@ -89,13 +92,16 @@ document.observe("dom:loaded", function() {
         });
     }
 
-    $('shipping:dhl-account').hide();
-    $('dhl_account_label').hide();
+    if ($('shipping:dhl-account')) {
+        $('shipping:dhl-account').hide();
+    }
+    if ($('dhl_account_label')) {
+        $('dhl_account_label').hide();
+    }
 });
 
 
-function toggleAnnouncementBox(triggerElm, countryDe, addressesEqual, accountNumber)
-{
+function toggleAnnouncementBox(triggerElm, countryDe, addressesEqual, accountNumber) {
     if (null != $('parcel_announcement_box')) {
         if (countryDe && addressesEqual) {
             // show announcement box when country is germany and billing equals shipping address
@@ -124,12 +130,11 @@ function toggleAnnouncementBox(triggerElm, countryDe, addressesEqual, accountNum
     }
 }
 
-function checkAnnouncementBox(event, triggerElm)
-{
+function checkAnnouncementBox(event, triggerElm) {
     if (null != $('parcel_announcement_box')) {
         if ((null != $('billing-address-select')) && $('billing-address-select').getValue()) {
             // currently an existing address is selected, request country code
-            new Ajax.Request(BASE_URL+'dhlaccount/account/countrycode', {
+            new Ajax.Request(BASE_URL + 'dhlaccount/account/countrycode', {
                 method: 'get',
                 parameters: new Hash({'address_id': $('billing-address-select').getValue()}),
                 onSuccess: function(transport) {
@@ -158,8 +163,7 @@ function checkAnnouncementBox(event, triggerElm)
     }
 }
 
-function addPackstationToShippingForm()
-{
+function addPackstationToShippingForm() {
     $('shipping-new-address-form').insert({
         top: $('dhlaccount_shipping_packstation')
     });
@@ -169,12 +173,11 @@ function addPackstationToShippingForm()
     });
 }
 
-function togglePackstation()
-{
-    if($('shipping:packstation').checked) {
+function togglePackstation() {
+    if ($('shipping:packstation').checked) {
         $('shipping:company').value = '';
         $($($('shipping:company').parentNode).parentNode).style.display = 'none';
-        $$('//[name="shipping[street][]"]').each(function(item){
+        $$('//[name="shipping[street][]"]').each(function(item) {
             item.value = '';
             $($($(item).parentNode).parentNode).style.display = 'none';
         });
@@ -205,7 +208,7 @@ function togglePackstation()
 
     } else {
         $($($('shipping:company').parentNode).parentNode).style.display = 'block';
-        $$('//[name="shipping[street][]"]').each(function(item){
+        $$('//[name="shipping[street][]"]').each(function(item) {
             $($($(item).parentNode).parentNode).style.display = 'block';
         });
         $($('shipping:same_as_billing').parentNode).style.display = 'block';
@@ -240,59 +243,59 @@ function togglePackstation()
     }
 }
 
-function copyCityDataFromBillingAddress()
-{
+function copyCityDataFromBillingAddress() {
     if ($F('shipping:dhl_packstation_city').strip().length == 0 && $F('shipping:dhl_packstation_postcode').strip().length == 0) {
         $('shipping:dhl_packstation_city').value = $F('billing:city');
         $('shipping:dhl_packstation_postcode').value = $F('billing:postcode');
     }
 }
 
-function findPackstations()
-{
-    while($('shipping:packstationfinder').options.length > 0) {
+function findPackstations() {
+    while ($('shipping:packstationfinder').options.length > 0) {
         $('shipping:packstationfinder').remove(0);
     }
     $('shipping:packstationfinder').options.add(new Option(Translator.translate('Please select'), ''));
     $('shipping:packstationerrors').textContent = '';
-    new Ajax.Request(BASE_URL+'dhlaccount/account/packstationdata', {
-            method: 'post',
-            parameters: new Hash({'zipcode': $F('shipping:dhl_packstation_postcode'), 'city' : $F('shipping:dhl_packstation_city')}),
-            onSuccess: function(response) {
-                var results = response.responseText.evalJSON(true);
-                var hasErrors = false;
-                for (var key in results) {
-                    var keyObj = key.evalJSON(true);
-                    if (keyObj.errors.length == 0) {
-                        var option = new Option(results[key], key);
-                        option.title = keyObj.distance;
-                        $('shipping:packstationfinder').options.add(option);
-                    } else {
-                        $('shipping:packstationerrors').insert(keyObj.errors);
-                        hasErrors = true;
-                        break;
-                    }
-                }
-                if (hasErrors == true) {
-                    $('shipping:packstationerrors').show();
-//                    $('shipping:packstationfinder').hide();
-//                    $('shipping:packstationfinder_label').hide();
+    new Ajax.Request(BASE_URL + 'dhlaccount/account/packstationdata', {
+        method: 'post',
+        parameters: new Hash({
+            'zipcode': $F('shipping:dhl_packstation_postcode'),
+            'city': $F('shipping:dhl_packstation_city')
+        }),
+        onSuccess: function(response) {
+            var results = response.responseText.evalJSON(true);
+            var hasErrors = false;
+            for (var key in results) {
+                var keyObj = key.evalJSON(true);
+                if (keyObj.errors.length == 0) {
+                    var option = new Option(results[key], key);
+                    option.title = keyObj.distance;
+                    $('shipping:packstationfinder').options.add(option);
                 } else {
-                    $('shipping:packstationerrors').hide();
-                    var numOptions = $('shipping:packstationfinder').options.length;
-                    $('shipping:packstationfinder').writeAttribute('size', (numOptions > 5) ? 5 : numOptions);
-                    $('shipping:packstationfinder').show();
-                    $('shipping:packstationfinder_label').show();
-                    $('shipping:packstationfinder_label').nextElementSibling.show();
-                    $('shipping:packstationfinder').focus();
+                    $('shipping:packstationerrors').insert(keyObj.errors);
+                    hasErrors = true;
+                    break;
                 }
             }
-        });
+            if (hasErrors == true) {
+                $('shipping:packstationerrors').show();
+//                    $('shipping:packstationfinder').hide();
+//                    $('shipping:packstationfinder_label').hide();
+            } else {
+                $('shipping:packstationerrors').hide();
+                var numOptions = $('shipping:packstationfinder').options.length;
+                $('shipping:packstationfinder').writeAttribute('size', (numOptions > 5) ? 5 : numOptions);
+                $('shipping:packstationfinder').show();
+                $('shipping:packstationfinder_label').show();
+                $('shipping:packstationfinder_label').nextElementSibling.show();
+                $('shipping:packstationfinder').focus();
+            }
+        }
+    });
 }
 
-function setPackstationdata(packstation)
-{
-    if (0 < packstation.length) {
+function setPackstationdata(packstation) {
+    if (packstation != null && 0 < packstation.length) {
         var packstationObj = packstation.evalJSON();
         if (packstationObj != null) {
             $('shipping:dhl-packstation').value = packstationObj.packstationnumber

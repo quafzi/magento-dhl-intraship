@@ -7,6 +7,12 @@ class Dhl_OnlineRetoure_Test_Block_Customer_Address_EditTest
      */
     protected function setUp()
     {
+        $sessionMock = $this->getModelMock('customer/session', array(
+                'init', 'renewSession', 'start'
+            )
+        );
+        $this->replaceByMock('model', 'customer/session', $sessionMock);
+
         $_baseUrl = Mage::getStoreConfig('web/unsecure/base_url');
         $this->app()->getRequest()->setBaseUrl($_baseUrl);
         parent::setUp();
@@ -35,6 +41,7 @@ class Dhl_OnlineRetoure_Test_Block_Customer_Address_EditTest
     }
 
     /**
+     * @loadFixture ../../../../../var/fixtures/config.yaml
      * @loadFixture ../../../../../var/fixtures/customers.yaml
      * @loadFixture ../../../../../var/fixtures/orders.yaml
      */
@@ -49,6 +56,7 @@ class Dhl_OnlineRetoure_Test_Block_Customer_Address_EditTest
     }
 
     /**
+     * @loadFixture ../../../../../var/fixtures/config.yaml
      * @loadFixture ../../../../../var/fixtures/customers.yaml
      * @loadFixture ../../../../../var/fixtures/orders.yaml
      */
@@ -70,6 +78,7 @@ class Dhl_OnlineRetoure_Test_Block_Customer_Address_EditTest
     }
 
     /**
+     * @loadFixture ../../../../../var/fixtures/config.yaml
      * @loadFixture ../../../../../var/fixtures/customers.yaml
      * @loadFixture ../../../../../var/fixtures/orders.yaml
      */

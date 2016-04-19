@@ -86,8 +86,11 @@
             var liWrapper = node.parentNode.parentNode;
             liWrapper.parentNode.removeChild(liWrapper);
         }
+        if($('parcel_announcement_box')){
+            $('billing-buttons-container').parentNode.insertBefore($('parcel_announcement_box'), $('billing-buttons-container'));
+        }
 
-        $('billing-buttons-container').parentNode.insertBefore($('parcel_announcement_box'), $('billing-buttons-container'));
+
     }
 
     addDHLAccountToBillingForm();
@@ -96,4 +99,7 @@
     ['validate-no-parcel-pick-up-machine', '<?php echo $this->__('No parcel pick up machines are allowed in billing address. To send to a parcel pick up machine you should enter it as shipping address.'); ?>', function(v) {
         return false == /pac?k(et)?station/i.test(v);
     }]]);
+
+    // Magento StoreView-URL, relevant for Ajax-Calls on Helpers
+    var BASE_URL = '<?php echo Mage::getUrl('', array('_forced_secure' => $this->getRequest()->isSecure())); ?>';
 </script>
