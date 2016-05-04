@@ -155,7 +155,7 @@ class Dhl_Intraship_Helper_Data extends Mage_Core_Helper_Data
 
     protected function _setReceiverCommunication(Mage_Sales_Model_Order_Address $address, array &$receiver)
     {
-        $receiver['Communication']['phone'] = $address->getTelephone();
+        $receiver['Communication']['phone'] = preg_filter('/[^0-9]/', '', $address->getTelephone());
         // @desc Removed email field
         // @see  DHLIS-563
         unset($receiver['Communication']['email']);
