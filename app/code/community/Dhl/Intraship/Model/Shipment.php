@@ -122,7 +122,7 @@ class Dhl_Intraship_Model_Shipment extends Mage_Core_Model_Abstract
      *
      * @var float
      */
-    const MIN_WEIGHT_KG          = 0.1;
+    const MIN_WEIGHT_KG          = 0.2;
 
     /**
      * If testmode is active, this value is used for the mode - column in the shipment table
