@@ -270,9 +270,9 @@ class Dhl_Intraship_Model_Soap_Client_Shipment_Create extends ArrayObject
             // calculate street_name, street_number, care_of
             $parts = Mage::helper('intraship')->splitStreet($address->getStreet(1));
             $address
-                ->setStreetName($parts['street_name'])
-                ->setStreetNumber($parts['street_number'])
-                ->setCareOf($parts['care_of']);
+                ->setStreetName($address->getStreet(1))
+                ->setStreetNumber($address->getStreet(2))
+                ->setCareOf($address->getStreet(3));
 
             if (false !== stripos($address->getStreet(2), 'packstation')) {
                 // append packstation info, if applicable
